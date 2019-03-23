@@ -1,4 +1,4 @@
-# AngularMusicPlayer
+<h1 align="center">AngularMusicPlayer</h1>
 
 <p align="center"><img src="http://potjm11o0.bkt.clouddn.com/Spotify%20macOS%20Concept%20Stop%20%281%29.png"></p>
 
