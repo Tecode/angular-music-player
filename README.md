@@ -1,5 +1,7 @@
 # AngularMusicPlayer
 
+<p align="center"><img src="http://potjm11o0.bkt.clouddn.com/Spotify%20macOS%20Concept%20Stop%20%281%29.png"></p>
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
 
 ## Music Player UI
