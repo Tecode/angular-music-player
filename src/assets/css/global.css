@@ -1,8 +1,8 @@
-html, body {
+html, body{
     font-family: PingFangSC-Light,helvetica neue,hiragino sans gb,arial,microsoft yahei ui,microsoft yahei,simsun,sans-serif;
     height: 100%;
 }
-html,body,p{
+html,body,p,ul{
     margin: 0;
     padding: 0;
 }

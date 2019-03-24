@@ -9,12 +9,14 @@ import { counterReducer } from '../reducer/counter.reducer';
 import { AppComponent } from './app.component';
 import { MyCounterComponent } from './my-counter/my-counter.component';
 import { SmileComponent } from './smile/smile.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyCounterComponent,
-    SmileComponent
+    SmileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

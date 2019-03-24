@@ -14,6 +14,10 @@
     "build:client-and-server-bundles": "ng build --prod && ng run angular-music-player:server:production"
   },
   "private": true,
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
