@@ -15,8 +15,14 @@
   },
   "private": true,
   "browserslist": [
-    "> 1%",
-    "last 2 versions"
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 ie versions",
+    "last 2 Edge versions",
+    "last 2 Safari versions",
+    "last 2 iOS versions",
+    "last 2 android versions",
+    "last 2 ie_mob versions"
   ],
   "dependencies": {
     "@angular/animations": "~7.2.0",

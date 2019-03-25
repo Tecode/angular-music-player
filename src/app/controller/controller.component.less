@@ -1,0 +1,90 @@
+.controller_box {
+  height: 96px;
+  background: linear-gradient(360deg, rgba(2, 8, 20, 1) 0%, rgba(3, 13, 32, 1) 100%);
+  display: flex;
+  justify-content: space-between;
+
+  .introduce {
+    display: flex;
+    align-items: center;
+
+    .image {
+      width: 54px;
+      height: 54px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .text {
+      margin-left: 15px;
+
+      h2 {
+        font-size: 15px;
+        color: #ABABAB;
+        font-weight: normal;
+        margin: 6px 0;
+      }
+
+      p {
+        font-size: 13px;
+        color: #787878;
+      }
+    }
+  }
+
+  .button_box {
+    display: flex;
+    align-items: center;
+
+    div {
+      margin: 0 18px;
+    }
+
+    .icon_shuffle {
+      background: url('/assets/imgs/controller/icon_shuffle@2x.png') 3px 2px no-repeat;
+      width: 20px;
+      height: 16px;
+    }
+
+    .icon_backward {
+      background: url('/assets/imgs/controller/icon_backward@2x.png') 3px 2px no-repeat;
+      width: 20px;
+      height: 16px;
+    }
+
+    .icon_stop {
+      background: url('/assets/imgs/controller/icon_stop@2x.png') 0 0 no-repeat;
+      width: 42px;
+      height: 42px;
+    }
+
+    .icon_forward {
+      background: url('/assets/imgs/controller/icon_forward@2x.png') 3px 2px no-repeat;
+      width: 20px;
+      height: 16px;
+    }
+
+    .icon_repeat {
+      background: url('/assets/imgs/controller/icon_repeat@2x.png') 3px 2px no-repeat;
+      width: 20px;
+      height: 16px;
+    }
+  }
+
+  .volume_box {
+    display: flex;
+    align-items: center;
+
+    .icon_devices_available {
+      background: url('/assets/imgs/controller/icon_devices_available@2x.png') 3px 2px no-repeat;
+      width: 20px;
+      height: 16px;
+    }
+
+    .icon_volume {
+      background: url('/assets/imgs/controller/icon_volume@2x.png') 3px 2px no-repeat;
+      width: 20px;
+      height: 16px;
+    }
+  }
+}

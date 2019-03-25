@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { MyCounterComponent } from './my-counter/my-counter.component';
 import { SmileComponent } from './smile/smile.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ControllerComponent } from './controller/controller.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyCounterComponent,
     SmileComponent,
-    NavbarComponent
+    NavbarComponent,
+    ControllerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
