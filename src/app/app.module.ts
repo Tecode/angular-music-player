@@ -11,6 +11,7 @@ import { MyCounterComponent } from './my-counter/my-counter.component';
 import { SmileComponent } from './smile/smile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ControllerComponent } from './controller/controller.component';
+import { PortalComponent } from './portal/portal.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ControllerComponent } from './controller/controller.component';
     MyCounterComponent,
     SmileComponent,
     NavbarComponent,
-    ControllerComponent
+    ControllerComponent,
+    PortalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
