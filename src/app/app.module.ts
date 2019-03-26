@@ -6,9 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from '../reducer/counter.reducer';
 
+
 import { AppComponent } from './app.component';
-import { MyCounterComponent } from './my-counter/my-counter.component';
-import { SmileComponent } from './smile/smile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ControllerComponent } from './controller/controller.component';
 import { PortalComponent } from './portal/portal.component';
@@ -16,8 +15,6 @@ import { PortalComponent } from './portal/portal.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MyCounterComponent,
-    SmileComponent,
     NavbarComponent,
     ControllerComponent,
     PortalComponent
