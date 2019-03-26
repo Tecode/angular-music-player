@@ -1,9 +1,7 @@
 <ul class="function_button">
   <li *ngFor="let item of iconArr">
     <div class="icon_box" [ngStyle]="{'background-image': 'url('+ item.iconUrl +')'}"></div>
-    <p> 
-      <a [routerLink]="[ 'smile' ]">{{item.text}}</a>
-    </p>
+    <a [routerLink]="[item.routerLink ]" routerLinkActive="active">{{item.text}}</a>
   </li>
 </ul>
 <div class="button">Made For You</div>
