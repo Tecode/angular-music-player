@@ -1,0 +1,140 @@
+.banner_box {
+  background-color: #020916;
+
+  .banner {
+    height: 278px;
+    width: 100%;
+    background-image: url('/assets/imgs/audio/image_banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .function_info {
+    position: relative;
+    padding-left: 300px;
+  }
+
+  .function_box {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 24px 30px 0;
+
+    .info_box {
+      display: flex;
+      position: absolute;
+      top: -188px;
+      left: 60px;
+      width: 520px;
+
+      .image {
+        width: 224px;
+        height: 224px;
+        background: url('/assets/imgs/audio/ramdan-authentic-unsplash.png') 0 0 no-repeat;
+        // background-size: cover;
+      }
+
+      .description {
+        .play_list {
+          color: #C2C2C2;
+          font-size: 13px;
+        }
+
+        .big_title {
+          color: #EEEEEE;
+          font-size: 46px;
+          font-weight: bold;
+          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.23);
+        }
+
+        .name {
+          color: #D6D6D6;
+          font-size: 18px;
+          line-height: 22px;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .time {
+          font-size: 14px;
+          color: #C8C8C8;
+          line-height: 17px;
+        }
+      }
+    }
+
+
+    .function_item {
+      display: flex;
+    }
+
+    .follower {
+      color: #A9A9A9;
+      font-size: 12px;
+
+      .text {}
+
+      .number {}
+    }
+  }
+
+  .play,
+  .follow {
+    width: 116px;
+    height: 36px;
+    border-radius: 18px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 36px;
+  }
+
+  li {
+    margin: 0 6px;
+  }
+
+  .play {
+    background: rgba(30, 192, 122, 1);
+    color: #020916;
+  }
+
+  .follow {
+    border: 1px solid #979797;
+    background: none;
+    color: #A9A9A9;
+  }
+
+  .share {
+    width: 36px;
+    height: 36px;
+    background: url('/assets/imgs/audio/icon_share@2x.png') 0 0 no-repeat;
+    background-size: 36px;
+  }
+
+  .more {
+    width: 36px;
+    height: 36px;
+    background: url('/assets/imgs/audio/icon_more@2x.png')0 0 no-repeat;
+    background-size: 36px;
+  }
+
+}
+
+// 筛选过滤
+.filter {
+  color: #575757;
+  display: flex;
+  justify-content: space-between;
+  background-color: #020916;
+  padding: 0 24px 24px 24px;
+  font-size: 13px;
+
+  .icon_noun_search {
+    background: url('/assets/imgs/audio/icon_noun_search@2x.png') 0 0 no-repeat;
+    background-size: 16px;
+    padding-left: 24px;
+  }
+
+  .icon_noun_down {
+    background: url('/assets/imgs/audio/icon_noun_down@2x.png') right 0 no-repeat;
+    background-size: 16px;
+    padding-right: 24px;
+  }
+}

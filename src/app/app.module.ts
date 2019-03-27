@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ControllerComponent } from './controller/controller.component';
 import { PortalComponent } from './portal/portal.component';
+import { BannerComponent } from './portal/banner/banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ControllerComponent,
-    PortalComponent
+    PortalComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
