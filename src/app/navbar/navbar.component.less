@@ -1,22 +1,24 @@
+@import '../constans/constans.less';
+
 .function_button {
-  color: #D4D4D4;
-  font-size: 12px;
+  font-size: @14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 88px 46px 50px 46px;
+  margin: 0 0 @10px 0;
   text-align: center;
 
   .icon_box {
-    width: 48px;
-    height: 48px;
-    background-size: 48px;
+    width: @30px;
+    height: @32px;
+    background-size: @20px;
+    background-position: center center;
     background-repeat: no-repeat;
-    margin-bottom: 4px;
+    margin: 0 @18px;
   }
 
   a {
-    color: #ffffff;
+    display: block;
     text-decoration: none;
   }
 
@@ -25,16 +27,43 @@
   }
 }
 
-.button {
-  width: 246px;
-  height: 45px;
-  margin: auto;
-  background: linear-gradient(270deg, rgba(30, 215, 97, 1) 0%, rgba(30, 100, 215, 1) 100%);
-  border-radius: 23px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 42px;
-  cursor: default;
-  color: #212020;
+// 播放进度条
+.player_box {
+  .line {
+    width: 100%;
+    height: 2px;
+    background-color: @main_color;
+  }
+
+  .text_button {
+    display: flex;
+    justify-content: space-between;
+    padding: @14px;
+
+    .text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      line-height: @14px;
+      h2 {
+        font-size: @12px;
+        color: @black_color;
+        font-weight: normal;
+        margin: 0;
+      }
+
+      p {
+        font-size: @12px;
+        color: @main_color;
+      }
+    }
+    .player_button{
+      width: @22px;
+      height: @22px;
+      background: url('/assets/imgs/audio/icon_play_circle@2x.png') 0 0 no-repeat;
+      background-size: @22px;
+    }
+  }
 }

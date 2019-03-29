@@ -9,19 +9,32 @@ import { NavBarIcon } from 'src/interface';
 export class NavbarComponent implements OnInit {
   iconArr: NavBarIcon[] = [
     {
-      iconUrl: 'assets/imgs/navbar/icon_browse@2x.png',
-      text: '浏览',
-      routerLink: '/6'
+      normalUrl: 'assets/imgs/navbar/icon_flash@2x.png',
+      text: '热门',
+      routerLink: '/hot',
+      activeUrl: 'assets/imgs/navbar/icon_flash_active@2x.png',
+      id: 10001
     },
     {
-      iconUrl: 'assets/imgs/navbar/icon_radio@2x.png',
-      text: '个性电台',
-      routerLink: '/5'
+      normalUrl: 'assets/imgs/navbar/icon_music@2x.png',
+      text: '列表',
+      routerLink: '/list',
+      activeUrl: 'assets/imgs/navbar/icon_music_active@2x.png',
+      id: 10001
     },
     {
-      iconUrl: 'assets/imgs/navbar/icon_liked@2x.png',
-      text: '微笑',
-      routerLink: '/smile'
+      normalUrl: 'assets/imgs/navbar/icon_search@2x.png',
+      text: '搜索',
+      routerLink: '/search',
+      activeUrl: 'assets/imgs/navbar/icon_search_active@2x.png',
+      id: 10001
+    },
+    {
+      normalUrl: 'assets/imgs/navbar/icon_profile@2x.png',
+      text: '我的',
+      routerLink: '/profile',
+      activeUrl: 'assets/imgs/navbar/icon_profile_active@2x.png',
+      id: 10001
     },
   ];
   constructor() { }
