@@ -1,5 +1,7 @@
 export interface NavBarIcon {
-    iconUrl: string;
+    normalUrl: string;
+    activeUrl: string;
     text: string;
     routerLink: string;
+    id: number;
 }

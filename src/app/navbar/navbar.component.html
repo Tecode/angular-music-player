@@ -1,7 +1,17 @@
+<div class="player_box">
+  <div class="line"></div>
+  <div class="text_button">
+    <div class="text">
+      <h2>All Mine</h2>
+      <p>Kanye West</p>
+    </div>
+    <div class="player_button"></div>
+  </div>
+</div>
 <ul class="function_button">
   <li *ngFor="let item of iconArr">
-    <div class="icon_box" [ngStyle]="{'background-image': 'url('+ item.iconUrl +')'}"></div>
-    <a [routerLink]="[item.routerLink ]" routerLinkActive="active">{{item.text}}</a>
+    <a [routerLink]="[item.routerLink ]" routerLinkActive="active">
+      <div class="icon_box" [ngStyle]="{'background-image': 'url('+ item.normalUrl +')'}"></div>
+    </a>
   </li>
 </ul>
-<div class="button">为你推荐</div>
