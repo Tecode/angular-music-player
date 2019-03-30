@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ControllerComponent } from './controller/controller.component';
 import { PortalComponent } from './portal/portal.component';
 import { BannerComponent } from './portal/banner/banner.component';
+import { HeadlineComponent } from './common/headline/headline.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BannerComponent } from './portal/banner/banner.component';
     NavbarComponent,
     ControllerComponent,
     PortalComponent,
-    BannerComponent
+    BannerComponent,
+    HeadlineComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
