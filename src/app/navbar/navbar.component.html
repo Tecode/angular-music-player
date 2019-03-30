@@ -10,8 +10,10 @@
 </div>
 <ul class="function_button">
   <li *ngFor="let item of iconArr">
-    <a [routerLink]="[item.routerLink ]" routerLinkActive="active">
-      <div class="icon_box" [ngStyle]="{'background-image': 'url('+ item.normalUrl +')'}"></div>
+    <a [routerLink]="[item.routerLink ]" routerLinkActive #linkData="routerLinkActive">
+      <div class="icon_box"
+        [ngStyle]="{'background-image': linkData.isActive ? 'url('+  item.activeUrl +')' : 'url('+  item.normalUrl +')'}">
+      </div>
     </a>
   </li>
 </ul>

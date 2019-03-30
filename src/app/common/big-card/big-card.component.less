@@ -1,0 +1,42 @@
+@import '../../constans/constans.less';
+
+.big_card_box {
+  width: 6rem;
+  position: relative;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  p {
+    font-size: @12px;
+    margin-top: .2rem;
+    color: @black_color;
+  }
+
+  .player {
+    display: flex;
+    width: 6rem;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: @20px;
+    left: 0;
+
+    .icon_player {
+      background: url('/assets/imgs/audio/icon_oval.png') 0 0 no-repeat;
+      background-size: @14px;
+      width: @14px;
+      height: @14px;
+      padding-right: .4rem;
+      opacity: .9;
+    }
+
+    .number {
+      color: white;
+      font-size: @8px;
+      padding-left: .4rem;
+    }
+  }
+}

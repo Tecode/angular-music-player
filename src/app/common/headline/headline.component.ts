@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-headline',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./headline.component.less']
 })
 export class HeadlineComponent implements OnInit {
+  @Input() title:string;
+  @Input() color:boolean;
 
   constructor() { }
 
