@@ -12,6 +12,8 @@ export class ScrollComponent implements OnInit {
   @Input() public listenScroll: boolean = false;
   @Input() public pullUp: boolean = false;
   @Input() public beforeScroll: boolean = false;
+  @Input() public scrollY: boolean = true;
+  @Input() public scrollX: boolean = false
 
 
   public scroll: BScroll;
@@ -21,8 +23,12 @@ export class ScrollComponent implements OnInit {
   }
   ngAfterViewInit() {
     this.scroll = new BScroll(this.element.nativeElement, {
-
-    });
+      probeType: this.probeType,
+      click: this.click,
+      scrollX: this.scrollX,
+      scrollY: this.scrollY,
+      eventPassthrough: this.scrollX ? 'vertical' : false
+    })
     console.log(this.element.nativeElement, this.click, '---------------');
   }
 
@@ -32,10 +38,7 @@ export class ScrollComponent implements OnInit {
       return
     }
 
-    this.scroll = new BScroll(this.element.nativeElement, {
-      probeType: this.probeType,
-      click: this.click
-    })
+
 
     // 派发监听滚动位置事件
     if (this.listenScroll) {
