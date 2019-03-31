@@ -20,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ListComponent } from './list/list.component';
 import { BigCardComponent } from './common/big-card/big-card.component';
 import { SmallCardComponent } from './common/small-card/small-card.component';
+import { ScrollComponent } from './common/scroll/scroll.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SmallCardComponent } from './common/small-card/small-card.component';
     ProfileComponent,
     ListComponent,
     BigCardComponent,
-    SmallCardComponent
+    SmallCardComponent,
+    ScrollComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
