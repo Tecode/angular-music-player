@@ -6,9 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./headline.component.less']
 })
 export class HeadlineComponent implements OnInit {
-  @Input() title:string;
-  @Input() color:boolean;
-  @Input() size: number;
+  @Input() public title: string;
+  @Input() public color: boolean;
+  @Input() public size: number;
 
   constructor() { }
 
