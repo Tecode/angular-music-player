@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>My music</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Home" transform="translate(-135.000000, -748.000000)" stroke="#383838" stroke-width="1.5">
+            <g id="navbar" transform="translate(0.000000, 733.000000)">
+                <g id="My-music" transform="translate(135.000000, 15.000000)">
+                    <path d="M1,16 L1,10 C1.00000007,5.0294373 5.0294373,1.00000013 10,1.00000013 C14.9705627,1.00000013 18.9999999,5.0294373 19,10 L19,16" id="Shape"></path>
+                    <path d="M19,17 C19,18.1045695 18.1045695,19 17,19 L16,19 C14.8954305,19 14,18.1045695 14,17 L14,14 C14,12.8954305 14.8954305,12 16,12 L19,12 L19,17 Z M1,17 C1,18.1045695 1.8954305,19 3,19 L4,19 C5.1045695,19 6,18.1045695 6,17 L6,14 C6,12.8954305 5.1045695,12 4,12 L1,12 L1,17 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

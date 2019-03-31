@@ -18,6 +18,7 @@ import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ListComponent } from './list/list.component';
 import { BigCardComponent } from './common/big-card/big-card.component';
+import { SmallCardComponent } from './common/small-card/small-card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BigCardComponent } from './common/big-card/big-card.component';
     SearchComponent,
     ProfileComponent,
     ListComponent,
-    BigCardComponent
+    BigCardComponent,
+    SmallCardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

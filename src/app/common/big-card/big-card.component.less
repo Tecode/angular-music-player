@@ -1,8 +1,9 @@
 @import '../../constans/constans.less';
 
 .big_card_box {
-  width: 6rem;
+  width: 10rem;
   position: relative;
+  margin-left: @14px;
 
   img {
     display: block;
@@ -10,32 +11,36 @@
   }
 
   p {
-    font-size: @12px;
+    font-size: @14px;
     margin-top: .2rem;
     color: @black_color;
+    line-height: .8rem;
+  }
+  .avatar_name {
+    color: @gray;
   }
 
   .player {
     display: flex;
-    width: 6rem;
+    width: 10rem;
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    bottom: @20px;
+    top: 8rem;
     left: 0;
 
     .icon_player {
       background: url('/assets/imgs/audio/icon_oval.png') 0 0 no-repeat;
-      background-size: @14px;
-      width: @14px;
-      height: @14px;
+      background-size: @18px;
+      width: @18px;
+      height: @18px;
       padding-right: .4rem;
       opacity: .9;
     }
 
     .number {
       color: white;
-      font-size: @8px;
+      font-size: @12px;
       padding-left: .4rem;
     }
   }

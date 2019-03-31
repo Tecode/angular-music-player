@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeadlineComponent implements OnInit {
   @Input() title:string;
   @Input() color:boolean;
+  @Input() size: number;
 
   constructor() { }
 
