@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="20px" viewBox="0 0 18 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Profile</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Home" transform="translate(-311.000000, -748.000000)" stroke="#383838" stroke-width="1.5">
+            <g id="navbar" transform="translate(0.000000, 733.000000)">
+                <g id="Profile" transform="translate(311.000000, 15.000000)">
+                    <path d="M17,19 L17,17 C17,14.790861 15.209139,13 13,13 L5,13 C2.790861,13 1,14.790861 1,17 L1,19" id="Shape"></path>
+                    <circle id="Oval" cx="9" cy="5" r="4"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

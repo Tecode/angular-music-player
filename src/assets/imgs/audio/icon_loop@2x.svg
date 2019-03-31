@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="18px" viewBox="0 0 22 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>loop</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Player" transform="translate(-31.000000, -628.000000)" stroke="#383838">
+            <g id="loop" transform="translate(31.000000, 628.000000)">
+                <polyline id="Shape" stroke-width="1.5" points="1 1.88888889 1 7.22222222 6.45454545 7.22222222"></polyline>
+                <polyline id="Shape" stroke-width="1.8" points="21 16.1111111 21 10.7777778 15.5454545 10.7777778"></polyline>
+                <path d="M18.7181818,6.33333333 C17.7810167,3.74383258 15.5506662,1.80552733 12.8106484,1.19934068 C10.0706307,0.593154031 7.20414469,1.40386287 5.21818182,3.34666667 L1,7.22222222 M21,10.7777778 L16.7818182,14.6533333 C14.7958553,16.5961371 11.9293693,17.406846 9.18935156,16.8006593 C6.44933379,16.1944727 4.21898331,14.2561674 3.28181818,11.6666667" id="Shape" stroke-width="1.5"></path>
+            </g>
+        </g>
+    </g>
+</svg>

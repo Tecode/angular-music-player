@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -12,6 +13,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ControllerComponent } from './controller/controller.component';
 import { PortalComponent } from './portal/portal.component';
 import { BannerComponent } from './portal/banner/banner.component';
+import { HeadlineComponent } from './common/headline/headline.component';
+import { HotComponent } from './hot/hot.component';
+import { SearchComponent } from './search/search.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ListComponent } from './list/list.component';
+import { BigCardComponent } from './common/big-card/big-card.component';
+import { SmallCardComponent } from './common/small-card/small-card.component';
+import { ScrollComponent } from './common/scroll/scroll.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +28,19 @@ import { BannerComponent } from './portal/banner/banner.component';
     NavbarComponent,
     ControllerComponent,
     PortalComponent,
-    BannerComponent
+    BannerComponent,
+    HeadlineComponent,
+    HotComponent,
+    SearchComponent,
+    ProfileComponent,
+    ListComponent,
+    BigCardComponent,
+    SmallCardComponent,
+    ScrollComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserAnimationsModule,
     AppRoutingModule,
     StoreModule.forRoot({ count: counterReducer })
   ],

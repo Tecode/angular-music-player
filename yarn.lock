@@ -925,7 +925,7 @@ babel-messages@^6.23.0:
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-runtime@^6.22.0, babel-runtime@^6.26.0:
+babel-runtime@^6.0.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -1030,6 +1030,13 @@ better-assert@~1.0.0:
   integrity sha1-QIZrnhueC1W0gYlDEeaPr/rrxSI=
   dependencies:
     callsite "1.0.0"
+
+better-scroll@^1.15.1:
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/better-scroll/-/better-scroll-1.15.1.tgz#cd390715704fe2d1654bba0778ddf0fd28015572"
+  integrity sha512-HL+jm6tk2pBylSZBfZLtfdwNhGckLbwiBAEx+Z2+8PrHJ6QAZp96txOVEFWSBgUAwPg5YSioMOxMqws5GdkXKA==
+  dependencies:
+    babel-runtime "^6.0.0"
 
 big.js@^5.2.2:
   version "5.2.2"
