@@ -22,14 +22,13 @@ export class ScrollComponent implements OnInit {
   ngOnInit() {
   }
   ngAfterViewInit() {
-    this.scroll = new BScroll(this.element.nativeElement, {
+    this.scroll = new BScroll(this.element.nativeElement.querySelector('div'), {
       probeType: this.probeType,
       click: this.click,
       scrollX: this.scrollX,
       scrollY: this.scrollY,
       eventPassthrough: this.scrollX ? 'vertical' : false
     })
-    console.log(this.element.nativeElement, this.click, '---------------');
   }
 
   // 初始化滚动函数
