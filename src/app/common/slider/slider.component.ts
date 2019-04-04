@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef, Input, ViewChild, Renderer2 } from '@angular/core';
 import BScroll from 'better-scroll';
-import { addClass } from '../../helpers/common';
 
 @Component({
   selector: 'app-slider',
@@ -26,10 +25,11 @@ export class SliderComponent implements OnInit {
 
   constructor(private renderer: Renderer2) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+  ngAfterViewInit() {
     this.update()
-
     window.addEventListener('resize', () => {
+      console.log(this.slider, '---+++=');
       if (!this.slider || !this.slider.enabled) {
         return
       }
@@ -45,8 +45,6 @@ export class SliderComponent implements OnInit {
         this.refresh()
       }, 60)
     })
-  }
-  ngAfterViewInit() {
   }
 
   update() {
@@ -67,6 +65,36 @@ export class SliderComponent implements OnInit {
 
   next() {
     this.slider.next()
+  }
+
+  private _initSlide(): void {
+    this.slider = new BScroll(this.slideGroup.nativeElement, {
+      scrollX: true,
+      scrollY: false,
+      momentum: false,
+      snap: {
+        loop: this.loop,
+        threshold: this.threshold,
+        speed: this.speed
+      },
+      bounce: false,
+      stopPropagation: true,
+      click: this.click
+    });
+
+    this.slider.on('scrollEnd', this._onScrollEnd)
+
+    this.slider.on('touchEnd', () => {
+      if (this.autoPlay) {
+        this._play()
+      }
+    })
+
+    this.slider.on('beforeScrollStart', () => {
+      if (this.autoPlay) {
+        clearTimeout(this.timer)
+      }
+    })
   }
 
   private _init(): void {
@@ -92,45 +120,22 @@ export class SliderComponent implements OnInit {
     }
   }
 
-  private _setSlideWidth(isResize?: boolean): void {
-    console.log(this.slideGroup);
+  private _setSlideWidth(isResize?: boolean | undefined): void {
+    console.log(this.slider, '------------');
+    const { children } = this.slideGroup.nativeElement;
+    const { clientWidth } = this.slide.nativeElement;
+    const groupChildren = children[0].children;
+    console.log(this.slide.nativeElement.clientWidth);
     let width = 0;
-    let slideWidth = this.slide.nativeElement.clientWidth;
+    let slideWidth = clientWidth;
+    for (let i = 0; i < groupChildren.length; i++) {
+      this.renderer.setStyle(groupChildren[i], 'width', slideWidth + 'px');
+      width += slideWidth
+    }
     if (this.loop && !isResize) {
       width += 2 * slideWidth
     }
-    this.renderer.setStyle(this.slide.nativeElement, 'width', width + 'px');
-  }
-
-  private _initSlide(): void {
-    this.slider = new BScroll(this.slide.nativeElement.querySelector('div'), {
-      scrollX: true,
-      scrollY: false,
-      momentum: false,
-      snap: {
-        loop: this.loop,
-        threshold: this.threshold,
-        speed: this.speed
-      },
-      bounce: false,
-      stopPropagation: true,
-      click: this.click
-    });
-    console.log(this.slider);
-
-    this.slider.on('scrollEnd', this._onScrollEnd)
-
-    this.slider.on('touchEnd', () => {
-      if (this.autoPlay) {
-        this._play()
-      }
-    })
-
-    this.slider.on('beforeScrollStart', () => {
-      if (this.autoPlay) {
-        clearTimeout(this.timer)
-      }
-    })
+    this.renderer.setStyle(this.slideGroup.nativeElement.children[0], 'width', width + 'px');
   }
 
   private _initDots(): void {

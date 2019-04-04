@@ -3,15 +3,15 @@
     <app-headline title="精彩推荐" size=22 color=true></app-headline>
     <div class="slide_render_view">
       <div class="slide_wrapper">
-        <div class="slide_content">
-          <app-slider>
+        <app-slider>
+          <div class="slide_content">
             <div class="slide_item" *ngFor="let item of loopData">
               <a [href]="item.linkUrl">
                 <img [src]="item.picUrl">
               </a>
             </div>
-          </app-slider>
-        </div>
+          </div>
+        </app-slider>
       </div>
     </div>
     <div class="container_box">
