@@ -29,7 +29,6 @@ export class SliderComponent implements OnInit {
   ngAfterViewInit() {
     this.update()
     window.addEventListener('resize', () => {
-      console.log(this.slider, '---+++=');
       if (!this.slider || !this.slider.enabled) {
         return
       }
@@ -47,25 +46,31 @@ export class SliderComponent implements OnInit {
     })
   }
 
-  update() {
+  ngOnDestroy() {
+    this.slider.disable()
+    clearTimeout(this.timer)
+  }
+
+  public update(): void {
     if (this.slider) {
       this.slider.destroy()
     }
     this._init()
   }
 
-  refresh() {
+  public refresh(): void {
     this._setSlideWidth(true)
     this.slider.refresh()
   }
 
-  prev() {
+  public prev(): void {
     this.slider.prev();
   }
 
-  next() {
+  public next(): void {
     this.slider.next()
   }
+
 
   private _initSlide(): void {
     this.slider = new BScroll(this.slideGroup.nativeElement, {
@@ -81,16 +86,17 @@ export class SliderComponent implements OnInit {
       stopPropagation: true,
       click: this.click
     });
+    this.slider.on('scrollEnd', (): void => {
+      this._onScrollEnd();
+    })
 
-    this.slider.on('scrollEnd', this._onScrollEnd)
-
-    this.slider.on('touchEnd', () => {
+    this.slider.on('touchEnd', (): void => {
       if (this.autoPlay) {
         this._play()
       }
     })
 
-    this.slider.on('beforeScrollStart', () => {
+    this.slider.on('beforeScrollStart', (): void => {
       if (this.autoPlay) {
         clearTimeout(this.timer)
       }
@@ -112,20 +118,17 @@ export class SliderComponent implements OnInit {
   }
 
   private _onScrollEnd(): void {
-    console.log(this.slider);
     let pageIndex = this.slider.getCurrentPage().pageX;
     this.currentPageIndex = pageIndex;
     if (this.autoPlay) {
       this._play();
-    }
-  }
+    };
+  };
 
   private _setSlideWidth(isResize?: boolean | undefined): void {
-    console.log(this.slider, '------------');
     const { children } = this.slideGroup.nativeElement;
     const { clientWidth } = this.slide.nativeElement;
     const groupChildren = children[0].children;
-    console.log(this.slide.nativeElement.clientWidth);
     let width = 0;
     let slideWidth = clientWidth;
     for (let i = 0; i < groupChildren.length; i++) {
@@ -139,13 +142,14 @@ export class SliderComponent implements OnInit {
   }
 
   private _initDots(): void {
-    this.dots = new Array(this.slideGroup.nativeElement.childElementCount)
+    const { children } = this.slideGroup.nativeElement;
+    this.dots = new Array(children[0].children.length)
   }
 
   private _play(): void {
     clearTimeout(this.timer)
     this.timer = <any>setTimeout(() => {
-      this.slider.next()
-    }, this.interval)
+      this.slider.next();
+    }, this.interval);
   }
 }
