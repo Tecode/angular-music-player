@@ -1,6 +1,19 @@
 <app-scroll>
   <div class="hot_box">
-    <app-headline title="热门" size=22 color=true></app-headline>
+    <app-headline title="精彩推荐" size=22 color=true></app-headline>
+    <div class="slide_render_view">
+      <div class="slide_wrapper">
+        <div class="slide_content">
+          <app-slider>
+            <div class="slide_item" *ngFor="let item of loopData">
+              <a [href]="item.linkUrl">
+                <img [src]="item.picUrl">
+              </a>
+            </div>
+          </app-slider>
+        </div>
+      </div>
+    </div>
     <div class="container_box">
       <div class="content_box">
         <app-big-card></app-big-card>
@@ -10,7 +23,7 @@
         <app-big-card></app-big-card>
       </div>
     </div>
-    <app-headline size=20 title="心情"></app-headline>
+    <app-headline size=20 title="歌单推荐"></app-headline>
     <div class="container_box">
       <div class="content_box">
         <app-big-card></app-big-card>
@@ -20,7 +33,7 @@
         <app-big-card></app-big-card>
       </div>
     </div>
-    <app-headline size=20 title="热门歌手"></app-headline>
+    <app-headline size=20 title="新歌首发"></app-headline>
     <div class="container_box">
       <div class="content_box">
         <app-small-card></app-small-card>

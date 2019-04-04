@@ -20,8 +20,6 @@ export class ScrollComponent implements OnInit {
   constructor(private element: ElementRef) { }
 
   ngOnInit() {
-  }
-  ngAfterViewInit() {
     this.scroll = new BScroll(this.element.nativeElement.querySelector('div'), {
       probeType: this.probeType,
       click: this.click,
@@ -29,6 +27,8 @@ export class ScrollComponent implements OnInit {
       scrollY: this.scrollY,
       eventPassthrough: this.scrollX ? 'vertical' : false
     })
+  }
+  ngAfterViewInit() {
   }
 
   // 初始化滚动函数

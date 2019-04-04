@@ -1,0 +1,8 @@
+<div class="slide" #slide>
+  <div class="slide_group" #slideGroup>
+      <ng-content></ng-content>
+  </div>
+  <div v-if="showDot" class="dots">
+    <span class="dot" :class="{active: currentPageIndex === index }" v-for="(item, index) in dots"></span>
+  </div>
+</div>
