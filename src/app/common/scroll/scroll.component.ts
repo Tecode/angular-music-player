@@ -1,5 +1,12 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
-import BScroll from 'better-scroll'
+import { Component, OnInit, ElementRef, Input, ViewChild, Output } from '@angular/core';
+import BScroll from 'better-scroll';
+import { getRect } from '../../helpers/common';
+
+type PullDownRefresh = {
+  txt?: string,
+  stop?: number,
+  stopTime?: number
+}
 
 @Component({
   selector: 'app-scroll',
@@ -7,63 +14,216 @@ import BScroll from 'better-scroll'
   styleUrls: ['./scroll.component.less']
 })
 export class ScrollComponent implements OnInit {
+  public scroll: BScroll;
+  public beforePullDown: boolean = true;
+  public isRebounding: boolean = false;
+  public isPullingDown: boolean = false;
+  public isPullUpLoad: boolean = false
+  public pullUpDirty: boolean = true;
+  public pullDownStyle: string = '';
+  public bubbleY: number = 0;
+  public pullDownInitTop: number = -50;
+
   @Input() public probeType: number = 1;
   @Input() public click: boolean = true;
   @Input() public listenScroll: boolean = false;
+  @Input() public listenBeforeScroll: boolean = false;
+  @Input() public listenScrollEnd: boolean = false;
+  @Input() public direction: string = 'vertical';
+  @Input() public scrollBar: boolean = false;
+  @Input() public pullDownRefresh: PullDownRefresh = {};
+  @Input() public pullUpLoad: boolean = false;
+  @Input() public startY: number = 0;
+  @Input() public refreshDelay: number = 20;
+  @Input() public freeScroll: boolean = false;
+  @Input() public mouseWheel: boolean = false;
+  @Input() public bounce: boolean = true;
+  @Input() public zoom: boolean = false;
+
   @Input() public pullUp: boolean = false;
   @Input() public beforeScroll: boolean = false;
   @Input() public scrollY: boolean = true;
-  @Input() public scrollX: boolean = false
+  @Input() public scrollX: boolean = false;
 
+  @Output() public scrollFun: Function = () => { };
+  @Output() public scrollEndFun: Function = () => { };
+  @Output() public beforeScrollFun: Function = () => { };
+  @Output() public scrollStartFun: Function = () => { };
+  @Output() public pullingDownFun: Function = () => { };
+  @Output() public pullingUpFun: Function = () => { };
 
-  public scroll: BScroll;
-  constructor(private element: ElementRef) { }
+  @ViewChild('scrollContent') scrollContent: ElementRef;
 
-  ngOnInit() {
-    this.scroll = new BScroll(this.element.nativeElement.querySelector('div'), {
-      probeType: this.probeType,
-      click: this.click,
-      scrollX: this.scrollX,
-      scrollY: this.scrollY,
-      eventPassthrough: this.scrollX ? 'vertical' : false
-    })
+  constructor(private element: ElementRef) {}
+
+  ngOnInit() { }
+  ngAfterContentInit() {
+    setTimeout(() => {
+      this._initScroll();
+    }, 20)
   }
-  ngAfterViewInit() {
+  ngOnChanges(){
+    console.log('发生了改变');
+    setTimeout(() => {
+      this.forceUpdate(true)
+    }, this.refreshDelay)
   }
 
   // 初始化滚动函数
-  initScroll() {
-    if (!this.element.nativeElement) {
-      return
+  private _initScroll(): void {
+    const wrapper = this.element.nativeElement.children[0];
+    const scrollContent = this.scrollContent.nativeElement;
+    if (!wrapper) {
+      return;
+    }
+    if (this.scrollContent.nativeElement && (this.pullDownRefresh || this.pullUpLoad)) {
+      this.scrollContent.nativeElement.style.minHeight = `${getRect(wrapper).height + 1}px`
     }
 
+    const options = {
+      probeType: this.probeType,
+      click: this.click,
+      scrollY: this.freeScroll || this.direction === 'vertical',
+      scrollX: this.freeScroll || this.direction === 'horizontal',
+      scrollbar: this.scrollBar,
+      pullDownRefresh: this.pullDownRefresh,
+      pullUpLoad: this.pullUpLoad,
+      startY: this.startY,
+      freeScroll: this.freeScroll,
+      mouseWheel: this.mouseWheel,
+      bounce: this.bounce,
+      zoom: this.zoom
+    }
+    this.scroll = new BScroll(scrollContent, options);
 
-
-    // 派发监听滚动位置事件
     if (this.listenScroll) {
-      let me = this
       this.scroll.on('scroll', (pos) => {
-        // 向父组件传值
-        console.log('滚动前是否触发事件');
+        this.scrollFun(pos);
       })
     }
 
-    // 派发上拉刷新时间
-    if (this.pullUp) {
-      this.scroll.on('scrollEnd', () => {
-        if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
-          // 滑动到底部了
-          console.log('滚动前是否触发事件');
-        }
+    if (this.listenScrollEnd) {
+      this.scroll.on('scrollEnd', (pos) => {
+        this.scrollEndFun(pos);
       })
     }
 
-    // 滚动前是否触发事件
-    if (this.beforeScroll) {
+    if (this.listenBeforeScroll) {
       this.scroll.on('beforeScrollStart', () => {
-        console.log('滚动前是否触发事件');
+        this.beforeScrollFun();
+      })
+
+      this.scroll.on('scrollStart', () => {
+        this.scrollStartFun();
       })
     }
+
+    if (this.pullDownRefresh) {
+      this._initPullDownRefresh();
+    }
+
+    if (this.pullUpLoad) {
+      this._initPullUpLoad();
+    }
+  }
+
+  private _initPullDownRefresh(): void {
+    this.scroll.on('pullingDown', () => {
+      this.beforePullDown = false;
+      this.isPullingDown = true;
+      this.pullingDownFun('pullingDown');
+    })
+
+    this.scroll.on('scroll', (pos) => {
+      if (!this.pullDownRefresh) {
+        return
+      }
+      if (this.beforePullDown) {
+        this.bubbleY = Math.max(0, pos.y + this.pullDownInitTop);
+        this.pullDownStyle = `top:${Math.min(pos.y + this.pullDownInitTop, 10)}px`;
+      } else {
+        this.bubbleY = 0;
+      }
+
+      if (this.isRebounding) {
+        this.pullDownStyle = `top:${10 - (this.pullDownRefresh.stop - pos.y)}px`;
+      }
+    })
+  }
+
+  public disable(): void {
+    this.scroll && this.scroll.disable();
+  }
+
+  public enable(): void {
+    this.scroll && this.scroll.enable();
+  }
+
+  public refresh(): void {
+    this.scroll && this.scroll.refresh();
+  }
+
+  public scrollTo(): void {
+    this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments);
+  }
+
+  public autoPullDownRefresh(): void {
+    this.scroll && this.scroll.autoPullDownRefresh();
+  }
+
+  public scrollToElement(): void {
+    this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments)
+  }
+
+  public clickItem(e, item): void {
+    console.log(e, item);
+  }
+
+  public destroy(): void {
+    this.scroll.destroy()
+  }
+
+  public forceUpdate(dirty): void {
+    if (this.pullDownRefresh && this.isPullingDown) {
+      this.isPullingDown = false
+      this._reboundPullDown().then(() => {
+        this._afterPullDown()
+      })
+    } else if (this.pullUpLoad && this.isPullUpLoad) {
+      this.isPullUpLoad = false
+      this.scroll.finishPullUp()
+      this.pullUpDirty = dirty
+      this.refresh()
+    } else {
+      this.refresh()
+    }
+  }
+
+  private _initPullUpLoad() {
+    this.scroll.on('pullingUp', () => {
+      this.isPullUpLoad = true;
+      this.pullingUpFun();
+    })
+  }
+
+  private _reboundPullDown(): Promise<{}> {
+    const { stopTime = 600 } = this.pullDownRefresh
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.isRebounding = true
+        this.scroll.finishPullDown()
+        resolve()
+      }, stopTime)
+    })
+  }
+
+  private _afterPullDown(): void {
+    setTimeout(() => {
+      this.pullDownStyle = `top:${this.pullDownInitTop}px`
+      this.beforePullDown = true
+      this.isRebounding = false
+      this.refresh()
+    }, this.scroll.options.bounceTime)
   }
 
 }

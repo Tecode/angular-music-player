@@ -26,7 +26,7 @@ export class SliderComponent implements OnInit {
   constructor(private renderer: Renderer2) { }
 
   ngOnInit() { }
-  ngAfterViewInit() {
+  ngAfterContentInit() {
     this.update()
     window.addEventListener('resize', () => {
       if (!this.slider || !this.slider.enabled) {
@@ -143,7 +143,7 @@ export class SliderComponent implements OnInit {
 
   private _initDots(): void {
     const { children } = this.slideGroup.nativeElement;
-    this.dots = new Array(children[0].children.length)
+    this.dots = new Array(children[0].children.length);
   }
 
   private _play(): void {
