@@ -23,6 +23,7 @@ import { SmallCardComponent } from './common/small-card/small-card.component';
 import { ScrollComponent } from './common/scroll/scroll.component';
 import { SliderComponent } from './common/slider/slider.component';
 import { SearchInputComponent } from './search/search-input/search-input.component';
+import { HotSearchComponent } from './search/hot-search/hot-search.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SearchInputComponent } from './search/search-input/search-input.compone
     SmallCardComponent,
     ScrollComponent,
     SliderComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    HotSearchComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
