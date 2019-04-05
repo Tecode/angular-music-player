@@ -21,6 +21,7 @@ import { ListComponent } from './list/list.component';
 import { BigCardComponent } from './common/big-card/big-card.component';
 import { SmallCardComponent } from './common/small-card/small-card.component';
 import { ScrollComponent } from './common/scroll/scroll.component';
+import { SliderComponent } from './common/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ScrollComponent } from './common/scroll/scroll.component';
     ListComponent,
     BigCardComponent,
     SmallCardComponent,
-    ScrollComponent
+    ScrollComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

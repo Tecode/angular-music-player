@@ -1,14 +1,53 @@
 .hot_box {
-  height: 100%;
+  position: relative;
+  height: auto;
   overflow: hidden;
 }
 
 .container_box {
-  width: 100vw;
+  position: relative;
+  z-index: 10;
   overflow: hidden;
 
   .content_box {
     display: flex;
     position: relative;
+  }
+}
+
+.slide-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 40%;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.slide_wrapper {
+  position: relative;
+  width: auto;
+  height: 100%;
+}
+.slide_content {
+  position: relative;
+  height: auto;
+  overflow: hidden;
+}
+.slide_item {
+  float: left;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  white-space:nowrap;
+
+  a {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
   }
 }
