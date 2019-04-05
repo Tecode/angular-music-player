@@ -22,6 +22,7 @@ import { BigCardComponent } from './common/big-card/big-card.component';
 import { SmallCardComponent } from './common/small-card/small-card.component';
 import { ScrollComponent } from './common/scroll/scroll.component';
 import { SliderComponent } from './common/slider/slider.component';
+import { SearchInputComponent } from './search/search-input/search-input.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SliderComponent } from './common/slider/slider.component';
     BigCardComponent,
     SmallCardComponent,
     ScrollComponent,
-    SliderComponent
+    SliderComponent,
+    SearchInputComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

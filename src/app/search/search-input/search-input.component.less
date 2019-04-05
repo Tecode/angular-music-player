@@ -1,0 +1,91 @@
+@import '../../constans/constans.less';
+
+.search_box {
+  padding: 0 @14px;
+  margin-top: @14px;
+  display: flex;
+  justify-content: space-between;
+
+  .search {
+    display: flex;
+    background: white;
+    border-radius: 2px;
+    overflow: hidden;
+    flex: 1;
+    align-items: center;
+
+    .icon_delete {
+      position: absolute;
+      top: 9px;
+      right: 5.2rem;
+      width: 18px;
+      height: 18px;
+      background: #b1b1b1;
+      text-indent: -9999px;
+      border-radius: 99px;
+      display: inline;
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border-radius: 8px;
+        background: #fff;
+        transform: rotate(45deg);    
+        width: 2px;
+        height: 10px;
+        margin-left: -1px;
+        margin-top: -5px;
+      }
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border-radius: 8px;
+        background: #fff;
+        transform: rotate(45deg);    
+        width: 10px;
+        height: 2px;
+        margin-left: -5px;
+        margin-top: -1px;
+      }
+
+    }
+
+    .icon_search {
+      background: url('/assets/imgs/navbar/icon_search@2x.svg') @16px @12px no-repeat;
+      background-size: @14px;
+      width: @14px;
+      height: @16px;
+      padding: .6rem @16px .6rem @16px;
+    }
+
+    form {
+      flex: 1;
+
+      input {
+        display: block;
+        border: none;
+        outline: none;
+        font-size: @14px;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+
+  .cancel {
+    width: 2.6rem;
+    padding: 0 0 0 @12px;
+    line-height: 2.4rem;
+    font-size: @14px;
+    text-align: center;
+    color: gray;
+  }
+}
