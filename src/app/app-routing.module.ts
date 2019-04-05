@@ -10,10 +10,10 @@ import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/hot' },
-  { path: 'hot', component: HotComponent, data: { animation: 'hot' } },
-  { path: 'search', component: SearchComponent, data: { animation: 'search' } },
+  { path: 'hot', component: HotComponent },
+  { path: 'search', component: SearchComponent },
   { path: 'profile', component: ProfileComponent, data: { animation: 'profile' } },
-  { path: 'list', component: ListComponent, data: { animation: 'list' } },
+  { path: 'list', component: ListComponent },
   { path: 'smile', loadChildren: './smile/smile.module#SmileModule' },
 ];
 

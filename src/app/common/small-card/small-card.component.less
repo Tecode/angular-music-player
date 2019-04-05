@@ -1,16 +1,34 @@
 @import '../../constans/constans.less';
 
 .small_card_box {
-  width: 6rem;
-  text-align: center;
-  margin-left: @14px;
-  padding-bottom: @14px;
+  display: flex;
+  margin-bottom: @14px;
 
-  img {
-    width: 100%;
+  .image_box {
+    width: 4rem;
+    height: 4rem;
+
+    img {
+      width: 100%;
+    }
   }
 
-  p {
-    font-size: @12px;
+  .title_text_box {
+    flex: 1;
+    padding-left: @12px;
+
+    .list_title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: horizontal;
+      height: 2.8rem;
+    }
+
+    .list_text {
+      font-size: @12px;
+    }
   }
+
 }

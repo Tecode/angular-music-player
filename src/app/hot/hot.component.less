@@ -1,18 +1,22 @@
+@import '../constans/constans.less';
+
 .hot_box {
   position: relative;
   height: auto;
   overflow: hidden;
+
+  // 热门歌单推荐
+  .hot_title {
+    font-size: @12px;
+    color: @main_color;
+    text-align: center;
+    font-weight: bold;
+    padding: @14px 0;
+  }
 }
 
-.container_box {
-  position: relative;
-  z-index: 10;
-  overflow: hidden;
-
-  .content_box {
-    display: flex;
-    position: relative;
-  }
+.content_box {
+  padding: 0 @14px;
 }
 
 .slide-wrapper {
@@ -22,22 +26,25 @@
   margin-bottom: 10px;
   overflow: hidden;
 }
+
 .slide_wrapper {
   position: relative;
   width: auto;
   height: 100%;
 }
+
 .slide_content {
   position: relative;
   height: auto;
   overflow: hidden;
 }
+
 .slide_item {
   float: left;
   box-sizing: border-box;
   overflow: hidden;
   text-align: center;
-  white-space:nowrap;
+  white-space: nowrap;
 
   a {
     display: block;
