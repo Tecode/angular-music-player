@@ -24,6 +24,7 @@ import { ScrollComponent } from './common/scroll/scroll.component';
 import { SliderComponent } from './common/slider/slider.component';
 import { SearchInputComponent } from './search/search-input/search-input.component';
 import { HotSearchComponent } from './search/hot-search/hot-search.component';
+import { SearchListComponent } from './search/search-list/search-list.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HotSearchComponent } from './search/hot-search/hot-search.component';
     ScrollComponent,
     SliderComponent,
     SearchInputComponent,
-    HotSearchComponent
+    HotSearchComponent,
+    SearchListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

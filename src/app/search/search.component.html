@@ -1,7 +1,9 @@
 <div class="search_box">
   <app-search-input></app-search-input>
-  <app-hot-search></app-hot-search>
-  <!-- <app-scroll>
-    <div>555</div>
-  </app-scroll> -->
+  <app-hot-search [visible]="false"></app-hot-search>
+  <app-scroll>
+    <div class="search_content">
+      <app-search-list></app-search-list>
+    </div>
+  </app-scroll>
 </div>

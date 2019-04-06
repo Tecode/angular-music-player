@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-hot-search',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hot-search.component.less']
 })
 export class HotSearchComponent implements OnInit {
+  @Input() visible: boolean = true;
 
   constructor() { }
 

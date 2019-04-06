@@ -1,0 +1,44 @@
+@import '../../helpers/constants.less';
+
+.search_box {
+  .search_list_box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: @12px @14px;
+
+    .media_avatar {
+      width: 2.8rem;
+      height: 2.8rem;
+
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    .info {
+      height: 2.8rem;
+      padding-left: @12px;
+
+      .main_title {
+        font-size: @14px;
+        font-weight: normal;
+      }
+
+      .sub_title {
+        font-size: @12px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        height: 1px;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #e5e5e5;
+      }
+    }
+  }
+}
