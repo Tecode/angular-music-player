@@ -1,4 +1,4 @@
-import { ClientRectData } from 'src/interface';
+import { ClientRectData } from '../../interface';
 
 export function hasClass(el, className): boolean {
     let reg: RegExp = new RegExp('(^|\\s)' + className + '(\\s|$)')

@@ -4,12 +4,7 @@ import {
 } from '@angular/animations';
 
 const animatePath: string[] = [
-    'hot <=> list',
-    'hot <=> search',
-    'hot <=> profile',
-    'search <=> list',
-    'search <=> profile',
-    'list <=> profile',
+    'detail <=> hot',
 ];
 
 // 路由切换过渡动画

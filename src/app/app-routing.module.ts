@@ -13,9 +13,9 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/hot' },
   { path: 'hot', component: HotComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'profile', component: ProfileComponent, data: { animation: 'profile' } },
+  { path: 'profile', component: ProfileComponent },
   { path: 'list', component: ListComponent },
-  { path: 'details', component: DetailsComponent },
+  { path: 'details', component: DetailsComponent, data: { animation: 'details' } },
   { path: 'smile', loadChildren: './smile/smile.module#SmileModule' },
 ];
 

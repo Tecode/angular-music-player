@@ -1,15 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <div class="music_player_box">
-    <!-- 使用切换过渡动画 -->
-    <!-- <div class="content" [@routeAnimations]="prepareRoute(outlet)">
-      <router-outlet #outlet="outlet"></router-outlet>
-    </div> -->
     <div class="navbar">
       <app-navbar></app-navbar>
     </div>
-    <div class="content">
-      <router-outlet></router-outlet>
+    <!-- 使用切换过渡动画 -->
+    <div class="content" [@routeAnimations]="prepareRoute(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
     </div>
   </div>
   <!-- <app-controller></app-controller> -->

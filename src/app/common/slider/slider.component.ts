@@ -47,8 +47,10 @@ export class SliderComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.slider.disable()
-    clearTimeout(this.timer)
+    if (this.slider) {
+      this.slider.disable();
+      clearTimeout(this.timer);
+    }
   }
 
   public update(): void {
