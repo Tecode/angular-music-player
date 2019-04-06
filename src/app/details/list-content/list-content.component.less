@@ -1,0 +1,49 @@
+@import '../../helpers/constants.less';
+
+.detail_list {
+  background-color: @color_white;
+  height: 100%;
+  padding: 0 @14px;
+
+  .count_box__desc {
+    font-size: @14px;
+    color: @gray;
+    padding-top: @14px;
+  }
+
+  .list_content {
+    ul {
+      padding-bottom: @14px;
+    }
+
+    li {
+      display: flex;
+      padding: @12px 0;
+
+      .info_order {
+        width: 2rem;
+        color: @red;
+      }
+
+      .info_box {
+        flex: 1;
+      }
+
+      h3 {
+        font-size: @14px;
+        color: @black_color;
+        font-weight: normal;
+      }
+
+      p {
+        font-size: @12px;
+        color: @gray;
+        display: block;
+        width: 96%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

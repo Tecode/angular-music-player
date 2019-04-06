@@ -25,6 +25,9 @@ import { SliderComponent } from './common/slider/slider.component';
 import { SearchInputComponent } from './search/search-input/search-input.component';
 import { HotSearchComponent } from './search/hot-search/hot-search.component';
 import { SearchListComponent } from './search/search-list/search-list.component';
+import { DetailsComponent } from './details/details.component';
+import { ListContentComponent } from './details/list-content/list-content.component';
+import { CoverComponent } from './details/cover/cover.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { SearchListComponent } from './search/search-list/search-list.component'
     SliderComponent,
     SearchInputComponent,
     HotSearchComponent,
-    SearchListComponent
+    SearchListComponent,
+    DetailsComponent,
+    ListContentComponent,
+    CoverComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
