@@ -54,15 +54,17 @@ export class ScrollComponent implements OnInit {
 
   @ViewChild('scrollContent') scrollContent: ElementRef;
 
-  constructor(private element: ElementRef) {}
+  constructor(private element: ElementRef) { }
 
   ngOnInit() { }
   ngAfterContentInit() {
-    setTimeout(() => {
-      this._initScroll();
-    }, 20)
+    if (typeof window != 'undefined') {
+      setTimeout(() => {
+        this._initScroll();
+      }, 20)
+    }
   }
-  ngOnChanges(){
+  ngOnChanges() {
     console.log('发生了改变');
     setTimeout(() => {
       this.forceUpdate(true)

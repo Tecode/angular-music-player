@@ -27,23 +27,25 @@ export class SliderComponent implements OnInit {
 
   ngOnInit() { }
   ngAfterContentInit() {
-    this.update()
-    window.addEventListener('resize', () => {
-      if (!this.slider || !this.slider.enabled) {
-        return
-      }
-      clearTimeout(this.resizeTimer)
-      this.resizeTimer = <any>setTimeout(() => {
-        if (this.slider.isInTransition) {
-          this._onScrollEnd()
-        } else {
-          if (this.autoPlay) {
-            this._play()
-          }
+    if (typeof window != 'undefined') {
+      this.update();
+      window.addEventListener('resize', () => {
+        if (!this.slider || !this.slider.enabled) {
+          return
         }
-        this.refresh()
-      }, 60)
-    })
+        clearTimeout(this.resizeTimer)
+        this.resizeTimer = <any>setTimeout(() => {
+          if (this.slider.isInTransition) {
+            this._onScrollEnd()
+          } else {
+            if (this.autoPlay) {
+              this._play()
+            }
+          }
+          this.refresh();
+        }, 60);
+      });
+    }
   }
 
   ngOnDestroy() {
