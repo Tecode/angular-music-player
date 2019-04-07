@@ -22,12 +22,15 @@
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 2;
-      -webkit-box-orient: horizontal;
-      height: 2.8rem;
+      height: 2.6rem;
+      // 默认编译的时候，会过滤 
+      /* autoprefixer: ignore next */
+      -webkit-box-orient: vertical;
     }
 
     .list_text {
       font-size: @12px;
+      color: @gray;
     }
   }
 

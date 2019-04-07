@@ -1,9 +1,16 @@
 @import "../helpers/constants.less";
 .search_box {
+  position: relative;
   height: 100%;
   background-color: @color_white;
-  .search_content {
-    height: auto;
-    background-color: @color_white;
+  .search_list{
+    position: fixed;
+    top: 7.0rem;
+    bottom: 0;
+    width: 100%;
+    .search_content {
+      height: auto;
+      background-color: @color_white;
+    }
   }
 }

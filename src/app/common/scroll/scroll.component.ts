@@ -31,7 +31,7 @@ export class ScrollComponent implements OnInit {
   @Input() public listenScrollEnd: boolean = false;
   @Input() public direction: string = 'vertical';
   @Input() public scrollBar: boolean = false;
-  @Input() public pullDownRefresh: PullDownRefresh = {};
+  @Input() public pullDownRefresh: PullDownRefresh = null;
   @Input() public pullUpLoad: boolean = false;
   @Input() public startY: number = 0;
   @Input() public refreshDelay: number = 20;
