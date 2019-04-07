@@ -1,5 +1,17 @@
-.scroll_box {
-    position: relative;
+@import '../../helpers/constants.less';
+
+.list_wrapper {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+
+  .scroll_box {
+    position: absolute;
+    background-color: @bg_color;
     width: 100%;
-    // overflow: hidden;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+  }
 }

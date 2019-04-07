@@ -11,12 +11,12 @@ export class SearchComponent implements OnInit {
   @params search
   this.search.nativeElement
   */
-  @ViewChild('search') search;
+  // @ViewChild('search') search;
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.search.nativeElement);
+    // console.log(this.search.nativeElement);
   }
 
 }

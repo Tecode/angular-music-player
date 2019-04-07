@@ -1,8 +1,11 @@
 <div class="search_box">
-  <div class="search">
-    <div #search class="icon_search"></div>
-    <form action="javascript:return true">
-        <input type="text" placeholder="Search that song!" />
-    </form>
+  <app-search-input></app-search-input>
+  <app-hot-search [visible]="false"></app-hot-search>
+  <div class="search_list">
+    <app-scroll>
+      <div class="search_content">
+        <app-search-list></app-search-list>
+      </div>
+    </app-scroll>
   </div>
 </div>

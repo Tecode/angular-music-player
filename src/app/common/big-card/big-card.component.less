@@ -1,47 +1,29 @@
-@import '../../constans/constans.less';
+@import '../../helpers/constants.less';
 
 .big_card_box {
-  width: 10rem;
-  position: relative;
-  margin-left: @14px;
+  display: flex;
+  background-color: @color_white;
+  margin-top: @12px;
 
-  img {
-    display: block;
-    width: 100%;
+  .image_box {
+    width: 6rem;
+    height: 6rem;
+
+    img {
+      width: 100%;
+    }
   }
 
-  p {
-    font-size: @14px;
-    margin-top: .2rem;
-    color: @black_color;
-    line-height: .8rem;
-  }
-  .avatar_name {
-    color: @gray;
-  }
-
-  .player {
+  .title_text_box {
     display: flex;
-    width: 10rem;
+    flex: 1;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 8rem;
-    left: 0;
+    padding: @12px;
 
-    .icon_player {
-      background: url('/assets/imgs/audio/icon_oval.png') 0 0 no-repeat;
-      background-size: @18px;
-      width: @18px;
-      height: @18px;
-      padding-right: .4rem;
-      opacity: .9;
-    }
-
-    .number {
-      color: white;
+    .text_name {
       font-size: @12px;
-      padding-left: .4rem;
     }
   }
+
 }

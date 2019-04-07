@@ -1,0 +1,9 @@
+<div class="slide" #slide>
+  <div class="slide_group" #slideGroup>
+    <ng-content></ng-content>
+  </div>
+  <div *ngIf="showDot" class="dots">
+    <span *ngFor="let item of dots; let index=index" class="dot"
+      [ngClass]="{'active': currentPageIndex === index}"></span>
+  </div>
+</div>

@@ -6,14 +6,16 @@ import { HotComponent } from './hot/hot.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ListComponent } from './list/list.component';
+import { DetailsComponent } from './details/details.component';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/hot' },
-  { path: 'hot', component: HotComponent, data: { animation: 'hot' } },
-  { path: 'search', component: SearchComponent, data: { animation: 'search' } },
-  { path: 'profile', component: ProfileComponent, data: { animation: 'profile' } },
-  { path: 'list', component: ListComponent, data: { animation: 'list' } },
+  { path: 'hot', component: HotComponent },
+  { path: 'search', component: SearchComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'list', component: ListComponent },
+  { path: 'details', component: DetailsComponent, data: { animation: 'details' } },
   { path: 'smile', loadChildren: './smile/smile.module#SmileModule' },
 ];
 

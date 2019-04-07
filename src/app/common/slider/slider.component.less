@@ -1,0 +1,35 @@
+.slide {
+  min-height: 1px;
+
+  .slide_group {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .dots {
+
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 12px;
+    transform: translateZ(1px);
+    text-align: center;
+    font-size: 0;
+
+    .dot {
+      display: inline-block;
+      margin: 0 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ccc;
+    }
+
+    .active {
+      width: 20px;
+      border-radius: 5px;
+      background: #fff;
+    }
+  }
+}

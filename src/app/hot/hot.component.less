@@ -1,14 +1,83 @@
+@import '../helpers/constants.less';
+
 .hot_box {
-  height: 100%;
+  position: relative;
+  height: auto;
+  overflow: hidden;
+
+  // 热门歌单推荐
+  .hot_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: @14px;
+    color: @main_color;
+    text-align: center;
+    font-weight: bold;
+    padding: @14px 0;
+    width: 60%;
+    margin: 0 auto;
+
+    &::after {
+      width: 1rem;
+      height: 2px;
+      background-color: @main_color;
+      content: '';
+      display: block;
+      margin-left: @10px;
+    }
+
+    &::before {
+      width: 1rem;
+      height: 2px;
+      background-color: @main_color;
+      content: '';
+      display: block;
+      margin-right: @10px;
+    }
+  }
+}
+
+.content_box {
+  padding: 0 @14px;
+}
+
+.slide-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 40%;
+  margin-bottom: 10px;
   overflow: hidden;
 }
 
-.container_box {
-  width: 100vw;
-  overflow: hidden;
+.slide_wrapper {
+  position: relative;
+  width: auto;
+  height: 100%;
+}
 
-  .content_box {
-    display: flex;
-    position: relative;
+.slide_content {
+  position: relative;
+  height: auto;
+  overflow: hidden;
+}
+
+.slide_item {
+  float: left;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+
+  a {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
   }
 }

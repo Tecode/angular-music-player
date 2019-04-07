@@ -1,32 +1,41 @@
-@import '../constans/constans.less';
+@import '../helpers/constants.less';
 
 .function_button {
   font-size: @14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 @10px 0;
   text-align: center;
+  line-height: 2.6rem;
+  background-color: @color_white;
 
-  .icon_box {
-    width: @30px;
-    height: @34px;
-    background-size: @18px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    margin: 0 @18px;
+  li {
+    flex: 1;
   }
 
   a {
     display: block;
     text-decoration: none;
-    :active{
-      
-    }
+    height: @32px;
+    color: rgba(0, 0, 0, .6);
+    font-size: @14px;
   }
 
   .active {
-    font-size: 20px;
+    span {
+      color: @main_color;
+      position: relative;
+      &:before{
+        content: '';
+        width: 2.4rem;
+        height: 2px;
+        border-radius: 1.5px;
+        background-color: @main_color;
+        position: absolute;
+        bottom: -.4rem;
+        left: -.2rem;
+      }
+    }
   }
 }
 
@@ -50,6 +59,7 @@
       justify-content: center;
       align-items: center;
       line-height: @14px;
+
       h2 {
         font-size: @12px;
         color: @black_color;
@@ -62,7 +72,8 @@
         color: @main_color;
       }
     }
-    .player_button{
+
+    .player_button {
       width: @22px;
       height: @22px;
       background: url('/assets/imgs/audio/icon_play_circle@2x.svg') 0 0 no-repeat;

@@ -1,4 +1,4 @@
-<div class="player_box">
+<!-- <div class="player_box">
   <div class="line"></div>
   <div class="text_button">
     <div class="text">
@@ -7,13 +7,11 @@
     </div>
     <div class="player_button"></div>
   </div>
-</div>
+</div> -->
 <ul class="function_button">
   <li *ngFor="let item of iconArr">
-    <a [routerLink]="[item.routerLink ]" routerLinkActive #linkData="routerLinkActive">
-      <div class="icon_box"
-        [ngStyle]="{'background-image': linkData.isActive ? 'url('+  item.activeUrl +')' : 'url('+  item.normalUrl +')'}">
-      </div>
+    <a [routerLink]="[item.routerLink ]" routerLinkActive="active">
+      <span>{{item.text}}</span>
     </a>
   </li>
 </ul>

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -21,6 +20,13 @@ import { ListComponent } from './list/list.component';
 import { BigCardComponent } from './common/big-card/big-card.component';
 import { SmallCardComponent } from './common/small-card/small-card.component';
 import { ScrollComponent } from './common/scroll/scroll.component';
+import { SliderComponent } from './common/slider/slider.component';
+import { SearchInputComponent } from './search/search-input/search-input.component';
+import { HotSearchComponent } from './search/hot-search/hot-search.component';
+import { SearchListComponent } from './search/search-list/search-list.component';
+import { DetailsComponent } from './details/details.component';
+import { ListContentComponent } from './details/list-content/list-content.component';
+import { CoverComponent } from './details/cover/cover.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +42,17 @@ import { ScrollComponent } from './common/scroll/scroll.component';
     ListComponent,
     BigCardComponent,
     SmallCardComponent,
-    ScrollComponent
+    ScrollComponent,
+    SliderComponent,
+    SearchInputComponent,
+    HotSearchComponent,
+    SearchListComponent,
+    DetailsComponent,
+    ListContentComponent,
+    CoverComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    BrowserAnimationsModule,
     AppRoutingModule,
     StoreModule.forRoot({ count: counterReducer })
   ],

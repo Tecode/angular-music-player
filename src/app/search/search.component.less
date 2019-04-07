@@ -1,36 +1,16 @@
-@import '../constans/constans.less';
-
+@import "../helpers/constants.less";
 .search_box {
-  padding: 0 @14px;
-  margin-top: @20px;
-
-  .search {
-    display: flex;
-    background: white;
-    box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.07);
-    border-radius: 100px;
-    overflow: hidden;
-
-    .icon_search {
-      background: url('/assets/imgs/navbar/icon_search@2x.svg') @16px @12px no-repeat;
-      background-size: @14px;
-      width: @14px;
-      height: @16px;
-      padding: @12px @16px @12px @16px;
-    }
-
-    form {
-      flex: 1;
-
-      input {
-        display: block;
-        border: none;
-        outline: none;
-        font-size: @14px;
-        height: 100%;
-        width: 100%;
-        padding: 0;
-      }
+  position: relative;
+  height: 100%;
+  background-color: @color_white;
+  .search_list{
+    position: fixed;
+    top: 7.0rem;
+    bottom: 0;
+    width: 100%;
+    .search_content {
+      height: auto;
+      background-color: @color_white;
     }
   }
 }

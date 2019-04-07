@@ -1,10 +1,7 @@
 <h1 align="center">AngularMusicPlayer</h1>
 
 <p align="center">
-    <img src="http://potjm11o0.bkt.clouddn.com/Home.png">
-    <img src="http://potjm11o0.bkt.clouddn.com/Music.png">
-    <img src="http://potjm11o0.bkt.clouddn.com/Search.png">
-    <img src="http://potjm11o0.bkt.clouddn.com/Player.png">
+
 </p>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.

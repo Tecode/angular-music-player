@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="62px" height="62px" viewBox="0 0 62 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Clipped</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0.156 61.24 0.156 61.24 61.839 0 61.839"></polygon>
+        <linearGradient x1="49.93%" y1="-0.01%" x2="49.93%" y2="100.023%" id="linearGradient-3">
+            <stop stop-color="#00CBCB" offset="0%"></stop>
+            <stop stop-color="#0FC8B2" offset="16.17%"></stop>
+            <stop stop-color="#28C48B" offset="44.97%"></stop>
+            <stop stop-color="#31C27C" offset="60%"></stop>
+            <stop stop-color="#21C077" offset="70%"></stop>
+            <stop stop-color="#09BD71" offset="88.57%"></stop>
+            <stop stop-color="#00BC6E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="49.93%" y1="-0.01%" x2="49.93%" y2="100.023%" id="linearGradient-4">
+            <stop stop-color="#00CBCB" offset="0%"></stop>
+            <stop stop-color="#0FC8B2" offset="16.17%"></stop>
+            <stop stop-color="#28C48B" offset="44.97%"></stop>
+            <stop stop-color="#31C27C" offset="60%"></stop>
+            <stop stop-color="#21C077" offset="70%"></stop>
+            <stop stop-color="#09BD71" offset="88.57%"></stop>
+            <stop stop-color="#00BC6E" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon">
+            <g id="logo_ch">
+                <g id="Clipped">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="a"></g>
+                    <path d="M48.566,6.48 L47.59,0.157 L44.178,3.834 C39.9620761,1.75176516 35.3220928,0.671680539 30.62,0.678 C13.71,0.678 0,14.37 0,31.258 C0,48.148 13.71,61.838 30.62,61.838 C47.53,61.838 61.24,48.148 61.24,31.258 C61.24,21.065 56.244,12.038 48.566,6.481" id="路径" fill="#FFDC00" fill-rule="nonzero" mask="url(#mask-2)"></path>
+                </g>
+                <g id="c-link" transform="translate(17.000000, 0.000000)" fill="url(#linearGradient-4)" fill-rule="nonzero">
+                    <path d="M4.252,7.141 C3.68401625,7.13652701 3.1572841,7.43708221 2.87216522,7.92833853 C2.58704634,8.41959485 2.587365,9.02604359 2.873,9.517 L5.426,13.92 L17.933,35.493 C16.3711021,35.1660992 14.7694769,35.0717472 13.18,35.213 C5.516,35.883 -0.237,41.68 0.331,48.16 C0.9,54.64 7.573,59.35 15.237,58.68 C22.901,58.01 28.654,52.213 28.085,45.733 C27.934,44.002 27.347,42.588 26.416,40.988 L13.766,19.236 C20.14,15.916 27.825,9.023 30.885,0 C22.987,5.778 13.005,7.208 4.251,7.141" id="c"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

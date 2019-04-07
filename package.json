@@ -11,7 +11,8 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run angular-music-player:server:production"
+    "build:client-and-server-bundles": "ng build --prod && ng run angular-music-player:server:production",
+    "start:pro": "pm2 start dist/server"
   },
   "private": true,
   "browserslist": [
@@ -41,6 +42,7 @@
     "better-scroll": "^1.15.1",
     "core-js": "^2.5.4",
     "express": "^4.15.2",
+    "pm2": "^3.4.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
