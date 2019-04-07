@@ -5,8 +5,8 @@
       <app-navbar></app-navbar>
     </div>
     <!-- 使用切换过渡动画 -->
-    <div class="content" [@routeAnimations]="prepareRoute(outlet)">
-      <router-outlet #outlet="outlet"></router-outlet>
+    <div class="content">
+      <router-outlet></router-outlet>
     </div>
   </div>
   <!-- <app-controller></app-controller> -->
