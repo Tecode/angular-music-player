@@ -1,100 +1,83 @@
+@import '../helpers/constants.less';
+
 .controller_box {
-  height: 96px;
-  background: linear-gradient(360deg, rgba(2, 8, 20, 1) 0%, rgba(3, 13, 32, 1) 100%);
+  position: relative;
+  height: 50px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 0 80px 0 50px;
+  padding: 0 @14px;
+  border-top: 1px solid #f1f1f1;
+  background-color: @color_white;
 
-  .introduce {
+  .right_box,
+  .left_box {
     display: flex;
     align-items: center;
+  }
 
-    .image {
-      width: 54px;
-      height: 54px;
-      background-size: cover;
-      background-repeat: no-repeat;
+  .song_pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-right: @8px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .left_box {
+    img {
+      display: block;
+      width: 22px;
+      height: 22px;
+      padding: @12px 0 @12px @12px;
+    }
+  }
+
+  .play_bar_aside {
+    position: relative;
+    margin-right: @8px;
+
+    .play_bar_icon {
+      display: block;
+      width: 36px;
+      height: 36px;
+      color: #31c27c;
+      stroke-width: 0;
+      stroke: currentColor;
+      fill: currentColor;
     }
 
-    .text {
-      margin-left: 15px;
+    .progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 36px;
+      height: 36px;
+      -webkit-transform: rotate(-90deg);
 
-      h2 {
-        font-size: 15px;
-        color: #ABABAB;
-        font-weight: normal;
-        margin: 6px 0;
-      }
-
-      p {
-        font-size: 13px;
-        color: #787878;
+      .progress_circle {
+        fill: none;
+        stroke: #31c27c;
+        stroke-width: 2;
       }
     }
   }
 
-  .button_box {
-    display: flex;
-    align-items: center;
-
-    div {
-      margin: 0 18px;
+  .play_bar_bd {
+    h1 {
+      color: @black_color;
+      font-size: @14px;
+      font-weight: normal;
     }
 
-    .icon_shuffle {
-      background: url('/assets/imgs/controller/icon_shuffle@2x.png') 3px 2px no-repeat;
-      width: 20px;
-      height: 16px;
-    }
-
-    .icon_backward {
-      background: url('/assets/imgs/controller/icon_backward@2x.png') 3px 2px no-repeat;
-      width: 20px;
-      height: 16px;
-    }
-
-    .icon_stop {
-      background: url('/assets/imgs/controller/icon_stop@2x.png') 0 0 no-repeat;
-      width: 42px;
-      height: 42px;
-    }
-
-    .icon_forward {
-      background: url('/assets/imgs/controller/icon_forward@2x.png') 3px 2px no-repeat;
-      width: 20px;
-      height: 16px;
-    }
-
-    .icon_repeat {
-      background: url('/assets/imgs/controller/icon_repeat@2x.png') 3px 2px no-repeat;
-      width: 20px;
-      height: 16px;
-    }
-  }
-
-  .volume_box {
-    display: flex;
-    align-items: center;
-
-    .icon_devices_available {
-      background: url('/assets/imgs/controller/icon_devices_available@2x.png') 3px 2px no-repeat;
-      width: 20px;
-      height: 16px;
-      margin-right: 20px;
-    }
-
-    .icon_volume {
-      background: url('/assets/imgs/controller/icon_volume@2x.png') 3px 2px no-repeat;
-      width: 20px;
-      height: 16px;
-      margin-right: 4px;
-    }
-
-    .volume_line {
-      width: 72px;
-      height: 4px;
-      background-color: #B3B3B3;
-      border-radius: 10px;
+    p {
+      font-size: @12px;
+      color: @gray;
     }
   }
 }
