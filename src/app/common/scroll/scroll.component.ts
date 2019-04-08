@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input, ViewChild, Output } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, ViewChild, Output, SimpleChanges } from '@angular/core';
 import BScroll from 'better-scroll';
 import { getRect } from '../../helpers/common';
 
@@ -64,8 +64,8 @@ export class ScrollComponent implements OnInit {
       }, 20)
     }
   }
-  ngOnChanges() {
-    console.log('发生了改变');
+  ngOnChanges(change: SimpleChanges) {
+    console.log(change, '发生了改变');
     setTimeout(() => {
       this.forceUpdate(true)
     }, this.refreshDelay)
