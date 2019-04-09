@@ -1,7 +1,7 @@
 @import '../helpers/constants.less';
 
 .controller_box {
-  position: relative;
+  position: fixed;
   height: 50px;
   display: flex;
   align-items: center;
@@ -9,6 +9,9 @@
   padding: 0 @14px;
   border-top: 1px solid #f1f1f1;
   background-color: @color_white;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   .right_box,
   .left_box {
