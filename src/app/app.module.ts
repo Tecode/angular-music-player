@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from '../reducer/counter.reducer';
+import { EffectsModule } from "@ngrx/effects"; 
+import { reducers, effects } from '../store';
 
 
 import { AppComponent } from './app.component';
@@ -54,7 +56,9 @@ import { CoverComponent } from './details/cover/cover.component';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    StoreModule.forRoot({ count: counterReducer })
+    HttpClientModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(effects)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

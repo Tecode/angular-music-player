@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Increment, Decrement, Reset } from '../../actions/index.action';
+import { Increment, Decrement, Reset } from '../../store/actions';
 
 
 @Component({
