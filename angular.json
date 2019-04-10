@@ -29,7 +29,9 @@
             "styles": [
               "src/styles.less"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/common.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -40,12 +42,12 @@
               }],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "extractCss": true,
-              "namedChunks": false,
+              "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
+              "vendorChunk": true,
               "buildOptimizer": true,
               "budgets": [{
                 "type": "initial",
@@ -82,7 +84,9 @@
             "styles": [
               "src/styles.less"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/common.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

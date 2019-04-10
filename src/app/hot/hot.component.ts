@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { LoadHotData } from '../../store';
 
 @Component({
   selector: 'app-hot',
@@ -24,9 +26,11 @@ export class HotComponent implements OnInit {
         id: 11287
       }
     ];
-  constructor() { }
+  constructor(private store: Store<{ count: number }>) {
+  }
 
   ngOnInit() {
+    this.store.dispatch(new LoadHotData());
   }
 
 }

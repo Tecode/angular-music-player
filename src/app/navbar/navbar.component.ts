@@ -16,18 +16,17 @@ export class NavbarComponent implements OnInit {
     {
       text: '排行',
       routerLink: '/list',
-      id: 10001
+      id: 10002
     },
     {
       text: '搜索',
       routerLink: '/search',
-      id: 10001
+      id: 10003
     }
   ];
   constructor() { }
 
   ngOnInit() {
-    console.log(this, 'this');
   }
 
 }
