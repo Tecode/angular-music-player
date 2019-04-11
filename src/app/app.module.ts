@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from "@ngrx/effects"; 
+import { EffectsModule } from "@ngrx/effects";
 import { reducers, effects } from '../store';
+
+// http拦截器,捕获异常，加Token
+import { HttpConfigInterceptor} from '../interceptor/httpconfig.interceptor';
 
 
 import { AppComponent } from './app.component';
@@ -61,7 +64,9 @@ import { CoverComponent } from './details/cover/cover.component';
     EffectsModule.forRoot(effects)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
