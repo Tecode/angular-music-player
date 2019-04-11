@@ -8,6 +8,6 @@ import {HttpClient} from "@angular/common/http";
     constructor (private http: HttpClient) {}
   
     loadData() {
-      return this.http.get('http://admin.soscoon.com/api/article?index=1&size=10');
+      return this.http.get('/api/v8/fcg-bin/fcg_myqq_toplist.fcg?_=1554984263230&g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1');
     }
   }
