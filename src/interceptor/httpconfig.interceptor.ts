@@ -16,7 +16,11 @@ import { map, catchError } from 'rxjs/operators';
 export class HttpConfigInterceptor implements HttpInterceptor {
   // constructor(public errorDialogService: ErrorDialogService) { }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token: string = localStorage.getItem('token');
+    let token: string | boolean = false;
+    // 兼容服务端渲染
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
 
     if (token) {
       request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + token) });

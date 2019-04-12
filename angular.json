@@ -65,8 +65,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-music-player:build:production",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "angular-music-player:build:production"
             }
           }
         },
