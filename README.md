@@ -41,8 +41,8 @@ Run `ng generate module orders --routing` AND `ng generate module customers --ro
 ## Directory structure【目录结构】
 
 ```bash
-├── app
-│   ├── common
+├── app //组件
+│   ├── common  //公共组件
 │   │   ├── big-card
 │   │   ├── headline
 │   │   ├── scroll
@@ -52,7 +52,7 @@ Run `ng generate module orders --routing` AND `ng generate module customers --ro
 │   ├── details
 │   │   ├── cover
 │   │   └── list-content
-│   ├── helpers
+│   ├── helpers //公共函数
 │   ├── hot
 │   ├── list
 │   ├── my-counter
@@ -65,17 +65,17 @@ Run `ng generate module orders --routing` AND `ng generate module customers --ro
 │   │   ├── search-input
 │   │   └── search-list
 │   └── smile
-├── assets
+├── assets  //静态资源
 │   └── imgs
 │       ├── audio
 │       ├── icon
 │       │   └── SVG
 │       └── navbar
 ├── environments
-├── interceptor
-├── services
-└── store
-    ├── actions
+├── interceptor //拦截器，捕获异常统一对接口过滤
+├── services  //http请求服务
+└── store //数据状态管理库
+    ├── actions //
     ├── effects
     └── reducers
 
