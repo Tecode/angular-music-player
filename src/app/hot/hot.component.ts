@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { LoadHotData } from '../../store';
+import { HotStateData } from '../../store/reducers/hot.reducer';
 
 @Component({
   selector: 'app-hot',
@@ -8,29 +10,26 @@ import { LoadHotData } from '../../store';
   styleUrls: ['./hot.component.less']
 })
 export class HotComponent implements OnInit {
-  public loopData: Array<any> =
-    [
-      {
-        linkUrl: 'http://y.qq.com/w/album.html?albummid=001tftZs2RX1Qz',
-        picUrl: 'http://y.gtimg.cn/music/photo_new/T003R720x288M00000236sfA406cmk.jpg',
-        id: 11378
-      },
-      {
-        linkUrl: 'https://y.qq.com/msa/218/0_4085.html',
-        picUrl: 'http://y.gtimg.cn/music/photo_new/T003R720x288M000001s0BXx3Zxcwb.jpg',
-        id: 11375
-      },
-      {
-        linkUrl: 'https://y.qq.com/m/digitalbum/gold/index.html?_video=true&id=2195876&g_f=shoujijiaodian',
-        picUrl: 'http://y.gtimg.cn/music/photo_new/T003R720x288M000002cwng4353HKz.jpg',
-        id: 11287
-      }
-    ];
-  constructor(private store: Store<{ count: number }>) {
+  public hotStore$: Observable<HotStateData>;
+  public hotData: HotStateData = {
+    radioList: [],
+    slider: [],
+    songList: [],
+    topList: [],
+  };
+
+  @ViewChild('slider') slider:ElementRef;
+
+  constructor(private store: Store<{ hotStore: HotStateData }>) {
+    this.hotStore$ = store.pipe(select('hotStore'));
   }
 
   ngOnInit() {
     this.store.dispatch(new LoadHotData());
+    this.hotStore$.subscribe(data => {
+      this.hotData = data;
+    });
+    console.log(this.hotData, '-----------hot-');
   }
 
 }
