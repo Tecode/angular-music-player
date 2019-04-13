@@ -12,10 +12,8 @@ import { HotStateData } from '../../store/reducers/hot.reducer';
 export class HotComponent implements OnInit {
   public hotStore$: Observable<HotStateData>;
   public hotData: HotStateData = {
-    radioList: [],
     slider: [],
-    songList: [],
-    topList: [],
+    recommendList: []
   };
 
   @ViewChild('slider') slider:ElementRef;
@@ -29,7 +27,6 @@ export class HotComponent implements OnInit {
     this.hotStore$.subscribe(data => {
       this.hotData = data;
     });
-    console.log(this.hotData, '-----------hot-');
   }
 
 }

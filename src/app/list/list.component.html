@@ -1,16 +1,7 @@
 <app-scroll>
   <div class="content_box">
-    <app-big-card></app-big-card>
-    <app-big-card></app-big-card>
-    <app-big-card></app-big-card>
-    <app-big-card></app-big-card>
-    <app-big-card></app-big-card>
-    <app-big-card></app-big-card>
-    <app-big-card></app-big-card>
-    <app-big-card></app-big-card>
-    <app-big-card></app-big-card>
-    <app-big-card></app-big-card>
-    <app-big-card></app-big-card>
-    <app-big-card></app-big-card>
+    <ng-container *ngFor="let item of topListData.topList">
+      <app-big-card [picUrl]="item.al.picUrl"></app-big-card>
+    </ng-container>
   </div>
 </app-scroll>

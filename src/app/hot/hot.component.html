@@ -5,9 +5,16 @@
         <app-slider #slider [sliderData]="hotData.slider">
           <div class="slide_content">
             <div class="slide_item" *ngFor="let item of hotData.slider">
-              <a [href]="item.linkUrl">
-                <img [src]="item.picUrl">
-              </a>
+              <ng-container *ngIf="item.url; else elseTemplate">
+                <a [href]="item.url">
+                  <img [src]="item.imageUrl">
+                </a>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <a href="javascript:;">
+                  <img [src]="item.imageUrl">
+                </a>
+              </ng-template>
             </div>
           </div>
         </app-slider>
@@ -15,8 +22,8 @@
     </div>
     <h1 class="hot_title">热门歌单推荐</h1>
     <div class="content_box">
-      <ng-container *ngFor="let item of hotData.topList">
-          <app-small-card></app-small-card>
+      <ng-container *ngFor="let item of hotData.recommendList">
+        <app-small-card [copywriter]="item.copywriter" [picUrl]="item.picUrl" [name]="item.name"></app-small-card>
       </ng-container>
     </div>
   </div>

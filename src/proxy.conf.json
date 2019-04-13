@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://c.y.qq.com",
+    "target": "https://music.soscoon.com/api",
     "secure": false,
     "pathRewrite": {
       "^/api": ""

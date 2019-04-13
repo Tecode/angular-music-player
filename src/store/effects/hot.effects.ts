@@ -16,9 +16,9 @@ export class HotEffects {
       mergeMap(() =>
         forkJoin([
           this.hotService.loopList()
-            .pipe(catchError(() => of({ 'code': -1, data: {} }))),
+            .pipe(catchError(() => of({ 'code': -1, banners: [] }))),
           this.hotService.popularList()
-            .pipe(catchError(() => of({ 'code': -1, data: {} }))),
+            .pipe(catchError(() => of({ 'code': -1, result: [] }))),
         ])
           .pipe(
             map(data => ({ type: '[Hot API] Data Loaded Success', payload: data })),

@@ -8,30 +8,22 @@ export interface HotAction extends Action {
 // 由于是QQ的接口不确定他会改，定义成这样保险一点
 export interface HotStateData {
   loading?: boolean,
-  radioList: Array<any>,
   slider: Array<any>,
-  songList: Array<any>,
-  topList: Array<any>,
+  recommendList: Array<any>,
 }
 
-export const hotSate: HotStateData = {
-  radioList: [],
+const initState: HotStateData = {
   slider: [],
-  songList: [],
-  topList: [],
+  recommendList: [],
 };
 
-export function hotStore(state: HotStateData = hotSate, action: HotAction): HotStateData {
+export function hotStore(state: HotStateData = initState, action: HotAction): HotStateData {
   switch (action.type) {
     case HotActionTypes.LoadData:
       return state;
     case HotActionTypes.LoadSuccess:
-      const interface01 = action.payload[0].data;
-      const interface02 = action.payload[1].data;
-      state.radioList = interface01.radioList;
-      state.slider = interface01.slider;
-      state.songList = interface01.songList
-      state.topList = interface02.topList;
+      state.slider = action.payload[0].banners;
+      state.recommendList = action.payload[1].result;
       return state;
     case HotActionTypes.LoadError:
       console.log(action, '--------');
