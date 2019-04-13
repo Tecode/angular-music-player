@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { TopListStateData } from 'src/store/reducers/list.reducer';
+import { TopListStateData } from '../../store/reducers/list.reducer';
 import { Observable } from 'rxjs';
 import { LoadTopListData } from '../../store';
 
