@@ -1,8 +1,11 @@
 <h1 align="center">QQ音乐[Angular7.x + NGRX]</h1>
 
 <p align="center">
-
+    <img width="116" title="angular" src="./src/assets/logo/image_angular.svg">
+    <img width="100" title="ngrx" src="./src/assets/logo/image_ngrx.svg">
 </p>
+
+
 
 ## Development server【开发环境】
 
@@ -69,14 +72,4 @@ Run `ng generate module orders --routing` AND `ng generate module customers --ro
 │   └── imgs
 │       ├── audio
 │       ├── icon
-│       │   └── SVG
-│       └── navbar
-├── environments
-├── interceptor //拦截器，捕获异常统一对接口过滤
-├── services  //http请求服务
-└── store //数据状态管理库
-    ├── actions //
-    ├── effects
-    └── reducers
-
 ```
