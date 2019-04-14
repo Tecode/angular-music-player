@@ -30,8 +30,8 @@ import { SearchInputComponent } from './search/search-input/search-input.compone
 import { HotSearchComponent } from './search/hot-search/hot-search.component';
 import { SearchListComponent } from './search/search-list/search-list.component';
 import { DetailsComponent } from './details/details.component';
-import { ListContentComponent } from './details/list-content/list-content.component';
-import { CoverComponent } from './details/cover/cover.component';
+import { ListContentComponent } from './common/list-content/list-content.component';
+import { SongListDetailComponent } from './hot/song-list-detail/song-list-detail.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,7 @@ import { CoverComponent } from './details/cover/cover.component';
     SearchListComponent,
     DetailsComponent,
     ListContentComponent,
-    CoverComponent
+    SongListDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

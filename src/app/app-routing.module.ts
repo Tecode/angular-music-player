@@ -6,7 +6,6 @@ import { HotComponent } from './hot/hot.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ListComponent } from './list/list.component';
-import { DetailsComponent } from './details/details.component';
 
 
 const routes: Routes = [
@@ -15,7 +14,6 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'list', component: ListComponent },
-  { path: 'details', component: DetailsComponent, data: { animation: 'details' } },
   { path: 'smile', loadChildren: './smile/smile.module#SmileModule' },
 ];
 
