@@ -1,11 +1,12 @@
 <h1 align="center">QQ音乐[Angular7.x + NGRX]</h1>
 
 <p align="center">
-    <img width="120" title="angular" src="./src/assets/logo/image_angular.svg">
-    <img width="30" title="ngrx" src="./src/assets/logo/icon_add.svg">
-    <img width="120" title="ngrx" src="./src/assets/logo/image_ngrx.svg">
+    <img width="120" title="angular" src="src/assets/logo/image_angular.svg">
+    <img width="30" style="margin-bottom: 40px;" title="ngrx" src="src/assets/logo/icon_add.svg">
+    <img width="120" title="ngrx" src="src/assets/logo/image_ngrx.svg">
+    <img width="30" style="margin-bottom: 40px;" title="ngrx" src="src/assets/logo/icon_equal.svg">
+    <img width="120" title="ngrx" src="src/assets/imgs/icon/icon_qq_music.svg">
 </p>
-
 
 
 ## Development server【开发环境】
