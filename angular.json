@@ -48,7 +48,7 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": true,
-              "buildOptimizer": true,
+              "buildOptimizer": false,
               "budgets": [{
                 "type": "initial",
                 "maximumWarning": "2mb",

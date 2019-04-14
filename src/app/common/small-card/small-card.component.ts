@@ -17,7 +17,7 @@ export class SmallCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  private routerLink(id: number): void {
+  public routerLink(id: number): void {
     this.router.navigate(['/hot', id])
   }
 

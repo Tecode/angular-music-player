@@ -39,3 +39,18 @@ export function formatTime(timestamp): string {
     let second = (timestamp % 60).toString().padStart(2, '0');
     return `${minute}:${second}`;
 }
+
+export type EquipmentWidth = {
+    width: number;
+    height: number;
+}
+// 获取设备的宽高
+export function equipmentWidth(): EquipmentWidth {
+    if (typeof window !== 'undefined') {
+        return {
+            width: document.body.clientWidth,
+            height: document.body.clientHeight
+        };
+    }
+    return { width: 0, height: 0 };
+}
