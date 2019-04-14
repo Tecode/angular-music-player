@@ -1,15 +1,29 @@
 import { Action } from '@ngrx/store';
 import { HotActionTypes } from '../actions';
 
-export interface HotStateData {
-  loading?: boolean
+export interface HotAction extends Action {
+  payload: object
 }
 
-export const hotSate = {};
+// 由于是QQ的接口不确定他会改，定义成这样保险一点
+export interface HotStateData {
+  loading?: boolean,
+  slider: Array<any>,
+  recommendList: Array<any>,
+}
 
-export function hotStore(state: HotStateData = hotSate, action: Action): HotStateData {
+const initState: HotStateData = {
+  slider: [],
+  recommendList: [],
+};
+
+export function hotStore(state: HotStateData = initState, action: HotAction): HotStateData {
   switch (action.type) {
     case HotActionTypes.LoadData:
+      return state;
+    case HotActionTypes.LoadSuccess:
+      state.slider = action.payload[0].banners;
+      state.recommendList = action.payload[1].result;
       return state;
     case HotActionTypes.LoadError:
       console.log(action, '--------');

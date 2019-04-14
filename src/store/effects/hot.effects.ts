@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { HotActionTypes, LoadError } from '../actions';
-import { of } from 'rxjs';
+import { of, forkJoin } from 'rxjs';
 import { HotService } from '../../services';
 
 
@@ -13,14 +13,20 @@ export class HotEffects {
   loadHotData$ = this.actions$
     .pipe(
       ofType(HotActionTypes.LoadData),
-      mergeMap(() => this.hotService.loadData()
-        .pipe(
-          map(data => ({ type: '[Hot API] Data Loaded Success', payload: data })),
-          catchError((err) => {
-            //call the action if there is an error
-            return of(new LoadError(err["message"]));
-          })
-        ))
+      mergeMap(() =>
+        forkJoin([
+          this.hotService.loopList()
+            .pipe(catchError(() => of({ 'code': -1, banners: [] }))),
+          this.hotService.popularList()
+            .pipe(catchError(() => of({ 'code': -1, result: [] }))),
+        ])
+          .pipe(
+            map(data => ({ type: '[Hot API] Data Loaded Success', payload: data })),
+            catchError((err) => {
+              //call the action if there is an error
+              return of(new LoadError(err["message"]));
+            })
+          ))
     )
 
   constructor(

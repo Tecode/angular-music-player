@@ -10,7 +10,7 @@ import { Increment, Decrement, Reset } from '../../store/actions';
   styleUrls: ['./my-counter.component.less'],
 })
 export class MyCounterComponent {
-  count$: Observable<number>;
+  public count$: Observable<number>;
 
 
   constructor(private store: Store<{ count: number }>) {

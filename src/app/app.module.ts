@@ -18,20 +18,13 @@ import { ControllerComponent } from './controller/controller.component';
 import { PortalComponent } from './portal/portal.component';
 import { BannerComponent } from './portal/banner/banner.component';
 import { HeadlineComponent } from './common/headline/headline.component';
-import { HotComponent } from './hot/hot.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ListComponent } from './list/list.component';
-import { BigCardComponent } from './common/big-card/big-card.component';
-import { SmallCardComponent } from './common/small-card/small-card.component';
-import { ScrollComponent } from './common/scroll/scroll.component';
-import { SliderComponent } from './common/slider/slider.component';
 import { SearchInputComponent } from './search/search-input/search-input.component';
 import { HotSearchComponent } from './search/hot-search/hot-search.component';
 import { SearchListComponent } from './search/search-list/search-list.component';
 import { DetailsComponent } from './details/details.component';
-import { ListContentComponent } from './details/list-content/list-content.component';
-import { CoverComponent } from './details/cover/cover.component';
 
 @NgModule({
   declarations: [
@@ -41,20 +34,13 @@ import { CoverComponent } from './details/cover/cover.component';
     PortalComponent,
     BannerComponent,
     HeadlineComponent,
-    HotComponent,
     SearchComponent,
     ProfileComponent,
     ListComponent,
-    BigCardComponent,
-    SmallCardComponent,
-    ScrollComponent,
-    SliderComponent,
     SearchInputComponent,
     HotSearchComponent,
     SearchListComponent,
     DetailsComponent,
-    ListContentComponent,
-    CoverComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

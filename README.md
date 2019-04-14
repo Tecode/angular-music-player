@@ -1,8 +1,13 @@
 <h1 align="center">QQ音乐[Angular7.x + NGRX]</h1>
 
 <p align="center">
-
+    <img width="120" title="angular" src="src/assets/logo/image_angular.svg">
+    <img width="30" style="margin-bottom: 40px;" title="ngrx" src="src/assets/logo/icon_add.svg">
+    <img width="120" title="ngrx" src="src/assets/logo/image_ngrx.svg">
+    <img width="30" style="margin-bottom: 40px;" title="ngrx" src="src/assets/logo/icon_equal.svg">
+    <img width="120" title="ngrx" src="src/assets/imgs/icon/icon_qq_music.svg">
 </p>
+
 
 ## Development server【开发环境】
 
@@ -41,8 +46,8 @@ Run `ng generate module orders --routing` AND `ng generate module customers --ro
 ## Directory structure【目录结构】
 
 ```bash
-├── app
-│   ├── common
+├── app //组件
+│   ├── common  //公共组件
 │   │   ├── big-card
 │   │   ├── headline
 │   │   ├── scroll
@@ -52,7 +57,7 @@ Run `ng generate module orders --routing` AND `ng generate module customers --ro
 │   ├── details
 │   │   ├── cover
 │   │   └── list-content
-│   ├── helpers
+│   ├── helpers //公共函数
 │   ├── hot
 │   ├── list
 │   ├── my-counter
@@ -65,18 +70,8 @@ Run `ng generate module orders --routing` AND `ng generate module customers --ro
 │   │   ├── search-input
 │   │   └── search-list
 │   └── smile
-├── assets
+├── assets  //静态资源
 │   └── imgs
 │       ├── audio
 │       ├── icon
-│       │   └── SVG
-│       └── navbar
-├── environments
-├── interceptor
-├── services
-└── store
-    ├── actions
-    ├── effects
-    └── reducers
-
 ```

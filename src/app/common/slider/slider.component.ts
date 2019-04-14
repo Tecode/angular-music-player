@@ -13,6 +13,7 @@ export class SliderComponent implements OnInit {
   public timer: number;
   private resizeTimer: number;
 
+  @Input() public sliderData: Array<any> = [];
   @Input() public loop: boolean = true;
   @Input() public autoPlay: boolean = true;
   @Input() public interval: number = 4000;
@@ -26,6 +27,15 @@ export class SliderComponent implements OnInit {
   constructor(private renderer: Renderer2) { }
 
   ngOnInit() { }
+  ngOnChanges(sliderData: Array<any>): void {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
+    setTimeout(() => {
+      if (this.slider) {
+        this.update();
+      }
+    }, 20);
+  }
   ngAfterContentInit() {
     if (typeof window != 'undefined') {
       this.update();
@@ -43,7 +53,7 @@ export class SliderComponent implements OnInit {
             }
           }
           this.refresh();
-        }, 60);
+        }, 20);
       });
     }
   }
