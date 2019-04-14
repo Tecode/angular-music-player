@@ -10,6 +10,8 @@ export class BigCardComponent implements OnInit {
   @Input() name: string = '';
   @Input() id: number = 0;
   @Input() singer: string = '';
+  @Input() durationTime: string = '00:00';
+  @Input() rank:number;
 
   constructor() { }
 

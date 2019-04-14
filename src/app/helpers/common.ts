@@ -32,3 +32,10 @@ export function getRect(el): ClientRectData {
         height: el.offsetHeight
     };
 }
+
+export function formatTime(timestamp): string {
+    timestamp = Math.floor(timestamp);
+    let minute = (Math.floor(timestamp / 60)).toString().padStart(2, '0');
+    let second = (timestamp % 60).toString().padStart(2, '0');
+    return `${minute}:${second}`;
+}

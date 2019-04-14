@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { TopListStateData } from '../../store/reducers/list.reducer';
 import { Observable } from 'rxjs';
 import { LoadTopListData } from '../../store';
+import { TopListStateData } from '../../store/reducers/list.reducer';
+import {formatTime} from '../helpers/common';
 
 @Component({
   selector: 'app-list',
@@ -15,6 +16,13 @@ export class ListComponent implements OnInit {
     topList: []
   };
 
+  private modifyArray(data: any[]): string {
+    return data.map(item => item.name).join('/');
+  }
+
+  private time(data: number): string{
+    return formatTime(data/1000);
+  }
 
   constructor(private store: Store<{ topListStore: TopListStateData }>) {
     this.topListStore$ = store.pipe(select('topListStore'))

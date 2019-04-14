@@ -1,7 +1,8 @@
 <app-scroll>
   <div class="content_box">
-    <ng-container *ngFor="let item of topListData.topList">
-      <app-big-card [picUrl]="item.al.picUrl"></app-big-card>
+    <ng-container *ngFor="let item of topListData.topList; let rank=index">
+      <app-big-card [durationTime]="time(item.dt)" [id]="item.al.id" [picUrl]="item.al.picUrl" [singer]="modifyArray(item.ar)"
+        [name]="item.name" [rank]="rank+1"></app-big-card>
     </ng-container>
   </div>
 </app-scroll>

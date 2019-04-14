@@ -3,8 +3,9 @@
     <img [src]="picUrl" />
   </div>
   <div class="title_text_box">
-    <p>1<span class="text_name">乞丐</span>- 摩登兄弟</p>
-    <p>2<span class="text_name">你的酒馆对我打了烊</span>- 陈雪凝</p>
-    <p>3<span class="text_name">我爱他</span>- 丁当</p>
+    <p class="name">{{name}}</p>
+    <p><span class="text_name">歌手</span>- {{singer}}</p>
+    <p><span class="text_name">{{durationTime}}</span></p>
+    <div *ngIf="rank < 4" class="top_number">{{rank}}</div>
   </div>
 </div>
