@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-small-card',
@@ -10,9 +11,14 @@ export class SmallCardComponent implements OnInit {
   @Input() name: string = '';
   @Input() copywriter: string = '';
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
+  }
+
+  private routerLink(id: number): void {
+    this.router.navigate(['/hot', id])
   }
 
 }
