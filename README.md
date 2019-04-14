@@ -1,8 +1,9 @@
 <h1 align="center">QQ音乐[Angular7.x + NGRX]</h1>
 
 <p align="center">
-    <img width="116" title="angular" src="./src/assets/logo/image_angular.svg">
-    <img width="100" title="ngrx" src="./src/assets/logo/image_ngrx.svg">
+    <img width="120" title="angular" src="./src/assets/logo/image_angular.svg">
+    <img width="30" title="ngrx" src="./src/assets/logo/icon_add.svg">
+    <img width="120" title="ngrx" src="./src/assets/logo/image_ngrx.svg">
 </p>
 
 
