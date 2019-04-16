@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { TweenLite } from 'gsap';
 import { equipmentWidth } from '../../helpers/common';
 
@@ -10,7 +10,7 @@ import { equipmentWidth } from '../../helpers/common';
 export class SongListDetailComponent implements OnInit {
   public fixedLeft: number = equipmentWidth().width;
 
-  constructor() { }
+  constructor(private scrollEl:ElementRef) { }
 
   ngOnInit() {
   }
@@ -20,7 +20,15 @@ export class SongListDetailComponent implements OnInit {
     //Add 'implements AfterViewInit' to the class.
     console.log(equipmentWidth().width);
     if (typeof window !== 'undefined') {
-      TweenLite.to(".hot_detail_box", 0.6, { left: 0 });
+      console.log(this.scrollEl.nativeElement.children[0]);
+      TweenLite.to(this.scrollEl.nativeElement.children[0], 0.1, { left: 0 })
+      .eventCallback('onComplete', () => {
+        console.log('完成');
+      })
     }
+  }
+
+  public goBack():void {
+    console.log(4)
   }
 }

@@ -9,6 +9,7 @@ import { ScrollComponent } from '../common/scroll/scroll.component';
 import { SliderComponent } from '../common/slider/slider.component';
 import { BigCardComponent } from '../common/big-card/big-card.component';
 import { SmallCardComponent } from '../common/small-card/small-card.component';
+import { HammertimeDirective } from '../../directive/hammertime.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SmallCardComponent } from '../common/small-card/small-card.component';
     ScrollComponent,
     SliderComponent,
     BigCardComponent,
-    SmallCardComponent
+    SmallCardComponent,
+    HammertimeDirective
   ],
   imports: [
     CommonModule,

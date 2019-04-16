@@ -9,7 +9,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { reducers, effects } from '../store';
 
 // http拦截器,捕获异常，加Token
-import { HttpConfigInterceptor} from '../interceptor/httpconfig.interceptor';
+import { HttpConfigInterceptor } from '../interceptor/httpconfig.interceptor';
 
 
 import { AppComponent } from './app.component';
@@ -25,6 +25,16 @@ import { SearchInputComponent } from './search/search-input/search-input.compone
 import { HotSearchComponent } from './search/hot-search/hot-search.component';
 import { SearchListComponent } from './search/search-list/search-list.component';
 import { DetailsComponent } from './details/details.component';
+
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any>{
+    // override hammerjs default configuration
+    'swipe': { direction: Hammer.DIRECTION_ALL }
+  }
+}
 
 @NgModule({
   declarations: [
@@ -51,7 +61,15 @@ import { DetailsComponent } from './details/details.component';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpConfigInterceptor,
+      multi: true
+    },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig
+    }
   ],
   bootstrap: [AppComponent]
 })
