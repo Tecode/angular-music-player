@@ -5,7 +5,6 @@ import { HotRoutingModule } from './hot-routing.module';
 import { HotComponent } from './hot.component';
 import { SongListDetailComponent } from './song-list-detail/song-list-detail.component';
 import { ListContentComponent } from '../common/list-content/list-content.component';
-import { ScrollComponent } from '../common/scroll/scroll.component';
 import { SliderComponent } from '../common/slider/slider.component';
 import { SmallCardComponent } from '../common/small-card/small-card.component';
 import { HammertimeDirective } from '../../directive/hammertime.directive';
@@ -19,7 +18,6 @@ import { HammertimeDirective } from '../../directive/hammertime.directive';
     HotComponent,
     SongListDetailComponent,
     ListContentComponent,
-    ScrollComponent,
     SliderComponent,
     SmallCardComponent,
     HammertimeDirective

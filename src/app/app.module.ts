@@ -27,6 +27,9 @@ import { HotSearchComponent } from './search/hot-search/hot-search.component';
 import { SearchListComponent } from './search/search-list/search-list.component';
 import { DetailsComponent } from './details/details.component';
 import { BigCardComponent } from './common/big-card/big-card.component';
+import { ScrollComponent } from './common/scroll/scroll.component';
+
+import { HotModule } from './hot/hot.module';
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -53,15 +56,17 @@ export class MyHammerConfig extends HammerGestureConfig {
     HotSearchComponent,
     SearchListComponent,
     DetailsComponent,
-    BigCardComponent
+    BigCardComponent,
+    ScrollComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    // HotModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot(effects)
+    EffectsModule.forRoot(effects),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

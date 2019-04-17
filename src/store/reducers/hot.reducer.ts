@@ -2,7 +2,13 @@ import { Action } from '@ngrx/store';
 import { HotActionTypes } from '../actions';
 
 export interface HotAction extends Action {
-  payload: object
+  payload: any
+}
+
+export interface SongListDetail {
+  coverImgUrl: string;
+  name: string;
+  listData: any[]
 }
 
 // 由于是QQ的接口不确定他会改，定义成这样保险一点
@@ -10,13 +16,17 @@ export interface HotStateData {
   loading?: boolean,
   slider: any[],
   recommendList: any[],
-  songListDetail?: any
+  songListDetail?: SongListDetail
 }
 
 const initState: HotStateData = {
   slider: [],
   recommendList: [],
-  songListDetail: {}
+  songListDetail: {
+    coverImgUrl: '',
+    name: '',
+    listData: []
+  }
 };
 
 export function hotStore(state: HotStateData = initState, action: HotAction): HotStateData {
@@ -29,7 +39,9 @@ export function hotStore(state: HotStateData = initState, action: HotAction): Ho
       console.log(action, '--------');
       return state;
     case HotActionTypes.LoadSongListSuccess:
-      state.songListDetail = action.payload;
+      state.songListDetail.coverImgUrl = action.payload.coverImgUrl;
+      state.songListDetail.name = action.payload.name;
+      state.songListDetail.listData = action.payload.tracks;
       return state;
     case HotActionTypes.LoadSongListError:
       console.log('获取出错了');

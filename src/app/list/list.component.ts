@@ -16,11 +16,11 @@ export class ListComponent implements OnInit {
     topList: []
   };
 
-  private modifyArray(data: any[]): string {
+  public modifyArray(data: any[]): string {
     return data.map(item => item.name).join('/');
   }
 
-  private time(data: number): string{
+  public time(data: number): string{
     return formatTime(data/1000);
   }
 

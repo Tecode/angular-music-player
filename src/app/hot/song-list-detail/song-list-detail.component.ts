@@ -10,7 +10,7 @@ import {
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { LoadSongListData } from '../../../store';
-import { HotStateData } from '../../../store/reducers/hot.reducer';
+import { HotStateData, SongListDetail } from '../../../store/reducers/hot.reducer';
 
 
 @Component({
@@ -33,8 +33,10 @@ import { HotStateData } from '../../../store/reducers/hot.reducer';
 })
 export class SongListDetailComponent implements OnInit {
   public detailStore$: Observable<HotStateData>;
-  public songDetailList: any = {
-    tracks: []
+  public songDetailList: SongListDetail = {
+    coverImgUrl: '',
+    name: '',
+    listData: []
   };
 
   constructor(
@@ -49,12 +51,15 @@ export class SongListDetailComponent implements OnInit {
     const songId: number = Number(this.activeRouter.snapshot.paramMap.get('id'));
     this.store.dispatch(new LoadSongListData(songId));
     this.detailStore$.subscribe(data => {
-      this.songDetailList = data;
-      console.log(data);
+      this.songDetailList = data.songListDetail;
     })
   }
 
   public goBack(): void {
     this.router.navigate(['/hot']);
+  }
+
+  public scrollFun(pos: any) {
+    console.log(pos);
   }
 }
