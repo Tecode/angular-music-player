@@ -1,12 +1,15 @@
 import { Action } from '@ngrx/store';
 
 export enum HotActionTypes {
-    LoadData = '[Hot Page] Load Data',
+    LoadData = '[Hot API] Load Data',
     LoadSuccess = '[Hot API] Data Loaded Success',
-    LoadError = '[Hot Page] Load Error',
+    LoadError = '[Hot API] Load Error',
+    LoadSongListData = '[Hot API] Load Song List',
+    LoadSongListSuccess = '[Hot API] Song List Data Loaded Success',
+    LoadSongListError = '[Hot API] Song List Data Loaded Error',
 }
 
-//  获取数据
+//  获取热门推荐数据
 export class LoadHotData implements Action {
     readonly type = HotActionTypes.LoadData;
 }
@@ -17,5 +20,20 @@ export class LoadSuccess implements Action {
 
 export class LoadError implements Action {
     readonly type = HotActionTypes.LoadError;
-    constructor(public data: any){}
+    constructor(public data: any) { }
+}
+
+// 获取歌单详情数据
+export class LoadSongListData implements Action {
+    readonly type = HotActionTypes.LoadSongListData;
+    constructor(public id: number) { }
+}
+
+export class LoadSongListSuccess implements Action {
+    readonly type = HotActionTypes.LoadSongListSuccess;
+}
+
+export class LoadSongListError implements Action {
+    readonly type = HotActionTypes.LoadSongListError;
+    constructor(public data: any) { }
 }

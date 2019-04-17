@@ -10,6 +10,7 @@ export class SmallCardComponent implements OnInit {
   @Input() picUrl: string = '';
   @Input() name: string = '';
   @Input() copywriter: string = '';
+  @Input() id:number = 0;
 
   constructor(private router: Router) {
   }
@@ -17,8 +18,8 @@ export class SmallCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  public routerLink(id: number): void {
-    this.router.navigate(['/hot', id])
+  public routerLink(): void {
+    this.router.navigate(['/hot', this.id])
   }
 
 }

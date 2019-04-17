@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-content',
@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-content.component.less']
 })
 export class ListContentComponent implements OnInit {
-  public dataArr: Array<any> = new Array(20);
+  @Input() public data: any[] = new Array(20);
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.data, '---------')
   }
 
 }

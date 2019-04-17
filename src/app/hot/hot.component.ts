@@ -1,17 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { RouterOutlet } from '@angular/router';
-import {
-  trigger,
-  style,
-  animate,
-  transition,
-  group,
-  query,
-  animateChild
-} from '@angular/animations';
-
 import { LoadHotData } from '../../store';
 import { HotStateData } from '../../store/reducers/hot.reducer';
 

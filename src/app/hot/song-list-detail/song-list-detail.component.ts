@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import {
   trigger,
   state,
@@ -6,8 +7,10 @@ import {
   animate,
   transition
 } from '@angular/animations';
-import { equipmentWidth } from '../../helpers/common';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+import { LoadSongListData } from '../../../store';
+import { HotStateData } from '../../../store/reducers/hot.reducer';
 
 
 @Component({
@@ -29,15 +32,26 @@ import { Router } from '@angular/router';
   ]
 })
 export class SongListDetailComponent implements OnInit {
-  public fixedLeft: number = equipmentWidth().width;
+  public detailStore$: Observable<HotStateData>;
+  public songDetailList: any = {
+    tracks: []
+  };
 
-  constructor(public router: Router) { }
+  constructor(
+    public router: Router,
+    private store: Store<{ hotStore: HotStateData }>,
+    private activeRouter: ActivatedRoute
+  ) {
+    this.detailStore$ = store.pipe(select('hotStore'));
+  }
 
-  ngOnInit() { }
-
-  ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
+  ngOnInit() {
+    const songId: number = Number(this.activeRouter.snapshot.paramMap.get('id'));
+    this.store.dispatch(new LoadSongListData(songId));
+    this.detailStore$.subscribe(data => {
+      this.songDetailList = data;
+      console.log(data);
+    })
   }
 
   public goBack(): void {

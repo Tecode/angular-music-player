@@ -10,7 +10,7 @@ import { TopListService } from '../../services';
 export class TopListEffects {
 
   @Effect()
-  loadHotData$ = this.actions$
+  loadListData$ = this.actions$
     .pipe(
       ofType(TopListActionTypes.LoadData),
       mergeMap(() => this.topListService.topList()
