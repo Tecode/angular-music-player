@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -25,6 +26,7 @@ import { SearchInputComponent } from './search/search-input/search-input.compone
 import { HotSearchComponent } from './search/hot-search/hot-search.component';
 import { SearchListComponent } from './search/search-list/search-list.component';
 import { DetailsComponent } from './details/details.component';
+import { BigCardComponent } from './common/big-card/big-card.component';
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -51,9 +53,11 @@ export class MyHammerConfig extends HammerGestureConfig {
     HotSearchComponent,
     SearchListComponent,
     DetailsComponent,
+    BigCardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),

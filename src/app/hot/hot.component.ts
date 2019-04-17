@@ -1,6 +1,17 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { RouterOutlet } from '@angular/router';
+import {
+  trigger,
+  style,
+  animate,
+  transition,
+  group,
+  query,
+  animateChild
+} from '@angular/animations';
+
 import { LoadHotData } from '../../store';
 import { HotStateData } from '../../store/reducers/hot.reducer';
 
@@ -16,7 +27,7 @@ export class HotComponent implements OnInit {
     recommendList: []
   };
 
-  @ViewChild('slider') slider:ElementRef;
+  @ViewChild('slider') slider: ElementRef;
 
   constructor(private store: Store<{ hotStore: HotStateData }>) {
     this.hotStore$ = store.pipe(select('hotStore'));
@@ -28,5 +39,4 @@ export class HotComponent implements OnInit {
       this.hotData = data;
     });
   }
-
 }

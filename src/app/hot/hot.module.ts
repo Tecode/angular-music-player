@@ -7,24 +7,22 @@ import { SongListDetailComponent } from './song-list-detail/song-list-detail.com
 import { ListContentComponent } from '../common/list-content/list-content.component';
 import { ScrollComponent } from '../common/scroll/scroll.component';
 import { SliderComponent } from '../common/slider/slider.component';
-import { BigCardComponent } from '../common/big-card/big-card.component';
 import { SmallCardComponent } from '../common/small-card/small-card.component';
 import { HammertimeDirective } from '../../directive/hammertime.directive';
 
 @NgModule({
+  imports: [
+    CommonModule,
+    HotRoutingModule
+  ],
   declarations: [
     HotComponent,
     SongListDetailComponent,
     ListContentComponent,
     ScrollComponent,
     SliderComponent,
-    BigCardComponent,
     SmallCardComponent,
     HammertimeDirective
-  ],
-  imports: [
-    CommonModule,
-    HotRoutingModule
   ]
 })
 export class HotModule { }
