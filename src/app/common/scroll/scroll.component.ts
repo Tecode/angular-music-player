@@ -73,8 +73,8 @@ export class ScrollComponent implements OnInit {
 
   // 初始化滚动函数
   private _initScroll(): void {
+    console.log(this.scrollContent.nativeElement);
     const scrollContent = this.scrollContent.nativeElement;
-    console.log(scrollContent);
     if (!scrollContent) {
       return;
     }
@@ -95,12 +95,12 @@ export class ScrollComponent implements OnInit {
     }
     this.scroll = new BScroll(scrollContent, options);
 
-    // if (this.listenScroll) {
-    //   this.scroll.on('scroll', (pos) => {
-    //     console.log('4444')
-    //     this.scrollFun.emit(pos);
-    //   })
-    // }
+    if (this.listenScroll) {
+      this.scroll.on('scroll', (pos) => {
+        console.log('4444')
+        this.scrollFun.emit(pos);
+      })
+    }
 
     // if (this.listenScrollEnd) {
     //   this.scroll.on('scrollEnd', (pos) => {
