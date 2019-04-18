@@ -3,5 +3,7 @@
   <div class="cover_image">
     <div class="play">随机播放全部</div>
   </div>
-  <app-list-content [data]="songDetailList.listData"></app-list-content>
+  <div class="scroll_content" [ngStyle]="{'top': scrollTop + 'px'}">
+    <app-list-content (onScroll)="handlerScroll($event)" [data]="songDetailList.listData"></app-list-content>
+  </div>
 </div>

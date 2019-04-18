@@ -8,6 +8,11 @@ type PullDownRefresh = {
   stopTime?: number
 }
 
+export interface Position {
+  x: number;
+  y: number;
+}
+
 @Component({
   selector: 'app-scroll',
   templateUrl: './scroll.component.html',
@@ -54,6 +59,7 @@ export class ScrollComponent implements OnInit {
 
   @ViewChild('scrollContent') scrollContent: ElementRef;
 
+
   constructor(private element: ElementRef) { }
 
   ngOnInit() { }
@@ -82,22 +88,20 @@ export class ScrollComponent implements OnInit {
     const options = {
       probeType: this.probeType,
       click: this.click,
-      // scrollY: this.freeScroll || this.direction === 'vertical',
-      // scrollX: this.freeScroll || this.direction === 'horizontal',
-      // scrollbar: this.scrollBar,
-      // pullDownRefresh: this.pullDownRefresh,
-      // pullUpLoad: this.pullUpLoad,
-      // startY: this.startY,
-      // freeScroll: this.freeScroll,
-      // mouseWheel: this.mouseWheel,
-      // bounce: this.bounce,
-      // zoom: this.zoom
+      scrollY: this.freeScroll || this.direction === 'vertical',
+      scrollX: this.freeScroll || this.direction === 'horizontal',
+      scrollbar: this.scrollBar,
+      pullDownRefresh: this.pullDownRefresh,
+      pullUpLoad: this.pullUpLoad,
+      startY: this.startY,
+      freeScroll: this.freeScroll,
+      mouseWheel: this.mouseWheel,
+      bounce: this.bounce,
+      zoom: this.zoom
     }
     this.scroll = new BScroll(scrollContent, options);
-
     if (this.listenScroll) {
-      this.scroll.on('scroll', (pos) => {
-        console.log('4444')
+      this.scroll.on('scroll', (pos: Position) => {
         this.scrollFun.emit(pos);
       })
     }

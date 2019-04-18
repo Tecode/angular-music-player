@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { formatTime } from '../../helpers/common';
+import { Position } from '../../common/scroll/scroll.component';
 
 @Component({
   selector: 'app-list-content',
@@ -8,6 +9,7 @@ import { formatTime } from '../../helpers/common';
 })
 export class ListContentComponent implements OnInit {
   @Input() public data: any[] = new Array(20);
+  @Output() public onScroll = new EventEmitter();
 
   constructor() { }
 
@@ -23,7 +25,7 @@ export class ListContentComponent implements OnInit {
     return formatTime(data / 1000);
   }
 
-  public scrollFun(a) {
-    console.log(a);
+  public scrollFun(position: Position) {
+    this.onScroll.emit(position);
   }
 }

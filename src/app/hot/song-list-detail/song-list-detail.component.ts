@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { LoadSongListData } from '../../../store';
 import { HotStateData, SongListDetail } from '../../../store/reducers/hot.reducer';
+import { Position } from '../../common/scroll/scroll.component';
 
 
 @Component({
@@ -33,6 +34,7 @@ import { HotStateData, SongListDetail } from '../../../store/reducers/hot.reduce
 })
 export class SongListDetailComponent implements OnInit {
   public detailStore$: Observable<HotStateData>;
+  public scrollTop: number = 260;
   public songDetailList: SongListDetail = {
     coverImgUrl: '',
     name: '',
@@ -59,7 +61,16 @@ export class SongListDetailComponent implements OnInit {
     this.router.navigate(['/hot']);
   }
 
-  public scrollFun(pos: any) {
-    console.log(pos);
+  public handlerScroll(position: Position) {
+    if (this.scrollTop > 260) {
+      this.scrollTop = 260;
+      return;
+    }
+    if (this.scrollTop < 38) {
+      this.scrollTop = 38;
+      return;
+    }
+    this.scrollTop = this.scrollTop + position.y;
+    console.log(position);
   }
 }

@@ -23,7 +23,7 @@
     <h1 class="hot_title">热门歌单推荐</h1>
     <div class="content_box">
       <ng-container *ngFor="let item of hotData.recommendList">
-        <app-small-card [copywriter]="item.copywriter" [picUrl]="item.picUrl" [name]="item.name" [id]="item.id"></app-small-card>
+        <app-small-card [copywriter]="item.copywriter" [picUrl]="item.picUrl+'?param=100y100&quality=100'" [name]="item.name" [id]="item.id"></app-small-card>
       </ng-container>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<app-scroll (scrollFun)="scrollFun($event)" [listenScroll]="true">
+<app-scroll [probeType]="3" (scrollFun)="scrollFun($event)" [listenScroll]="true">
   <div class="detail_list">
     <div class="count_box__desc">歌单 <span class="count_box__number">共{{data.length}}首</span></div>
     <ul class="list_content">
