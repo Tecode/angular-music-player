@@ -4,19 +4,22 @@ import { ActionReducerMap, createSelector, createFeatureSelector } from '@ngrx/s
 import { counterReducer } from './counter.reducer';
 import { hotStore, HotStateData } from './hot.reducer';
 import { topListStore, TopListStateData } from './list.reducer';
+import { controlStore, ControlStateData } from './control.reducer';
 
 //state
 export interface state {
     count: number;
     hotStore: HotStateData;
-    topListStore: TopListStateData
+    topListStore: TopListStateData;
+    controlStore: ControlStateData;
 }
 
 //register the reducer functions
 export const reducers: ActionReducerMap<state> = {
     count: counterReducer,
     hotStore,
-    topListStore
+    topListStore,
+    controlStore,
 }
 
 

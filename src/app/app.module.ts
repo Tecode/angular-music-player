@@ -15,7 +15,7 @@ import { HttpConfigInterceptor } from '../interceptor/httpconfig.interceptor';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ControllerComponent } from './controller/controller.component';
+import { ControlComponent } from './control/control.component';
 import { PortalComponent } from './portal/portal.component';
 import { BannerComponent } from './portal/banner/banner.component';
 import { HeadlineComponent } from './common/headline/headline.component';
@@ -32,6 +32,7 @@ import { HotModule } from './hot/hot.module';
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { DrawerListComponent } from './common/drawer-list/drawer-list.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -44,7 +45,7 @@ export class MyHammerConfig extends HammerGestureConfig {
   declarations: [
     AppComponent,
     NavbarComponent,
-    ControllerComponent,
+    ControlComponent,
     PortalComponent,
     BannerComponent,
     HeadlineComponent,
@@ -55,7 +56,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     HotSearchComponent,
     SearchListComponent,
     DetailsComponent,
-    BigCardComponent
+    BigCardComponent,
+    DrawerListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
