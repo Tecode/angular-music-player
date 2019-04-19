@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { LoadTopListData } from '../../store';
-import { TopListStateData } from '../../store/reducers/list.reducer';
-import {formatTime} from '../helpers/common';
+import { TopListState } from '../../store/reducers/list.reducer';
 
 @Component({
   selector: 'app-list',
@@ -11,8 +10,8 @@ import {formatTime} from '../helpers/common';
   styleUrls: ['./list.component.less']
 })
 export class ListComponent implements OnInit {
-  public topListStore$: Observable<TopListStateData>;
-  public topListData: TopListStateData = {
+  public topListStore$: Observable<TopListState>;
+  public topListData: TopListState = {
     topList: []
   };
 
@@ -20,11 +19,7 @@ export class ListComponent implements OnInit {
     return data.map(item => item.name).join('/');
   }
 
-  public time(data: number): string{
-    return formatTime(data/1000);
-  }
-
-  constructor(private store: Store<{ topListStore: TopListStateData }>) {
+  constructor(private store: Store<{ topListStore: TopListState }>) {
     this.topListStore$ = store.pipe(select('topListStore'))
   }
 

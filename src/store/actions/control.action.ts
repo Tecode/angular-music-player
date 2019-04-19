@@ -4,7 +4,8 @@ export enum ControlActionTypes {
   ToggleSong = '[ Control ] ToggleSong',
   ToggleStatus = '[ Control ] ToggleStatus',
   PlayOrder = '[ Control ] PlayOrder',
-  RestControlData = '[ Control ] RestControlData'
+  RestControlData = '[ Control ] RestControlData',
+  ChangeValue = '[ Control ] ChangeValue'
 }
 
 // 上一曲下一曲
@@ -30,5 +31,10 @@ export class RestControlData implements Action {
   readonly type = ControlActionTypes.RestControlData;
 }
 
+// 设置数据
+export class ChangeControlValue implements Action {
+  readonly type = ControlActionTypes.ChangeValue;
+  constructor(public payload: { key: string; value: any }) { }
+}
 
 

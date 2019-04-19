@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { LoadHotData } from '../../store';
-import { HotStateData } from '../../store/reducers/hot.reducer';
+import { HotState } from '../../store/reducers/hot.reducer';
 
 @Component({
   selector: 'app-hot',
@@ -10,15 +10,15 @@ import { HotStateData } from '../../store/reducers/hot.reducer';
   styleUrls: ['./hot.component.less']
 })
 export class HotComponent implements OnInit {
-  public hotStore$: Observable<HotStateData>;
-  public hotData: HotStateData = {
+  public hotStore$: Observable<HotState>;
+  public hotData: HotState = {
     slider: [],
     recommendList: []
   };
 
   @ViewChild('slider') slider: ElementRef;
 
-  constructor(private store: Store<{ hotStore: HotStateData }>) {
+  constructor(private store: Store<{ hotStore: HotState }>) {
     this.hotStore$ = store.pipe(select('hotStore'));
   }
 

@@ -34,6 +34,7 @@ import { HotModule } from './hot/hot.module';
 
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { DrawerListComponent } from './common/drawer-list/drawer-list.component';
+import { FormatTimePipe } from './pipes/format-time.pipe';
 
 let Hammer = { DIRECTION_ALL: {} };
 if (typeof window != 'undefined') {
@@ -63,7 +64,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     SearchListComponent,
     DetailsComponent,
     BigCardComponent,
-    DrawerListComponent
+    DrawerListComponent,
+    FormatTimePipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

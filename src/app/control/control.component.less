@@ -20,6 +20,10 @@
     align-items: center;
   }
 
+  .right_box {
+    flex: 1;
+  }
+
   .song_pic {
     width: 40px;
     height: 40px;
@@ -33,6 +37,8 @@
   }
 
   .left_box {
+    width: 5rem;
+
     .icon_list {
       width: @20px;
       height: @20px;
@@ -110,6 +116,7 @@
   }
 
   .nav_top {
+    position: relative;
     font-size: @16px;
     color: @color_white;
     text-align: center;
@@ -122,6 +129,12 @@
 
     p {
       font-size: @14px;
+    }
+
+    .close_player {
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 

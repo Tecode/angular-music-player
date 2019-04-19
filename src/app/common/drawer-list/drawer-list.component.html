@@ -1,4 +1,4 @@
-<div style="display: none" class="draw_wrapper">
+<div [ngStyle]="{'display': data.playListVisible ? 'block' : 'none'}" class="draw_wrapper">
   <div class="list_wrapper">
     <div class="list_header">
       顺序播放(174)
@@ -10,6 +10,6 @@
       <li>Turn Down For What<span>-DJ Snake / Lil Jon</span></li>
       <li>Turn Down For What<span>-DJ Snake / Lil Jon</span></li>
     </ul>
-    <button>关闭</button>
+    <button (tap)="handlerPlayerList(false)">关闭</button>
   </div>
 </div>

@@ -6,6 +6,10 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { ControlState } from '../../../store/reducers/control.reducer';
+import { ChangeControlValue } from '../../../store';
+import { Observable } from 'rxjs';
+import { select, Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-drawer-list',
@@ -26,10 +30,21 @@ import {
   ]
 })
 export class DrawerListComponent implements OnInit {
+  public controlStore$: Observable<ControlState>;
+  public data: ControlState;
 
-  constructor() { }
+  constructor(private store: Store<{ controlStore: ControlState }>) {
+    this.controlStore$ = store.pipe(select('controlStore'));
+  }
 
   ngOnInit() {
+    this.controlStore$.subscribe(data => {
+      this.data = data;
+    });
+  }
+
+  public handlerPlayerList(visible: boolean): void {
+    this.store.dispatch(new ChangeControlValue({ key: 'playListVisible', value: visible }));
   }
 
 }

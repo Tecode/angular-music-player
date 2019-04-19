@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { formatTime } from '../../helpers/common';
 import { Position } from '../../common/scroll/scroll.component';
 
 @Component({
@@ -19,10 +18,6 @@ export class ListContentComponent implements OnInit {
 
   public modifyArray(data: any[]): string {
     return data.map(item => item.name).join('/');
-  }
-
-  public time(data: number): string {
-    return formatTime(data / 1000);
   }
 
   public scrollFun(position: Position) {

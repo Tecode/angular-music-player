@@ -12,14 +12,14 @@ export interface SongListDetail {
 }
 
 // 由于是QQ的接口不确定他会改，定义成这样保险一点
-export interface HotStateData {
+export interface HotState {
   loading?: boolean,
   slider: any[],
   recommendList: any[],
   songListDetail?: SongListDetail
 }
 
-const initState: HotStateData = {
+const initState: HotState = {
   slider: [],
   recommendList: [],
   songListDetail: {
@@ -29,7 +29,7 @@ const initState: HotStateData = {
   }
 };
 
-export function hotStore(state: HotStateData = initState, action: HotAction): HotStateData {
+export function hotStore(state: HotState = initState, action: HotAction): HotState {
   switch (action.type) {
     case HotActionTypes.LoadSuccess:
       state.slider = action.payload[0].banners;

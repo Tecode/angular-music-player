@@ -1,6 +1,6 @@
 <!-- mini-player -->
 <div class="controller_box">
-  <div class="right_box">
+  <div (tap)="handlerVisible(true)" class="right_box">
     <div class="song_pic">
       <img src="https://y.gtimg.cn/music/photo_new/T002R300x300M000001isG0O45GAMw.jpg?max_age=2592000" />
     </div>
@@ -10,30 +10,32 @@
     </div>
   </div>
   <div class="left_box">
-    <div class="play_bar_aside">
+    <div (tap)="handlerPlay()" class="play_bar_aside">
       <svg class="play_bar_icon">
-        <svg id="icon_play_thin" viewBox="0 0 32 32" width="100%" height="100%">
+        <svg [ngStyle]="{'display': data.status == 'play' ? 'block' : 'none'}" viewBox="0 0 32 32" width="100%"
+          height="100%">
           <title>播放</title>
           <path
             d="M16 29c7.177 0 13-5.818 13-13s-5.823-13-13-13c-7.177 0-13 5.818-13 13s5.823 13 13 13zM16 30c-7.732 0-14-6.268-14-14s6.268-14 14-14c7.732 0 14 6.268 14 14s-6.268 14-14 14zM12.5 20.186c0 0.189 0.054 0.374 0.155 0.534 0.295 0.467 0.913 0.606 1.379 0.311v0l6.627-4.186c0.126-0.079 0.232-0.186 0.311-0.311 0.295-0.467 0.155-1.085-0.311-1.379v0l-6.627-4.186c-0.16-0.101-0.345-0.155-0.534-0.155-0.552 0-1 0.448-1 1v8.371z">
           </path>
         </svg>
-        <!-- <svg id="icon_pause_thin" viewBox="0 0 32 32" width="100%" height="100%">
-              <title>暂停</title>
-              <path
-                d="M16 29c7.177 0 13-5.818 13-13s-5.823-13-13-13c-7.177 0-13 5.818-13 13s5.823 13 13 13zM16 30c-7.732 0-14-6.268-14-14s6.268-14 14-14c7.732 0 14 6.268 14 14s-6.268 14-14 14zM11 11.995v8.009c0 0.546 0.449 0.995 1.003 0.995h1.494c0.56 0 1.003-0.446 1.003-0.995v-8.009c0-0.546-0.449-0.995-1.003-0.995h-1.494c-0.56 0-1.003 0.446-1.003 0.995zM17.5 11.995v8.009c0 0.546 0.449 0.995 1.003 0.995h1.494c0.56 0 1.003-0.446 1.003-0.995v-8.009c0-0.546-0.449-0.995-1.003-0.995h-1.494c-0.56 0-1.003 0.446-1.003 0.995z">
-              </path>
-            </svg> -->
+        <svg [ngStyle]="{'display': data.status == 'pause' ? 'block' : 'none'}" viewBox="0 0 32 32" width="100%"
+          height="100%">
+          <title>暂停</title>
+          <path
+            d="M16 29c7.177 0 13-5.818 13-13s-5.823-13-13-13c-7.177 0-13 5.818-13 13s5.823 13 13 13zM16 30c-7.732 0-14-6.268-14-14s6.268-14 14-14c7.732 0 14 6.268 14 14s-6.268 14-14 14zM11 11.995v8.009c0 0.546 0.449 0.995 1.003 0.995h1.494c0.56 0 1.003-0.446 1.003-0.995v-8.009c0-0.546-0.449-0.995-1.003-0.995h-1.494c-0.56 0-1.003 0.446-1.003 0.995zM17.5 11.995v8.009c0 0.546 0.449 0.995 1.003 0.995h1.494c0.56 0 1.003-0.446 1.003-0.995v-8.009c0-0.546-0.449-0.995-1.003-0.995h-1.494c-0.56 0-1.003 0.446-1.003 0.995z">
+          </path>
+        </svg>
       </svg>
       <svg class="progress">
-        <circle class="progress_circle" cx="18" cy="18" r="14" stroke-dasharray="26.24234481411375 113"></circle>
+        <circle class="progress_circle" cx="18" cy="18" r="14" attr.stroke-dasharray="{{data.currentTime}} 113"></circle>
       </svg>
     </div>
-    <div (tap)="handlerPlayerList()" class="icon_list"></div>
+    <div (tap)="handlerPlayerList(true)" class="icon_list"></div>
   </div>
 </div>
 <!-- 播放控制器 -->
-<div style="display: none" class="player_control">
+<div [ngStyle]="{'display': data.player ? 'block' : 'none'}" class="player_control">
   <div class="player_background">
     <img width="100%" height="100%"
       src="https://y.gtimg.cn/music/photo_new/T002R300x300M000001IV22P1RDX7p.jpg?max_age=2592000" />
@@ -41,6 +43,7 @@
   <div class="nav_top">
     <h3>可惜没如果</h3>
     <p>林俊杰</p>
+    <div (tap)="handlerVisible(false)" class="close_player">关闭</div>
   </div>
   <div class="middle_content">
     <div class="wrapper_width">
@@ -70,11 +73,11 @@
     <div class="controls_button">
       <div class="icon_loop"></div>
       <div class="icon_pre"></div>
-      <div class="icon_play"></div>
+      <div (tap)="handlerPlay()" class="icon_play"></div>
       <div class="icon_next"></div>
       <div class="icon_list"></div>
     </div>
   </div>
 </div>
 <!-- audio标签 -->
-<audio #audioElement></audio>
+<audio [src]="data.src" preload="auto" #audioElement></audio>

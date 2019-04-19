@@ -7,6 +7,7 @@ export enum HotActionTypes {
     LoadSongListData = '[Hot API] Load Song List',
     LoadSongListSuccess = '[Hot API] Song List Data Loaded Success',
     LoadSongListError = '[Hot API] Song List Data Loaded Error',
+    ChangeValue = '[Hot Page] ChangeValue'
 }
 
 //  获取热门推荐数据
@@ -37,3 +38,8 @@ export class LoadSongListError implements Action {
     readonly type = HotActionTypes.LoadSongListError;
     constructor(public data: any) { }
 }
+
+export class ChangeHotValue implements Action {
+    readonly type = HotActionTypes.ChangeValue;
+    constructor(public payload: { key: string; value: any }) { }
+  }
