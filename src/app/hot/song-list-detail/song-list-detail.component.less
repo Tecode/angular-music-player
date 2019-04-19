@@ -1,42 +1,53 @@
 @import '../../helpers/constants.less';
-.hot_detail_box{
-    position: fixed;
+
+.hot_detail_box {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: @color_white;
+
+  .nav_bar {
+    position: absolute;
     top: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: 10;
-    .nav_bar {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        height: 40px;
-        background-color: @color_white;
-        z-index: 11;
+    right: 0;
+    left: 0;
+    height: 40px;
+    background-color: @color_white;
+    z-index: 11;
+  }
+
+  .cover_image {
+    background-image: url(http://p.qpic.cn/music_cover/AhbCa0vazSRDjEJhYwthgnKImtHPuYgpibjUsh2w7jswm4qbzKebiblA/600?n=1);
+    padding-top: 70%;
+    height: 0px;
+    transform: scale(1);
+    z-index: 0;
+    position: relative;
+
+    .play {
+      position: absolute;
+      box-sizing: border-box;
+      width: 136px;
+      padding: @10px 0;
+      margin: 0 auto;
+      text-align: center;
+      background-color: @main_color;
+      color: @color_white;
+      border-radius: 100px;
+      font-size: @14px;
+      left: 50%;
+      bottom: 2rem;
+      margin-left: -68px;
     }
-    .cover_image {
-        background-image: url(http://p.qpic.cn/music_cover/AhbCa0vazSRDjEJhYwthgnKImtHPuYgpibjUsh2w7jswm4qbzKebiblA/600?n=1);
-        padding-top: 70%;
-        height: 0px;
-        transform: scale(1);
-        z-index: 0;
-        position: relative;
-      
-        .play {
-          position: absolute;
-          box-sizing: border-box;
-          width: 136px;
-          padding: 7px 0;
-          margin: 0 auto;
-          text-align: center;
-          border: 1px solid @main_color;
-          color: @main_color;
-          border-radius: 100px;
-          font-size: @12px;
-          left: 50%;
-          bottom: 2rem;
-          margin-left: -68px;
-        }
-      }
-      
+  }
+}
+
+.scroll_content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
 }

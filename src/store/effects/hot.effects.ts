@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { map, mergeMap, catchError } from 'rxjs/operators';
-import { HotActionTypes, LoadError } from '../actions';
+import { HotActionTypes, LoadError, LoadSongListError } from '../actions';
 import { of, forkJoin } from 'rxjs';
 import { HotService } from '../../services';
 
@@ -21,7 +21,7 @@ export class HotEffects {
             .pipe(catchError(() => of({ 'code': -1, result: [] }))),
         ])
           .pipe(
-            map(data => ({ type: '[Hot API] Data Loaded Success', payload: data })),
+            map(data => ({ type: HotActionTypes.LoadSuccess, payload: data })),
             catchError((err) => {
               //call the action if there is an error
               return of(new LoadError(err["message"]));
@@ -29,6 +29,19 @@ export class HotEffects {
           ))
     )
 
+  @Effect()
+  loadSongListData$ = this.actions$
+    .pipe(
+      ofType(HotActionTypes.LoadSongListData),
+      mergeMap((params) => this.hotService.songListDetail(params)
+        .pipe(
+          map((data: any) => ({ type: HotActionTypes.LoadSongListSuccess, payload: data.playlist })),
+          catchError((err) => {
+            //call the action if there is an error
+            return of(new LoadSongListError(err["message"]));
+          })
+        ))
+    )
   constructor(
     private actions$: Actions,
     private hotService: HotService

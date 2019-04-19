@@ -2,31 +2,49 @@ import { Action } from '@ngrx/store';
 import { HotActionTypes } from '../actions';
 
 export interface HotAction extends Action {
-  payload: object
+  payload: any
+}
+
+export interface SongListDetail {
+  coverImgUrl: string;
+  name: string;
+  listData: any[]
 }
 
 // 由于是QQ的接口不确定他会改，定义成这样保险一点
-export interface HotStateData {
+export interface HotState {
   loading?: boolean,
-  slider: Array<any>,
-  recommendList: Array<any>,
+  slider: any[],
+  recommendList: any[],
+  songListDetail?: SongListDetail
 }
 
-const initState: HotStateData = {
+const initState: HotState = {
   slider: [],
   recommendList: [],
+  songListDetail: {
+    coverImgUrl: '',
+    name: '',
+    listData: []
+  }
 };
 
-export function hotStore(state: HotStateData = initState, action: HotAction): HotStateData {
+export function hotStore(state: HotState = initState, action: HotAction): HotState {
   switch (action.type) {
-    case HotActionTypes.LoadData:
-      return state;
     case HotActionTypes.LoadSuccess:
       state.slider = action.payload[0].banners;
       state.recommendList = action.payload[1].result;
       return state;
     case HotActionTypes.LoadError:
       console.log(action, '--------');
+      return state;
+    case HotActionTypes.LoadSongListSuccess:
+      state.songListDetail.coverImgUrl = action.payload.coverImgUrl;
+      state.songListDetail.name = action.payload.name;
+      state.songListDetail.listData = action.payload.tracks;
+      return state;
+    case HotActionTypes.LoadSongListError:
+      console.log('获取出错了');
       return state;
     default:
       return state;

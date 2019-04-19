@@ -6,11 +6,15 @@ import { SongListDetailComponent } from './song-list-detail/song-list-detail.com
 const routes: Routes = [
   {
     path: '',
-    component: HotComponent
-  },
-  {
-    path: ':id',
-    component: SongListDetailComponent
+    component: HotComponent,
+    data: { animation: 'hot' },
+    children: [
+      {
+        path: ':id',
+        component: SongListDetailComponent,
+        data: { animation: 'songsList' }
+      }
+    ]
   }
 ];
 

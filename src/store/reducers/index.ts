@@ -2,21 +2,24 @@ import { ActionReducerMap, createSelector, createFeatureSelector } from '@ngrx/s
 
 //import the weather reducer
 import { counterReducer } from './counter.reducer';
-import { hotStore, HotStateData } from './hot.reducer';
-import { topListStore, TopListStateData } from './list.reducer';
+import { hotStore, HotState } from './hot.reducer';
+import { topListStore, TopListState } from './list.reducer';
+import { controlStore, ControlState } from './control.reducer';
 
 //state
 export interface state {
     count: number;
-    hotStore: HotStateData;
-    topListStore: TopListStateData
+    hotStore: HotState;
+    topListStore: TopListState;
+    controlStore: ControlState;
 }
 
 //register the reducer functions
 export const reducers: ActionReducerMap<state> = {
     count: counterReducer,
     hotStore,
-    topListStore
+    topListStore,
+    controlStore,
 }
 
 

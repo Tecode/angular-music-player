@@ -1,0 +1,298 @@
+@import '../helpers/constants.less';
+
+.controller_box {
+  position: fixed;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 @14px;
+  border-top: 1px solid #f1f1f1;
+  background-color: @color_white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+
+  .right_box,
+  .left_box {
+    display: flex;
+    align-items: center;
+  }
+
+  .right_box {
+    flex: 1;
+  }
+
+  .song_pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-right: @8px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .left_box {
+    width: 5rem;
+
+    .icon_list {
+      width: @20px;
+      height: @20px;
+      background: url('/assets/imgs/icon/icon_list.svg') @8px @8px no-repeat;
+      background-size: @20px;
+      padding: @8px 0 0 @8px;
+    }
+  }
+
+  .play_bar_aside {
+    position: relative;
+    margin-right: @8px;
+
+    .play_bar_icon {
+      display: block;
+      width: 36px;
+      height: 36px;
+      color: @main_color;
+      stroke-width: 0;
+      stroke: currentColor;
+      fill: currentColor;
+    }
+
+    .progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 36px;
+      height: 36px;
+      -webkit-transform: rotate(-90deg);
+
+      .progress_circle {
+        fill: none;
+        stroke: @main_color;
+        stroke-width: 2;
+      }
+    }
+  }
+
+  .play_bar_bd {
+    h1 {
+      color: @black_color;
+      font-size: @14px;
+      font-weight: normal;
+    }
+
+    p {
+      font-size: @12px;
+      color: @gray;
+    }
+  }
+}
+
+// 播放页面
+.player_control {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: @color_white;
+  z-index: 12;
+
+  .player_background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: .6;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+  }
+
+  .nav_top {
+    position: relative;
+    font-size: @16px;
+    color: @color_white;
+    text-align: center;
+    margin-bottom: @20px;
+
+    h3 {
+      font-size: @16px;
+      padding-top: @10px;
+    }
+
+    p {
+      font-size: @14px;
+    }
+
+    .close_player {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .middle_content {
+    position: fixed;
+    width: 100%;
+    top: 70px;
+    bottom: 180px;
+    white-space: nowrap;
+    font-size: 0;
+
+    .wrapper_width {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: 80%;
+
+      .wrapper {
+        position: absolute;
+        left: 10%;
+        top: 0;
+        width: 80%;
+        box-sizing: border-box;
+        height: 100%;
+
+        .cover {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+
+          img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border-radius: 50%;
+            border: 10px solid hsla(0, 0%, 100%, .1);
+          }
+        }
+      }
+    }
+  }
+
+  .player_bottom {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+  }
+
+  // 进度条
+  .progress_bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 @14px;
+
+    span {
+      font-size: 12px;
+      color: @color_white;
+      display: block;
+      width: 38px;
+    }
+
+    .current_time {
+      text-align: left;
+    }
+
+    .duration_time {
+      text-align: right;
+    }
+
+    .progress_bar_wrapper {
+      flex: 1;
+
+      .progress_bar_box {
+        height: 28px;
+
+        .bar_line {
+          position: relative;
+          top: 14px;
+          height: 2px;
+          background: rgba(255, 255, 255, .4);
+
+          .current_line {
+            position: absolute;
+            height: 100%;
+            background: @main_color;
+            width: 100px;
+          }
+
+          .control {
+            position: absolute;
+            left: -8px;
+            top: -14px;
+            width: 30px;
+            height: 30px;
+
+            .progress_btn {
+              position: relative;
+              top: 7px;
+              left: 7px;
+              box-sizing: border-box;
+              width: 16px;
+              height: 16px;
+              border-radius: 50%;
+              background: @color_white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 播放按钮
+  .controls_button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: @10px @14px;
+
+    .icon_loop {
+      background: url('/assets/imgs/icon/icon_loop.svg') 0 0 no-repeat;
+      width: @20px;
+      height: @18px;
+      background-size: @20px;
+    }
+
+    .icon_list {
+      background: url('/assets/imgs/icon/icon_list.svg') 0 0 no-repeat;
+      width: @20px;
+      height: @18px;
+      background-size: @18px;
+    }
+
+    .icon_pre {
+      background: url('/assets/imgs/icon/icon_pre.svg') 0 0 no-repeat;
+      width: @24px;
+      height: @24px;
+      background-size: @24px;
+    }
+
+    .icon_next {
+      background: url('/assets/imgs/icon/icon_next.svg') 0 0 no-repeat;
+      width: @24px;
+      height: @24px;
+      background-size: @24px;
+    }
+
+    .icon_play {
+      background: url('/assets/imgs/icon/icon_play.svg') 0 0 no-repeat;
+      width: @30px;
+      height: @30px;
+      background-size: @30px;
+    }
+  }
+
+}

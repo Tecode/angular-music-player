@@ -1,0 +1,48 @@
+@import '../../helpers/constants.less';
+
+.draw_wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 14;
+  background-color: rgba(0, 0, 0, .3);
+
+  .list_wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: @color_white;
+
+    .list_header {
+      padding: @14px;
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    .list_box {
+      padding: 0 @14px 0 @14px;
+      height: 16rem;
+
+      li {
+        padding: @12px 0;
+        border-bottom: 1px solid #fafafa;
+
+        span {
+          font-size: @12px;
+          color: @gray;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      background: none;
+      padding: @14px 0;
+      border: none;
+      border-top: 1px solid #f1f1f1;
+      outline: none;
+    }
+  }
+}

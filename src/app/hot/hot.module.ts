@@ -5,24 +5,35 @@ import { HotRoutingModule } from './hot-routing.module';
 import { HotComponent } from './hot.component';
 import { SongListDetailComponent } from './song-list-detail/song-list-detail.component';
 import { ListContentComponent } from '../common/list-content/list-content.component';
-import { ScrollComponent } from '../common/scroll/scroll.component';
 import { SliderComponent } from '../common/slider/slider.component';
-import { BigCardComponent } from '../common/big-card/big-card.component';
 import { SmallCardComponent } from '../common/small-card/small-card.component';
+import { HammertimeDirective } from '../../directive/hammertime.directive';
+import { ScrollComponent } from '../common/scroll/scroll.component';
 
 @NgModule({
+  imports: [
+    CommonModule,
+    HotRoutingModule
+  ],
   declarations: [
     HotComponent,
     SongListDetailComponent,
     ListContentComponent,
-    ScrollComponent,
     SliderComponent,
-    BigCardComponent,
-    SmallCardComponent
+    SmallCardComponent,
+    ScrollComponent,
+    HammertimeDirective
   ],
-  imports: [
+  exports: [
     CommonModule,
-    HotRoutingModule
+    HotRoutingModule,
+    HotComponent,
+    SongListDetailComponent,
+    ListContentComponent,
+    SliderComponent,
+    SmallCardComponent,
+    ScrollComponent,
+    HammertimeDirective
   ]
 })
 export class HotModule { }

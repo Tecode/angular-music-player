@@ -20,4 +20,9 @@ export class HotService {
   loopList() {
     return this.http.get('/api/banner');
   }
+
+  // 获取歌单详情
+  songListDetail(data: any) {
+    return this.http.get(`/api/playlist/detail?id=${data.id}`);
+  }
 }

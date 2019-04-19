@@ -19,17 +19,3 @@ export function counterReducer(state = initialState, action: Action): number {
       return state;
   }
 }
-
-//------------------ Access slices of the state (something like getters)
-
-// export const getWeatherLoading = (state: number) => {
-//   return state.loading;
-// }
-
-// export const getWeatherLoaded = (state: number) => {
-//    return state.loaded;
-// }
-
-// export const getWeatherData = (state: number) => {
-//    return state.data;
-// }
