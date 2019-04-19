@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { formatTime } from '../../app/helpers/common';
+import { formatTime } from '../app/helpers/common';
 
 @Pipe({
   name: 'formatTime'
