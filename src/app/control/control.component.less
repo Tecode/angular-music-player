@@ -2,7 +2,7 @@
 
 .controller_box {
   position: fixed;
-  height: 50px;
+  height: 3.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,8 +25,8 @@
   }
 
   .song_pic {
-    width: 40px;
-    height: 40px;
+    width: @30px;
+    height: @30px;
     border-radius: 50px;
     overflow: hidden;
     margin-right: @8px;
@@ -40,10 +40,10 @@
     width: 5rem;
 
     .icon_list {
-      width: @20px;
-      height: @20px;
+      width: 24px;
+      height: 24px;
       background: url('/assets/imgs/icon/icon_list.svg') @8px @8px no-repeat;
-      background-size: @20px;
+      background-size: 24px;
       padding: @8px 0 0 @8px;
     }
   }
@@ -226,7 +226,6 @@
             position: absolute;
             height: 100%;
             background: @main_color;
-            width: 100px;
           }
 
           .control {
@@ -289,6 +288,13 @@
 
     .icon_play {
       background: url('/assets/imgs/icon/icon_play.svg') 0 0 no-repeat;
+      width: @30px;
+      height: @30px;
+      background-size: @30px;
+    }
+
+    .icon_pause {
+      background: url('/assets/imgs/icon/icon_pause.svg') 0 0 no-repeat;
       width: @30px;
       height: @30px;
       background-size: @30px;

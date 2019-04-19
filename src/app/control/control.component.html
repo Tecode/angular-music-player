@@ -28,7 +28,8 @@
         </svg>
       </svg>
       <svg class="progress">
-        <circle class="progress_circle" cx="18" cy="18" r="14" attr.stroke-dasharray="{{data.currentTime}} 113"></circle>
+        <circle class="progress_circle" cx="18" cy="18" r="14" attr.stroke-dasharray="{{data.currentTime *100 / data.durationTime}} 113">
+        </circle>
       </svg>
     </div>
     <div (tap)="handlerPlayerList(true)" class="icon_list"></div>
@@ -57,24 +58,25 @@
   </div>
   <div class="player_bottom">
     <div class="progress_bar">
-      <span class="current_time">00:10</span>
+      <span class="current_time">{{data.currentTime/1000 | formatTime}}</span>
       <div class="progress_bar_wrapper">
-        <div class="progress_bar_box">
+        <div #progressBarElement class="progress_bar_box">
           <div class="bar_line">
-            <div class="current_line"></div>
-            <div class="control">
+            <div class="current_line" [ngStyle]="{'width': currentLineWidth + 'px'}"></div>
+            <div (tap)="handlerSwipe($event)" [ngStyle]="{'left': currentLineWidth - 8 + 'px'}" class="control">
               <div class="progress_btn"></div>
             </div>
           </div>
         </div>
       </div>
-      <span class="duration_time">03:10</span>
+      <span class="duration_time">{{data.durationTime/1000 | formatTime}}</span>
     </div>
     <div class="controls_button">
       <div class="icon_loop"></div>
       <div class="icon_pre"></div>
-      <div (tap)="handlerPlay()" class="icon_play"></div>
-      <div class="icon_next"></div>
+      <div (tap)="handlerPlay()" [ngClass]="{'icon_play': data.status == 'play', 'icon_pause': data.status == 'pause'}">
+      </div>
+      <div class=" icon_next"></div>
       <div class="icon_list"></div>
     </div>
   </div>
