@@ -1,3 +1,5 @@
+declare var require: any;
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -30,14 +32,18 @@ import { BigCardComponent } from './common/big-card/big-card.component';
 
 import { HotModule } from './hot/hot.module';
 
-import { DIRECTION_ALL } from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { DrawerListComponent } from './common/drawer-list/drawer-list.component';
+
+let Hammer = { DIRECTION_ALL: {} };
+if (typeof window != 'undefined') {
+  Hammer = require('hammerjs');
+}
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
     // override hammerjs default configuration
-    'swipe': { direction: DIRECTION_ALL }
+    'swipe': { direction: Hammer.DIRECTION_ALL }
   }
 }
 

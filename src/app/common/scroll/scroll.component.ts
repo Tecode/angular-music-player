@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef, Input, ViewChild, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import BScroll from 'better-scroll';
-import { getRect } from '../../helpers/common';
 
 type PullDownRefresh = {
   txt?: string,
