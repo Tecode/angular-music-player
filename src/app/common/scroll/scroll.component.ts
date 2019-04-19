@@ -30,7 +30,7 @@ export class ScrollComponent implements OnInit {
   public pullDownInitTop: number = -50;
 
   @Input() public probeType: number = 1;
-  @Input() public click: boolean = true;
+  @Input() public click: boolean = false;
   @Input() public listenScroll: boolean = true;
   @Input() public listenBeforeScroll: boolean = false;
   @Input() public listenScrollEnd: boolean = false;
@@ -79,7 +79,6 @@ export class ScrollComponent implements OnInit {
 
   // 初始化滚动函数
   private _initScroll(): void {
-    console.log(this.scrollContent.nativeElement);
     const scrollContent = this.scrollContent.nativeElement;
     if (!scrollContent) {
       return;

@@ -3,10 +3,18 @@ import { ControlActionTypes } from '../actions';
 
 export interface ControlStateData {
   loading?: boolean;
+  status: string,
+  playList: any[],
+  miniPlayer: boolean,
+  player: boolean
 }
 
 export const initialState: ControlStateData = {
-  loading: false
+  loading: false,
+  status: 'pause',
+  playList: [],
+  miniPlayer: true,
+  player: false
 };
 
 export function controlStore(state = initialState, action: Action): ControlStateData {

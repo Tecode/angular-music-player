@@ -30,14 +30,14 @@ import { BigCardComponent } from './common/big-card/big-card.component';
 
 import { HotModule } from './hot/hot.module';
 
-import * as Hammer from 'hammerjs';
+import { DIRECTION_ALL } from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { DrawerListComponent } from './common/drawer-list/drawer-list.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
     // override hammerjs default configuration
-    'swipe': { direction: Hammer.DIRECTION_ALL }
+    'swipe': { direction: DIRECTION_ALL }
   }
 }
 

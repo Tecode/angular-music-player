@@ -33,11 +33,12 @@
   }
 
   .left_box {
-    img {
-      display: block;
-      width: 22px;
-      height: 22px;
-      padding: @12px 0 @12px @12px;
+    .icon_list {
+      width: @20px;
+      height: @20px;
+      background: url('/assets/imgs/icon/icon_list.svg') @8px @8px no-repeat;
+      background-size: @20px;
+      padding: @8px 0 0 @8px;
     }
   }
 
@@ -49,7 +50,7 @@
       display: block;
       width: 36px;
       height: 36px;
-      color: main_color;
+      color: @main_color;
       stroke-width: 0;
       stroke: currentColor;
       fill: currentColor;
@@ -66,7 +67,7 @@
 
       .progress_circle {
         fill: none;
-        stroke: main_color;
+        stroke: @main_color;
         stroke-width: 2;
       }
     }

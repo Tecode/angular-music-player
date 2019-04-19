@@ -29,11 +29,11 @@
         <circle class="progress_circle" cx="18" cy="18" r="14" stroke-dasharray="26.24234481411375 113"></circle>
       </svg>
     </div>
-    <img src="assets/imgs/icon/icon_list.svg" />
+    <div (tap)="handlerPlayerList()" class="icon_list"></div>
   </div>
 </div>
 <!-- 播放控制器 -->
-<div class="player_control">
+<div style="display: none" class="player_control">
   <div class="player_background">
     <img width="100%" height="100%"
       src="https://y.gtimg.cn/music/photo_new/T002R300x300M000001IV22P1RDX7p.jpg?max_age=2592000" />
@@ -76,3 +76,5 @@
     </div>
   </div>
 </div>
+<!-- audio标签 -->
+<audio #audioElement></audio>
