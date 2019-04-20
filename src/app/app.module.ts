@@ -23,18 +23,17 @@ import { BannerComponent } from './portal/banner/banner.component';
 import { HeadlineComponent } from './common/headline/headline.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ListComponent } from './list/list.component';
 import { SearchInputComponent } from './search/search-input/search-input.component';
 import { HotSearchComponent } from './search/hot-search/hot-search.component';
 import { SearchListComponent } from './search/search-list/search-list.component';
 import { DetailsComponent } from './details/details.component';
-import { BigCardComponent } from './common/big-card/big-card.component';
 
-import { HotModule } from './hot/hot.module';
+// import { HotModule } from './hot/hot.module';
+// import { ListModule } from './list/list.module';
+import { ShareModule } from './share.module';
 
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { DrawerListComponent } from './common/drawer-list/drawer-list.component';
-import { FormatTimePipe } from '../pipes/format-time.pipe';
 
 let Hammer = { DIRECTION_ALL: {} };
 if (typeof window != 'undefined') {
@@ -58,14 +57,11 @@ export class MyHammerConfig extends HammerGestureConfig {
     HeadlineComponent,
     SearchComponent,
     ProfileComponent,
-    ListComponent,
     SearchInputComponent,
     HotSearchComponent,
     SearchListComponent,
     DetailsComponent,
-    BigCardComponent,
     DrawerListComponent,
-    FormatTimePipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -74,7 +70,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     HttpClientModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot(effects),
-    HotModule
+    ShareModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
