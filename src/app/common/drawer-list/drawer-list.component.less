@@ -7,7 +7,16 @@
   top: 0;
   right: 0;
   z-index: 14;
-  background-color: rgba(0, 0, 0, .3);
+  .mask {
+    position: absolute;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, .3);
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    opacity: 0;
+  }
 
   .list_wrapper {
     position: absolute;
@@ -43,6 +52,7 @@
       border: none;
       border-top: 1px solid #f1f1f1;
       outline: none;
+      font-size: @14px;
     }
   }
 }

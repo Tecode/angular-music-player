@@ -1,9 +1,16 @@
-<div [@flyInOut]="'in'" class="hot_detail_box">
-  <div (tap)="goBack()" class="nav_bar">返回</div>
-  <div class="cover_image">
-    <div class="play">随机播放全部</div>
+<div [@flyInOut]="isShow ? 'in' : 'out'" (@flyInOut.done)="goBack(true)" class="hot_detail_box">
+  <div (tap)="goBack()" class="nav_bar">
+    <!-- 返回 -->
+    <h3>测试-点我返回</h3>
   </div>
-  <div class="scroll_content" [ngStyle]="{'top': scrollTop + 'px'}">
+  <div #coverImage class="cover_image">
+    <div #playButtonEl class="play">随机播放全部</div>
+    <!-- 蒙层 -->
+    <div #filterEl class="filter"></div>
+  </div>
+  <!-- 推层,用于填充超出部分 -->
+  <div #layerFillEl class="layer_fill"></div>
+  <div #scrollEl class="scroll_content">
     <app-list-content (onScroll)="handlerScroll($event)" [data]="songDetailList.listData"></app-list-content>
   </div>
 </div>

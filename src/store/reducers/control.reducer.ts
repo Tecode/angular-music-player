@@ -40,10 +40,10 @@ export const initialState: ControlState = {
   miniPlayer: true,
   player: false,
   playListVisible: false,
-  src: 'http://m10.music.126.net/20190419173832/05bfe23396ae268f9e433102267d8285/ymusic/0fd6/4f65/43ed/a8772889f38dfcb91c04da915b301617.mp3',
+  src: 'http://118.112.10.152/amobile.music.tc.qq.com/C400004R8CzL1Ax5UG.m4a?guid=4947587239&vkey=10296F0829BAF1A8ED625A3B05B422C1A405CB0B4AAEFA3F07F50332113F9160772A593254042BA66C3293528426766E8545080D60692F44&uin=1949&fromtag=66',
   coverUrl: '',
-  currentTime: 26,
-  durationTime: 269590
+  currentTime: 0,
+  durationTime: 299100
 };
 
 
