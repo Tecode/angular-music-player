@@ -9,13 +9,27 @@
   background-color: @color_white;
   transform: translateY(100%);
 
+  .filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(7, 17, 27, 0.4);
+  }
+
+  .layer_fill {
+    position: relative;
+    height: 100%;
+    background: @color_white;
+  }
+
   .nav_bar {
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     height: 40px;
-    background-color: @color_white;
     z-index: 11;
   }
 
@@ -41,6 +55,7 @@
       left: 50%;
       bottom: 2rem;
       margin-left: -68px;
+      z-index: 1;
     }
   }
 }
