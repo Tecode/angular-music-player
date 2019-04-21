@@ -1,4 +1,5 @@
-<div [ngStyle]="{'display': data.playListVisible ? 'block' : 'none'}" class="draw_wrapper">
+<div [@childAnimation]="data.playListVisible ? 'sideUp' : 'sideDown'" class="draw_wrapper">
+  <div (tap)="handlerPlayerList(false)" class="mask"></div>
   <div class="list_wrapper">
     <div class="list_header">
       顺序播放(174)

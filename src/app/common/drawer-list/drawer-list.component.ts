@@ -16,16 +16,19 @@ import { select, Store } from '@ngrx/store';
   templateUrl: './drawer-list.component.html',
   styleUrls: ['./drawer-list.component.less'],
   animations: [
-    trigger('flyInOut', [
-      state('in', style({ transform: 'translateY(0)' })),
-      transition('void => *', [
-        style({ transform: 'translateY(100%)' }),
-        animate('300ms ease-out')
+    trigger('childAnimation', [
+      // ...
+      state('sideUp', style({
+        opacity: 1,
+        transform: 'translateY(0)',
+      })),
+      state('sideDown', style({
+        opacity: 0,
+        transform: 'translateY(100%)',
+      })),
+      transition('* => *', [
+        animate('400ms ease-in-out')
       ]),
-      transition('* => void', [
-        style({ transform: 'translateY(0)' }),
-        animate('300ms ease-in')
-      ])
     ])
   ]
 })

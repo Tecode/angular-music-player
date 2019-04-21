@@ -1,4 +1,4 @@
-<div [@flyInOut]="'in'" class="hot_detail_box">
+<div [@flyInOut]="isShow ? 'in' : 'out'" (@flyInOut.done)="goBack(true)" class="hot_detail_box">
   <div (tap)="goBack()" class="nav_bar">返回</div>
   <div class="cover_image">
     <div class="play">随机播放全部</div>

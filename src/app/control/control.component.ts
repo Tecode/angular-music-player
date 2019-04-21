@@ -1,31 +1,28 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable, interval } from 'rxjs';
-import { trigger, keyframes, animate, transition } from '@angular/animations';
-import * as kf from './keyframes';
+import { trigger, state, animate, transition, style } from '@angular/animations';
 import { Store, select } from '@ngrx/store';
 import { ChangeControlValue } from '../../store';
 import { ControlState } from '../../store/reducers/control.reducer';
 
-// [@cardAnimator]="animationState" 
-// (@cardAnimator.done)="resetAnimationState()"
-// (swipeleft)="startAnimation('slideOutLeft')"
-// (swiperight)="startAnimation('zoomOutRight')"
-// (swipeup)="startAnimation('rotateOutUpRight')"
-// (swipedown)="startAnimation('flipOutY')">
 
 @Component({
   selector: 'app-control',
   templateUrl: './control.component.html',
   styleUrls: ['./control.component.less'],
   animations: [
-    trigger('cardAnimator', [
-      transition('* => wobble', animate(1000, keyframes(kf.wobble))),
-      transition('* => swing', animate(1000, keyframes(kf.swing))),
-      transition('* => jello', animate(1000, keyframes(kf.jello))),
-      transition('* => zoomOutRight', animate(1000, keyframes(kf.zoomOutRight))),
-      transition('* => slideOutLeft', animate(1000, keyframes(kf.slideOutLeft))),
-      transition('* => rotateOutUpRight', animate(1000, keyframes(kf.rotateOutUpRight))),
-      transition('* => flipOutY', animate(1000, keyframes(kf.flipOutY))),
+    trigger('childAnimation', [
+      state('sideUp', style({
+        opacity: 1,
+        transform: 'translateY(0)',
+      })),
+      state('sideDown', style({
+        opacity: 0,
+        transform: 'translateY(100%)',
+      })),
+      transition('* => *', [
+        animate('300ms ease-in-out')
+      ]),
     ])
   ]
 })
@@ -96,6 +93,7 @@ export class ControlComponent implements OnInit {
 
   // 展示出播放控制器
   public handlerVisible(visible: boolean) {
+    console.log(visible, '-------------->>');
     this.store.dispatch(new ChangeControlValue({ key: 'player', value: visible }));
   }
 

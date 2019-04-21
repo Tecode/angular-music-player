@@ -20,15 +20,17 @@ import { Position } from '../../common/scroll/scroll.component';
   styleUrls: ['./song-list-detail.component.less'],
   animations: [
     trigger('flyInOut', [
-      state('in', style({ transform: 'translateY(0)' })),
-      transition('void => *', [
-        style({ transform: 'translateY(100%)' }),
-        animate('300ms ease-out')
+      state('in', style({
+        opacity: 1,
+        transform: 'translateY(0)',
+      })),
+      state('out', style({
+        opacity: 0,
+        transform: 'translateY(100%)',
+      })),
+      transition('* => *', [
+        animate('300ms ease-in-out')
       ]),
-      transition('* => void', [
-        style({ transform: 'translateY(0)' }),
-        animate('300ms ease-in')
-      ])
     ])
   ]
 })
@@ -40,6 +42,7 @@ export class SongListDetailComponent implements OnInit {
     name: '',
     listData: []
   };
+  public isShow:boolean = true;
 
   constructor(
     public router: Router,
@@ -57,8 +60,15 @@ export class SongListDetailComponent implements OnInit {
     })
   }
 
-  public goBack(): void {
-    this.router.navigate(['/hot']);
+
+  public goBack(arg: boolean): void {
+    if (arg) {
+      if (!this.isShow) {
+        this.router.navigate(['/hot']);
+      }
+    } else {
+      this.isShow = false;
+    }
   }
 
   public handlerScroll(position: Position) {

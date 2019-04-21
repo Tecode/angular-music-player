@@ -28,7 +28,8 @@
         </svg>
       </svg>
       <svg class="progress">
-        <circle class="progress_circle" cx="18" cy="18" r="14" attr.stroke-dasharray="{{data.currentTime *100 / data.durationTime}} 113">
+        <circle class="progress_circle" cx="18" cy="18" r="14"
+          attr.stroke-dasharray="{{data.currentTime *100 / data.durationTime}} 113">
         </circle>
       </svg>
     </div>
@@ -36,7 +37,7 @@
   </div>
 </div>
 <!-- 播放控制器 -->
-<div [ngStyle]="{'display': data.player ? 'block' : 'none'}" class="player_control">
+<div [@childAnimation]="data.player ? 'sideUp' : 'sideDown'" class="player_control">
   <div class="player_background">
     <img width="100%" height="100%"
       src="https://y.gtimg.cn/music/photo_new/T002R300x300M000001IV22P1RDX7p.jpg?max_age=2592000" />
@@ -44,7 +45,7 @@
   <div class="nav_top">
     <h3>可惜没如果</h3>
     <p>林俊杰</p>
-    <div (tap)="handlerVisible(false)" class="close_player">关闭</div>
+    <div (tap)="handlerVisible(false)" class="close_player">返回</div>
   </div>
   <div class="middle_content">
     <div class="wrapper_width">
