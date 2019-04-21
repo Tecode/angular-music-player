@@ -80,7 +80,7 @@ export class SongListDetailComponent implements OnInit {
   }
 
 
-  public goBack(arg: boolean): void {
+  public goBack(arg?: boolean): void {
     if (arg) {
       if (!this.isShow) {
         this.router.navigate(['/hot']);
