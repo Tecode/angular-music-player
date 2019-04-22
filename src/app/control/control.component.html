@@ -64,7 +64,7 @@
         <div #progressBarElement class="progress_bar_box">
           <div class="bar_line">
             <div class="current_line" [ngStyle]="{'width': currentLineWidth + 'px'}"></div>
-            <div (tap)="handlerSwipe($event)" [ngStyle]="{'left': currentLineWidth - 8 + 'px'}" class="control">
+            <div (panmove)="handlerPanmove($event)" (panstart)="handlerPanstart($event)" (panend)="handlerPanend($event)" [ngStyle]="{'left': currentLineWidth - 8 + 'px'}" class="control">
               <div class="progress_btn"></div>
             </div>
           </div>

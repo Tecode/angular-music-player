@@ -97,8 +97,19 @@ export class ControlComponent implements OnInit {
     this.store.dispatch(new ChangeControlValue({ key: 'player', value: visible }));
   }
 
+  // 按下滑块
+  public handlerPanstart(data: any) {
+    console.log(data, '开始>>>');
+  }
+
+  // 放开滑块
+  public handlerPanend(data: any) {
+    console.log(data, '结束>>>');
+  }
+
   // 滑动进度条
-  public handlerSwipe(e) {
-    console.log(e);
+  public handlerPanmove(data: any) {
+    this.currentLineWidth = data.deltaX;
+    console.log(data.deltaX);
   }
 }
