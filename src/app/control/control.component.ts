@@ -27,22 +27,28 @@ import { ControlState } from '../../store/reducers/control.reducer';
   ]
 })
 export class ControlComponent implements OnInit {
-  @ViewChild('audioElement') public audioElement: ElementRef;
-  @ViewChild('progressBarElement') public progressBarElement: ElementRef;
+  @ViewChild('audioElement') private audioElement: ElementRef;
+  @ViewChild('progressBarElement') private progressBarElement: ElementRef;
 
   private controlStore$: Observable<ControlState>;
   public data: ControlState;
   private interval$: any;
+  private startX: number = 0;
   public currentLineWidth: number = 0;
+  private startWidth: number = 0;
+  // 进度条的长度,初始化为
+  public barWidth: number = 0;
+  private static BTN_WIDTH: number = 16;
+
 
   constructor(private store: Store<{ controlStore: ControlState }>) {
     this.controlStore$ = store.pipe(select('controlStore'))
   }
 
   ngOnInit() {
-    const barWidth: number = this.progressBarElement.nativeElement.clientWidth;
+    this.barWidth = this.progressBarElement.nativeElement.clientWidth;
     this.controlStore$.subscribe(data => {
-      this.currentLineWidth = (data.currentTime / data.durationTime) * barWidth;
+      this.currentLineWidth = (data.currentTime / data.durationTime) * this.barWidth;
       this.data = data;
     })
   }
@@ -62,12 +68,12 @@ export class ControlComponent implements OnInit {
         // 获取当前播放时间
         this.store.dispatch(new ChangeControlValue({ key: 'currentTime', value: Math.floor(this.data.audio.currentTime * 1000) }));
       });
-      console.log('播放');
+      this.store.dispatch(new ChangeControlValue({ key: 'status', value: 'pause' }));
     }, false);
     // 是否暂停，暂停定时器
     audio.addEventListener('pause', () => {
       this.interval$.unsubscribe();
-      console.log('暂停');
+      this.store.dispatch(new ChangeControlValue({ key: 'status', value: 'play' }));
     }, false);
     // 播放结束
     audio.addEventListener('ended', () => {
@@ -93,23 +99,54 @@ export class ControlComponent implements OnInit {
 
   // 展示出播放控制器
   public handlerVisible(visible: boolean) {
-    console.log(visible, '-------------->>');
     this.store.dispatch(new ChangeControlValue({ key: 'player', value: visible }));
   }
 
   // 按下滑块
   public handlerPanstart(data: any) {
-    console.log(data, '开始>>>');
+    // 暂停定时器
+    if (this.interval$) {
+      this.interval$.unsubscribe();
+    }
+    this.startX = data.center.x;
+    this.startWidth = this.currentLineWidth;
   }
 
   // 放开滑块
-  public handlerPanend(data: any) {
-    console.log(data, '结束>>>');
+  public handlerPanend(data?: any) {
+    this.percentChange(true);
   }
 
   // 滑动进度条
   public handlerPanmove(data: any) {
-    this.currentLineWidth = data.deltaX;
-    console.log(data.deltaX);
+    // 滑动的差值
+    const deltaX = data.center.x - this.startX;
+    // 进度条的差值，大于0，小于总长度
+    /**
+     * @param this.barWidth 进度条总长度
+     * @param ControlComponent.BTN_WIDTH 可点击区域宽度16
+     * @param this.startWidth 绿色进度条的长度
+     * @param deltaX 开始拖动的位置-拖动的距离
+     */
+    const offsetWidth = Math.min(this.barWidth - ControlComponent.BTN_WIDTH, Math.max(0, this.startWidth + deltaX));
+    this.currentLineWidth = offsetWidth;
   }
+
+  // 点击进度条
+  public handlerTap(data: any) {
+    const touchLeft = this.progressBarElement.nativeElement.getBoundingClientRect().left;
+    // const newWidth 
+    this.currentLineWidth = Math.min(this.barWidth - ControlComponent.BTN_WIDTH, Math.max(0, data.center.x - touchLeft));
+    this.percentChange();
+  }
+
+  // 进度条改变
+  private percentChange(swipe?: boolean) {
+    const currentTime = this.data.durationTime * (this.currentLineWidth / this.barWidth);
+    console.log(currentTime, '----------currentTime');
+    this.store.dispatch(new ChangeControlValue({ key: 'currentTime', value: currentTime }));
+    this.data.audio.currentTime = Math.floor(currentTime / 1000);
+    this.data.audio.play();
+  }
+
 }

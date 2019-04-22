@@ -61,10 +61,11 @@
     <div class="progress_bar">
       <span class="current_time">{{data.currentTime/1000 | formatTime}}</span>
       <div class="progress_bar_wrapper">
-        <div #progressBarElement class="progress_bar_box">
+        <div (tap)="handlerTap($event)" #progressBarElement class="progress_bar_box">
           <div class="bar_line">
             <div class="current_line" [ngStyle]="{'width': currentLineWidth + 'px'}"></div>
-            <div (panmove)="handlerPanmove($event)" (panstart)="handlerPanstart($event)" (panend)="handlerPanend($event)" [ngStyle]="{'left': currentLineWidth - 8 + 'px'}" class="control">
+            <div (panmove)="handlerPanmove($event)" (panstart)="handlerPanstart($event)"
+              (panend)="handlerPanend($event)" [ngStyle]="{'left': currentLineWidth - 8 + 'px'}" class="control">
               <div class="progress_btn"></div>
             </div>
           </div>
