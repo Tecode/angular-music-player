@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { LoadTopListData } from '../../store';
+import { LoadTopListData, ChangeTopListValue } from '../../store';
 import { TopListState } from '../../store/reducers/list.reducer';
 import { ControlState } from '../../store/reducers/control.reducer';
 
@@ -36,6 +36,13 @@ export class ListComponent implements OnInit {
     this.controlStore$.subscribe(data => {
       this.miniPlayer = data.miniPlayer;
     })
+  }
+
+  public handlerScroll() {
+    const { index, total } = this.topListData;
+    if (index < total) {
+      this.store.dispatch(new ChangeTopListValue({ key: 'index', value: index + 1 }));
+    }
   }
 
 }

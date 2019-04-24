@@ -1,4 +1,4 @@
-<app-scroll>
+<app-scroll [listenScrollEnd]="true" (scrollEndFun)="handlerScroll()">
   <div [ngStyle]="{'padding-bottom': miniPlayer ? '3.4rem' : 0}">
     <div class="content_box">
       <ng-container *ngFor="let item of topListData.topList; let rank=index">
