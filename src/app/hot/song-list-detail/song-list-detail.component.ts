@@ -73,14 +73,13 @@ export class SongListDetailComponent implements OnInit {
   ngAfterViewInit(): void {
     // 获取背景图高度
     this.coverImageHeight = this.coverImage.nativeElement.clientHeight;
-    console.log(this.coverImage.nativeElement.style, '-----------');
     // 设置top高度
     // 使用renderer：Renderer修改样式
     this.renderer.setStyle(this.scrollEl.nativeElement, 'top', `${this.coverImageHeight}px`);
   }
 
 
-  public goBack(arg: boolean): void {
+  public goBack(arg?: boolean): void {
     if (arg) {
       if (!this.isShow) {
         this.router.navigate(['/hot']);

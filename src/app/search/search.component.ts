@@ -6,6 +6,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./search.component.less']
 })
 export class SearchComponent implements OnInit {
+  public listVisible:boolean = false;
+  public hotSearchVisible:boolean = true;
   /*
   DOM节点
   @params search

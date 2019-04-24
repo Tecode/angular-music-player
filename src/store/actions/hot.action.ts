@@ -42,4 +42,4 @@ export class LoadSongListError implements Action {
 export class ChangeHotValue implements Action {
     readonly type = HotActionTypes.ChangeValue;
     constructor(public payload: { key: string; value: any }) { }
-  }
+}

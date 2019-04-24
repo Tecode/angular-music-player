@@ -8,6 +8,11 @@
     <img width="120" title="ngrx" src="src/assets/imgs/icon/icon_qq_music.svg">
 </p>
 
+## 预览图
+<p align="center">
+    <img title="angular" src="src/assets/logo/page01-min.jpg">
+    <img title="angular" src="src/assets/logo/page02-min.jpg">
+</p>
 
 ## Development server【开发环境】
 
@@ -42,6 +47,13 @@ Run `ng g c new-component --module app`
 
 ## For another place to route to, create a second feature module with routing
 Run `ng generate module orders --routing` AND `ng generate module customers --routing`
+
+## 生成 `Action` `Reducer` `Effect`
+Run `ng generate action ../store/search --group`
+
+Run `ng generate effect ../store/search --group`
+
+Run `ng generate reducer ../store/search --group --spec false`
 
 ## Directory structure【目录结构】
 

@@ -1,10 +1,11 @@
 <div [@flyInOut]="isShow ? 'in' : 'out'" (@flyInOut.done)="goBack(true)" class="hot_detail_box">
-  <div (tap)="goBack()" class="nav_bar">
+  <div class="nav_bar">
     <!-- 返回 -->
-    <h3>测试-点我返回</h3>
+    <h3>{{songDetailList.name}}</h3>
+    <div (tap)="goBack()" class="goBack"></div>
   </div>
-  <div #coverImage class="cover_image">
-    <div #playButtonEl class="play">随机播放全部</div>
+  <div #coverImage class="cover_image" [ngStyle]="{'background-image': 'url(' + songDetailList.coverImgUrl + '?param=800y800&quality=80' + ')'}">
+    <div #playButtonEl class="play">播放全部</div>
     <!-- 蒙层 -->
     <div #filterEl class="filter"></div>
   </div>

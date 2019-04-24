@@ -1,5 +1,5 @@
 <!-- mini-player -->
-<div class="controller_box">
+<div class="controller_box" [ngStyle]="{'display': data.miniPlayer ? 'flex' : 'none'}">
   <div (tap)="handlerVisible(true)" class="right_box">
     <div class="song_pic">
       <img src="https://y.gtimg.cn/music/photo_new/T002R300x300M000001isG0O45GAMw.jpg?max_age=2592000" />
@@ -45,7 +45,7 @@
   <div class="nav_top">
     <h3>可惜没如果</h3>
     <p>林俊杰</p>
-    <div (tap)="handlerVisible(false)" class="close_player">返回</div>
+    <div (tap)="handlerVisible(false)" class="close_player"></div>
   </div>
   <div class="middle_content">
     <div class="wrapper_width">
@@ -61,10 +61,11 @@
     <div class="progress_bar">
       <span class="current_time">{{data.currentTime/1000 | formatTime}}</span>
       <div class="progress_bar_wrapper">
-        <div #progressBarElement class="progress_bar_box">
+        <div (tap)="handlerTap($event)" #progressBarElement class="progress_bar_box">
           <div class="bar_line">
             <div class="current_line" [ngStyle]="{'width': currentLineWidth + 'px'}"></div>
-            <div (tap)="handlerSwipe($event)" [ngStyle]="{'left': currentLineWidth - 8 + 'px'}" class="control">
+            <div (panmove)="handlerPanmove($event)" (panstart)="handlerPanstart($event)"
+              (panend)="handlerPanend($event)" [ngStyle]="{'left': currentLineWidth - 8 + 'px'}" class="control">
               <div class="progress_btn"></div>
             </div>
           </div>

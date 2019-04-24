@@ -1,2 +1,3 @@
-export * from "./hot.service";
-export * from "./list.service";
+export * from './hot.service';
+export * from './list.service';
+export * from './search.search';

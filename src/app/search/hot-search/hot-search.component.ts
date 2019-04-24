@@ -13,4 +13,8 @@ export class HotSearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  public handlerHotWorlds(text: string) {
+    console.log(text);
+  }
+
 }

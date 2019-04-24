@@ -50,7 +50,7 @@ export class ScrollComponent implements OnInit {
   @Input() public scrollX: boolean = false;
 
   @Output() public scrollFun = new EventEmitter();
-  @Output() public scrollEndFun: Function = () => { };
+  @Output() public scrollEndFun = new EventEmitter();
   @Output() public beforeScrollFun: Function = () => { };
   @Output() public scrollStartFun: Function = () => { };
   @Output() public pullingDownFun: Function = () => { };
@@ -69,12 +69,12 @@ export class ScrollComponent implements OnInit {
       }, 20)
     }
   }
-  // ngOnChanges(change: SimpleChanges) {
-  //   console.log(change, '发生了改变');
-  //   setTimeout(() => {
-  //     this.refresh();
-  //   }, this.refreshDelay)
-  // }
+  ngOnChanges(change: SimpleChanges) {
+    console.log(change, '发生了改变');
+    setTimeout(() => {
+      this.refresh();
+    }, this.refreshDelay)
+  }
 
   // 初始化滚动函数
   private _initScroll(): void {
@@ -104,54 +104,54 @@ export class ScrollComponent implements OnInit {
       })
     }
 
-    // if (this.listenScrollEnd) {
-    //   this.scroll.on('scrollEnd', (pos) => {
-    //     this.scrollEndFun(pos);
-    //   })
-    // }
+    if (this.listenScrollEnd) {
+      this.scroll.on('scrollEnd', (pos) => {
+        this.scrollEndFun.emit(pos);
+      })
+    }
 
-    // if (this.listenBeforeScroll) {
-    //   this.scroll.on('beforeScrollStart', () => {
-    //     this.beforeScrollFun();
-    //   })
+    if (this.listenBeforeScroll) {
+      this.scroll.on('beforeScrollStart', () => {
+        this.beforeScrollFun();
+      })
 
-    //   this.scroll.on('scrollStart', () => {
-    //     this.scrollStartFun();
-    //   })
-    // }
+      this.scroll.on('scrollStart', () => {
+        this.scrollStartFun();
+      })
+    }
 
-    // if (this.pullDownRefresh) {
-    //   this._initPullDownRefresh();
-    // }
+    if (this.pullDownRefresh) {
+      this._initPullDownRefresh();
+    }
 
-    // if (this.pullUpLoad) {
-    //   this._initPullUpLoad();
-    // }
+    if (this.pullUpLoad) {
+      this._initPullUpLoad();
+    }
   }
 
-  // private _initPullDownRefresh(): void {
-  //   this.scroll.on('pullingDown', () => {
-  //     this.beforePullDown = false;
-  //     this.isPullingDown = true;
-  //     this.pullingDownFun('pullingDown');
-  //   })
+  private _initPullDownRefresh(): void {
+    this.scroll.on('pullingDown', () => {
+      this.beforePullDown = false;
+      this.isPullingDown = true;
+      this.pullingDownFun('pullingDown');
+    })
 
-  //   this.scroll.on('scroll', (pos) => {
-  //     if (!this.pullDownRefresh) {
-  //       return
-  //     }
-  //     if (this.beforePullDown) {
-  //       this.bubbleY = Math.max(0, pos.y + this.pullDownInitTop);
-  //       this.pullDownStyle = `top:${Math.min(pos.y + this.pullDownInitTop, 10)}px`;
-  //     } else {
-  //       this.bubbleY = 0;
-  //     }
+    this.scroll.on('scroll', (pos) => {
+      if (!this.pullDownRefresh) {
+        return
+      }
+      if (this.beforePullDown) {
+        this.bubbleY = Math.max(0, pos.y + this.pullDownInitTop);
+        this.pullDownStyle = `top:${Math.min(pos.y + this.pullDownInitTop, 10)}px`;
+      } else {
+        this.bubbleY = 0;
+      }
 
-  //     if (this.isRebounding) {
-  //       this.pullDownStyle = `top:${10 - (this.pullDownRefresh.stop - pos.y)}px`;
-  //     }
-  //   })
-  // }
+      if (this.isRebounding) {
+        this.pullDownStyle = `top:${10 - (this.pullDownRefresh.stop - pos.y)}px`;
+      }
+    })
+  }
 
   public disable(): void {
     this.scroll && this.scroll.disable();
@@ -185,47 +185,47 @@ export class ScrollComponent implements OnInit {
     this.scroll.destroy()
   }
 
-  // public forceUpdate(dirty): void {
-  //   if (this.pullDownRefresh && this.isPullingDown) {
-  //     this.isPullingDown = false
-  //     this._reboundPullDown().then(() => {
-  //       this._afterPullDown()
-  //     })
-  //   } else if (this.pullUpLoad && this.isPullUpLoad) {
-  //     this.isPullUpLoad = false
-  //     this.scroll.finishPullUp()
-  //     this.pullUpDirty = dirty
-  //     this.refresh()
-  //   } else {
-  //     this.refresh()
-  //   }
-  // }
+  public forceUpdate(dirty): void {
+    if (this.pullDownRefresh && this.isPullingDown) {
+      this.isPullingDown = false
+      this._reboundPullDown().then(() => {
+        this._afterPullDown()
+      })
+    } else if (this.pullUpLoad && this.isPullUpLoad) {
+      this.isPullUpLoad = false
+      this.scroll.finishPullUp()
+      this.pullUpDirty = dirty
+      this.refresh()
+    } else {
+      this.refresh()
+    }
+  }
 
-  // private _initPullUpLoad() {
-  //   this.scroll.on('pullingUp', () => {
-  //     this.isPullUpLoad = true;
-  //     this.pullingUpFun();
-  //   })
-  // }
+  private _initPullUpLoad() {
+    this.scroll.on('pullingUp', () => {
+      this.isPullUpLoad = true;
+      this.pullingUpFun();
+    })
+  }
 
-  // private _reboundPullDown(): Promise<{}> {
-  //   const { stopTime = 600 } = this.pullDownRefresh
-  //   return new Promise((resolve) => {
-  //     setTimeout(() => {
-  //       this.isRebounding = true
-  //       this.scroll.finishPullDown()
-  //       resolve()
-  //     }, stopTime)
-  //   })
-  // }
+  private _reboundPullDown(): Promise<{}> {
+    const { stopTime = 600 } = this.pullDownRefresh
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.isRebounding = true
+        this.scroll.finishPullDown()
+        resolve()
+      }, stopTime)
+    })
+  }
 
-  // private _afterPullDown(): void {
-  //   setTimeout(() => {
-  //     this.pullDownStyle = `top:${this.pullDownInitTop}px`
-  //     this.beforePullDown = true
-  //     this.isRebounding = false
-  //     this.refresh()
-  //   }, this.scroll.options.bounceTime)
-  // }
+  private _afterPullDown(): void {
+    setTimeout(() => {
+      this.pullDownStyle = `top:${this.pullDownInitTop}px`
+      this.beforePullDown = true
+      this.isRebounding = false
+      this.refresh()
+    }, this.scroll.options.bounceTime)
+  }
 
 }
