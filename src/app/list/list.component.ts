@@ -3,6 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { LoadTopListData } from '../../store';
 import { TopListState } from '../../store/reducers/list.reducer';
+import { ControlState } from '../../store/reducers/control.reducer';
 
 @Component({
   selector: 'app-list',
@@ -11,16 +12,19 @@ import { TopListState } from '../../store/reducers/list.reducer';
 })
 export class ListComponent implements OnInit {
   public topListStore$: Observable<TopListState>;
+  public controlStore$: Observable<ControlState>;
   public topListData: TopListState = {
     topList: []
   };
+  public miniPlayer: boolean;
 
   public modifyArray(data: any[]): string {
     return data.map(item => item.name).join('/');
   }
 
-  constructor(private store: Store<{ topListStore: TopListState }>) {
-    this.topListStore$ = store.pipe(select('topListStore'))
+  constructor(private store: Store<{ topListStore: TopListState, controlStore: ControlState }>) {
+    this.topListStore$ = store.pipe(select('topListStore'));
+    this.controlStore$ = store.pipe(select('controlStore'));
   }
 
   ngOnInit() {
@@ -29,6 +33,9 @@ export class ListComponent implements OnInit {
       console.log(data, '----->>');
       this.topListData = data;
     });
+    this.controlStore$.subscribe(data => {
+      this.miniPlayer = data.miniPlayer;
+    })
   }
 
 }

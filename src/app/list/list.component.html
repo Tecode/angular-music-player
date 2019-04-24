@@ -1,8 +1,10 @@
 <app-scroll>
-  <div class="content_box">
-    <ng-container *ngFor="let item of topListData.topList; let rank=index">
-      <app-big-card [durationTime]="item.dt" [id]="item.al.id" [picUrl]="item.al.picUrl+'?param=100y100&quality=100'" [singer]="modifyArray(item.ar)"
-        [name]="item.name" [rank]="rank+1"></app-big-card>
-    </ng-container>
+  <div [ngStyle]="{'padding-bottom': miniPlayer ? '3.4rem' : 0}">
+    <div class="content_box">
+      <ng-container *ngFor="let item of topListData.topList; let rank=index">
+        <app-big-card [durationTime]="item.dt" [id]="item.al.id" [picUrl]="item.al.picUrl+'?param=100y100&quality=100'"
+          [singer]="modifyArray(item.ar)" [name]="item.name" [rank]="rank+1"></app-big-card>
+      </ng-container>
+    </div>
   </div>
 </app-scroll>

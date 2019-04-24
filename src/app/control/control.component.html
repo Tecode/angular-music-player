@@ -1,5 +1,5 @@
 <!-- mini-player -->
-<div class="controller_box">
+<div class="controller_box" [ngStyle]="{'display': data.miniPlayer ? 'flex' : 'none'}">
   <div (tap)="handlerVisible(true)" class="right_box">
     <div class="song_pic">
       <img src="https://y.gtimg.cn/music/photo_new/T002R300x300M000001isG0O45GAMw.jpg?max_age=2592000" />

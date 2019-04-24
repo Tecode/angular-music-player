@@ -21,7 +21,7 @@
       </div>
     </div>
     <h1 class="hot_title">热门歌单推荐</h1>
-    <div class="content_box">
+    <div class="content_box" [ngStyle]="{'padding-bottom': miniPlayer ? '3.4rem' : 0}">
       <ng-container *ngFor="let item of hotData.recommendList">
         <app-small-card [copywriter]="item.copywriter" [picUrl]="item.picUrl+'?param=100y100&quality=100'" [name]="item.name" [id]="item.id"></app-small-card>
       </ng-container>

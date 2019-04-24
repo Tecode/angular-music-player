@@ -3,6 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { LoadHotData } from '../../store';
 import { HotState } from '../../store/reducers/hot.reducer';
+import { ControlState } from '../../store/reducers/control.reducer';
 
 @Component({
   selector: 'app-hot',
@@ -11,15 +12,18 @@ import { HotState } from '../../store/reducers/hot.reducer';
 })
 export class HotComponent implements OnInit {
   public hotStore$: Observable<HotState>;
+  public controlStore$: Observable<ControlState>;
   public hotData: HotState = {
     slider: [],
     recommendList: []
   };
+  public miniPlayer: boolean;
 
   @ViewChild('slider') slider: ElementRef;
 
-  constructor(private store: Store<{ hotStore: HotState }>) {
+  constructor(private store: Store<{ hotStore: HotState, controlStore: ControlState }>) {
     this.hotStore$ = store.pipe(select('hotStore'));
+    this.controlStore$ = store.pipe(select('controlStore'));
   }
 
   ngOnInit() {
@@ -27,5 +31,8 @@ export class HotComponent implements OnInit {
     this.hotStore$.subscribe(data => {
       this.hotData = data;
     });
+    this.controlStore$.subscribe(data => {
+      this.miniPlayer = data.miniPlayer;
+    })
   }
 }
