@@ -14,7 +14,8 @@ export class ListComponent implements OnInit {
   public topListStore$: Observable<TopListState>;
   public controlStore$: Observable<ControlState>;
   public topListData: TopListState = {
-    topList: []
+    topList: [],
+    totalData: []
   };
   public miniPlayer: boolean;
 
@@ -30,7 +31,6 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(new LoadTopListData());
     this.topListStore$.subscribe(data => {
-      console.log(data, '----->>');
       this.topListData = data;
     });
     this.controlStore$.subscribe(data => {

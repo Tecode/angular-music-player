@@ -43,6 +43,13 @@ Run `ng g c new-component --module app`
 ## For another place to route to, create a second feature module with routing
 Run `ng generate module orders --routing` AND `ng generate module customers --routing`
 
+## 生成`Action``Reducer``Effect`
+Run `ng generate action ../store/search --group`
+
+Run `ng generate effect ../store/search --group`
+
+Run `ng generate reducer ../store/search --group --spec false`
+
 ## Directory structure【目录结构】
 
 ```bash
