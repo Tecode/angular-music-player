@@ -8,6 +8,11 @@
     <img width="120" title="ngrx" src="src/assets/imgs/icon/icon_qq_music.svg">
 </p>
 
+## 预览图
+<p align="center">
+    <img title="angular" src="src/assets/logo/page01-min.jpg">
+    <img title="angular" src="src/assets/logo/page02-min.jpg">
+</p>
 
 ## Development server【开发环境】
 
