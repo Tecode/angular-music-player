@@ -51,7 +51,7 @@ Run `ng generate module orders --routing` AND `ng generate module customers --ro
 ## 生成 `Action` `Reducer` `Effect`
 Run `ng generate action ../store/search --group`
 
-Run `ng generate effect ../store/search --group`
+Run `ng generate effect ../store/search --group --spec false`
 
 Run `ng generate reducer ../store/search --group --spec false`
 

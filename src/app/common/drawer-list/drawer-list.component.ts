@@ -7,7 +7,7 @@ import {
   transition
 } from '@angular/animations';
 import { ControlState } from '../../../store/reducers/control.reducer';
-import { ChangeControlValue } from '../../../store';
+import { ChangeControlValue, LoadSongUrl } from '../../../store';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 
@@ -48,6 +48,10 @@ export class DrawerListComponent implements OnInit {
 
   public handlerPlayerList(visible: boolean): void {
     this.store.dispatch(new ChangeControlValue({ key: 'playListVisible', value: visible }));
+  }
+
+  public playMusic(id: number): void {
+    this.store.dispatch(new LoadSongUrl(id));
   }
 
 }

@@ -2,15 +2,15 @@
   <div (tap)="handlerPlayerList(false)" class="mask"></div>
   <div class="list_wrapper">
     <div class="list_header">
-      顺序播放(174)
+      顺序播放({{data.playList.length}})
     </div>
-    <ul class="list_box">
-      <li>Turn Down For What<span>-DJ Snake / Lil Jon</span></li>
-      <li>Turn Down For What<span>-DJ Snake / Lil Jon</span></li>
-      <li>Turn Down For What<span>-DJ Snake / Lil Jon</span></li>
-      <li>Turn Down For What<span>-DJ Snake / Lil Jon</span></li>
-      <li>Turn Down For What<span>-DJ Snake / Lil Jon</span></li>
-    </ul>
+    <div class="scroll_box">
+      <app-scroll>
+        <ul class="list_box">
+          <li (tap)="playMusic(item.id)" *ngFor="let item of data.playList">{{item.al.name}}<span>-{{item.name}}</span></li>
+        </ul>
+      </app-scroll>
+    </div>
     <button (tap)="handlerPlayerList(false)">关闭</button>
   </div>
 </div>

@@ -9,9 +9,10 @@ import {
 } from '@angular/animations';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
-import { LoadSongListData } from '../../../store';
+import { LoadSongListData, ChangeControlValue } from '../../../store';
 import { HotState, SongListDetail } from '../../../store/reducers/hot.reducer';
 import { Position } from '../../common/scroll/scroll.component';
+import { controlStore, ControlState } from '../../../store/reducers/control.reducer';
 
 
 @Component({
@@ -55,7 +56,7 @@ export class SongListDetailComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private store: Store<{ hotStore: HotState }>,
+    private store: Store<{ hotStore: HotState, controlStore: ControlState }>,
     private activeRouter: ActivatedRoute,
     private renderer: Renderer2
   ) {
@@ -89,7 +90,7 @@ export class SongListDetailComponent implements OnInit {
     }
   }
 
-  public handlerScroll(position: Position) {
+  public handlerScroll(position: Position): void {
     // 当触发滚动时      
     let minScrollY = -this.coverImageHeight + SongListDetailComponent.fixedHeight;
     let moveY = Math.max(minScrollY, position.y);
@@ -130,5 +131,15 @@ export class SongListDetailComponent implements OnInit {
       this.renderer.setStyle(this.playButtonEl.nativeElement, 'display', 'block');
     }
     this.renderer.setStyle(this.coverImage.nativeElement, 'z-index', zIndex);
+  }
+
+  // 播放歌曲
+  public handlerPlay(): void {
+    // 播放列表
+    this.store.dispatch(new ChangeControlValue({ key: 'playList', value: this.songDetailList.listData }));
+    // mini播放器
+    this.store.dispatch(new ChangeControlValue({ key: 'miniPlayer', value: true }));
+    // 弄播放器
+    this.store.dispatch(new ChangeControlValue({ key: 'player', value: true }));
   }
 }

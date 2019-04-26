@@ -5,7 +5,7 @@
     <div (tap)="goBack()" class="goBack"></div>
   </div>
   <div #coverImage class="cover_image" [ngStyle]="{'background-image': 'url(' + songDetailList.coverImgUrl + '?param=800y800&quality=80' + ')'}">
-    <div #playButtonEl class="play">播放全部</div>
+    <div (tap)="handlerPlay()" #playButtonEl class="play">播放全部</div>
     <!-- 蒙层 -->
     <div #filterEl class="filter"></div>
   </div>
