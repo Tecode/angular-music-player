@@ -4,7 +4,8 @@
     <h3>{{songDetailList.name}}</h3>
     <div (tap)="goBack()" class="goBack"></div>
   </div>
-  <div #coverImage class="cover_image" [ngStyle]="{'background-image': 'url(' + songDetailList.coverImgUrl + '?param=800y800&quality=80' + ')'}">
+  <div #coverImage class="cover_image"
+    [ngStyle]="{'background-image': 'url(' + songDetailList.coverImgUrl + '?param=800y800&quality=80' + ')'}">
     <div (tap)="handlerPlay()" #playButtonEl class="play">播放全部</div>
     <!-- 蒙层 -->
     <div #filterEl class="filter"></div>
@@ -12,6 +13,7 @@
   <!-- 推层,用于填充超出部分 -->
   <div #layerFillEl class="layer_fill"></div>
   <div #scrollEl class="scroll_content">
-    <app-list-content (onScroll)="handlerScroll($event)" [data]="songDetailList.listData"></app-list-content>
+    <app-list-content (onTap)="handlerPlay($event)" (onScroll)="handlerScroll($event)" [data]="songDetailList.listData">
+    </app-list-content>
   </div>
 </div>

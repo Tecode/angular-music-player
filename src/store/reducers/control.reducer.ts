@@ -1,5 +1,7 @@
 import { Action } from '@ngrx/store';
 import { ControlActionTypes } from '../actions';
+import { timeout } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 export interface ControlAction extends Action {
   payload: any
@@ -44,7 +46,7 @@ export const initialState: ControlState = {
   miniPlayer: true,
   player: false,
   playListVisible: false,
-  src: 'http://118.112.10.152/amobile.music.tc.qq.com/C400004R8CzL1Ax5UG.m4a?guid=4947587239&vkey=10296F0829BAF1A8ED625A3B05B422C1A405CB0B4AAEFA3F07F50332113F9160772A593254042BA66C3293528426766E8545080D60692F44&uin=1949&fromtag=66',
+  src: '',
   coverUrl: '',
   currentTime: 0,
   durationTime: 252000,
@@ -68,8 +70,8 @@ export function controlStore(state = initialState, action: ControlAction): Contr
       return { ...state };
 
     case ControlActionTypes.LoadSongUrlSuccess:
-    console.log(action.payload);
-      return state;
+      const { data } = action.payload;
+      return { ...state, src: data[0].url };
 
     case ControlActionTypes.ChangeValue:
       console.log(action);

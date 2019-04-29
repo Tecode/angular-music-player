@@ -50,8 +50,12 @@ export class DrawerListComponent implements OnInit {
     this.store.dispatch(new ChangeControlValue({ key: 'playListVisible', value: visible }));
   }
 
-  public playMusic(id: number): void {
-    this.store.dispatch(new LoadSongUrl(id));
+  public playMusic(currentId: number, current: number): void {
+    // 把当前播放歌曲的id和索引都存到store里面
+    this.store.dispatch(new ChangeControlValue({ key: 'current', value: current }));
+    this.store.dispatch(new ChangeControlValue({ key: 'currentId', value: currentId }));
+    // 获取当前歌曲的播放地址需要这首歌的id
+    this.store.dispatch(new LoadSongUrl(currentId));
   }
 
 }

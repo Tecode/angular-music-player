@@ -7,7 +7,8 @@
     <div class="scroll_box">
       <app-scroll>
         <ul class="list_box">
-          <li (tap)="playMusic(item.id)" *ngFor="let item of data.playList">{{item.al.name}}<span>-{{item.name}}</span></li>
+          <li (tap)="playMusic(item.id, index)" *ngFor="let item of data.playList; let index=index">
+            {{item.al.name}}<span>-{{item.name}}</span></li>
         </ul>
       </app-scroll>
     </div>

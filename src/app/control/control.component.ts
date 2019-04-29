@@ -60,6 +60,8 @@ export class ControlComponent implements OnInit {
     // 加载完成
     audio.addEventListener('canplay', () => {
       console.log('可以播放');
+      // 检测到可以播放就直接开始播放
+      this.data.audio.play();
     }, false);
     // 是否在播放，开始定时器
     audio.addEventListener('play', () => {

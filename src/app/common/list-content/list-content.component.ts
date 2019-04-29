@@ -9,12 +9,11 @@ import { Position } from '../../common/scroll/scroll.component';
 export class ListContentComponent implements OnInit {
   @Input() public data: any[] = new Array(20);
   @Output() public onScroll = new EventEmitter();
+  @Output() public onTap = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.data, '---------');
-  }
+  ngOnInit() { }
 
   public modifyArray(data: any[]): string {
     return data.map(item => item.name).join('/');
@@ -22,5 +21,9 @@ export class ListContentComponent implements OnInit {
 
   public scrollFun(position: Position) {
     this.onScroll.emit(position);
+  }
+
+  public handlerTap(currentId: number, current: number): void {
+    this.onTap.emit({ currentId, current });
   }
 }
