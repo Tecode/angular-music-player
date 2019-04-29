@@ -7,6 +7,14 @@ export interface ControlAction extends Action {
   payload: any
 }
 
+const statusHandler = (state: ControlState, key: string, value: any): void => {
+  console.log(state.audio);
+};
+
+const modifyArray = (data: any[]): string => {
+  return data.map(item => item.name).join('/');
+}
+
 /**
  * @param loading 是否在加载
  * @param status 播放还是暂停
@@ -36,21 +44,27 @@ export interface ControlState {
   currentTime: number,
   durationTime: number,
   currentId?: number,
-  current?: number
+  current?: number,
+  alia?: String,
+  name?: String,
+  album?: String
 }
 
 export const initialState: ControlState = {
   loading: false,
   status: 'play',
   playList: [],
-  miniPlayer: true,
+  miniPlayer: false,
   player: false,
   playListVisible: false,
   src: '',
   coverUrl: '',
   currentTime: 0,
   durationTime: 252000,
-  current: 0
+  current: 0,
+  alia: '',
+  name: '',
+  album: ''
 };
 
 
@@ -71,7 +85,15 @@ export function controlStore(state = initialState, action: ControlAction): Contr
 
     case ControlActionTypes.LoadSongUrlSuccess:
       const { data } = action.payload;
-      return { ...state, src: data[0].url };
+      const musicInfo = state.playList[state.current];
+      return {
+        ...state,
+        src: data[0].url,
+        coverUrl: musicInfo.al.picUrl,
+        alia: modifyArray(musicInfo.ar),
+        name: musicInfo.al.name,
+        album: musicInfo.name
+      };
 
     case ControlActionTypes.ChangeValue:
       console.log(action);
@@ -82,7 +104,3 @@ export function controlStore(state = initialState, action: ControlAction): Contr
       return state;
   }
 }
-
-const statusHandler = (state: ControlState, key: string, value: any): void => {
-  console.log(state.audio);
-};

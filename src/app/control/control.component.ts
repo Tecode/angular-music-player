@@ -26,6 +26,7 @@ import { ControlState } from '../../store/reducers/control.reducer';
     ])
   ]
 })
+
 export class ControlComponent implements OnInit {
   @ViewChild('audioElement') private audioElement: ElementRef;
   @ViewChild('progressBarElement') private progressBarElement: ElementRef;
@@ -50,6 +51,7 @@ export class ControlComponent implements OnInit {
     this.controlStore$.subscribe(data => {
       this.currentLineWidth = (data.currentTime / data.durationTime) * this.barWidth;
       this.data = data;
+      console.log(data, '-------------data');
     })
   }
 

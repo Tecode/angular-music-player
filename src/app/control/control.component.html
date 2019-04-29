@@ -2,11 +2,11 @@
 <div class="controller_box" [ngStyle]="{'display': data.miniPlayer ? 'flex' : 'none'}">
   <div (tap)="handlerVisible(true)" class="right_box">
     <div class="song_pic">
-      <img src="https://y.gtimg.cn/music/photo_new/T002R300x300M000001isG0O45GAMw.jpg?max_age=2592000" />
+      <img [src]="data.coverUrl + '?param=100y100&quality=100'" />
     </div>
     <div class="play_bar_bd">
-      <h1>乞丐</h1>
-      <p>宠爱你像长不大的小孩</p>
+      <h1>{{data.name}}</h1>
+      <p>{{data.album}}·{{data.alia}}</p>
     </div>
   </div>
   <div class="left_box">
@@ -39,20 +39,18 @@
 <!-- 播放控制器 -->
 <div [@childAnimation]="data.player ? 'sideUp' : 'sideDown'" class="player_control">
   <div class="player_background">
-    <img width="100%" height="100%"
-      src="https://y.gtimg.cn/music/photo_new/T002R300x300M000001IV22P1RDX7p.jpg?max_age=2592000" />
+    <img width="100%" height="100%" [src]="data.coverUrl + '?param=400y400&quality=100'" />
   </div>
   <div class="nav_top">
-    <h3>可惜没如果</h3>
-    <p>林俊杰</p>
+    <h3>{{data.name}}</h3>
+    <p>{{data.alia}}</p>
     <div (tap)="handlerVisible(false)" class="close_player"></div>
   </div>
   <div class="middle_content">
     <div class="wrapper_width">
       <div class="wrapper">
         <div class="cover">
-          <img data-v-35618e92="" class="image"
-            src="https://y.gtimg.cn/music/photo_new/T002R300x300M000001IV22P1RDX7p.jpg?max_age=2592000" />
+          <img data-v-35618e92="" class="image" [src]="data.coverUrl + '?param=400y400&quality=100'" />
         </div>
       </div>
     </div>
