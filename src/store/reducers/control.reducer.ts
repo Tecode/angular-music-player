@@ -1,8 +1,18 @@
 import { Action } from '@ngrx/store';
 import { ControlActionTypes } from '../actions';
+import { timeout } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 export interface ControlAction extends Action {
   payload: any
+}
+
+const statusHandler = (state: ControlState, key: string, value: any): void => {
+  console.log(state.audio);
+};
+
+const modifyArray = (data: any[]): string => {
+  return data.map(item => item.name).join('/');
 }
 
 /**
@@ -17,6 +27,8 @@ export interface ControlAction extends Action {
  * @param coverUrl 封面
  * @param currentTime 当前播放时间
  * @param durationTime 总时长
+ * @param current 当前播放的歌曲
+ * @param currentId 当前播放的歌曲id
  */
 
 export interface ControlState {
@@ -30,7 +42,12 @@ export interface ControlState {
   src: string,
   coverUrl: string,
   currentTime: number,
-  durationTime: number
+  durationTime: number,
+  currentId?: number,
+  current?: number,
+  alia?: String,
+  name?: String,
+  album?: String
 }
 
 export const initialState: ControlState = {
@@ -40,10 +57,14 @@ export const initialState: ControlState = {
   miniPlayer: false,
   player: false,
   playListVisible: false,
-  src: 'http://118.112.10.152/amobile.music.tc.qq.com/C400004R8CzL1Ax5UG.m4a?guid=4947587239&vkey=10296F0829BAF1A8ED625A3B05B422C1A405CB0B4AAEFA3F07F50332113F9160772A593254042BA66C3293528426766E8545080D60692F44&uin=1949&fromtag=66',
+  src: '',
   coverUrl: '',
   currentTime: 0,
-  durationTime: 252000
+  durationTime: 252000,
+  current: 0,
+  alia: '',
+  name: '',
+  album: ''
 };
 
 
@@ -62,6 +83,18 @@ export function controlStore(state = initialState, action: ControlAction): Contr
       console.log(action);
       return { ...state };
 
+    case ControlActionTypes.LoadSongUrlSuccess:
+      const { data } = action.payload;
+      const musicInfo = state.playList[state.current];
+      return {
+        ...state,
+        src: data[0].url,
+        coverUrl: musicInfo.al.picUrl,
+        alia: modifyArray(musicInfo.ar),
+        name: musicInfo.al.name,
+        album: musicInfo.name
+      };
+
     case ControlActionTypes.ChangeValue:
       console.log(action);
       statusHandler(state, action.payload.key, action.payload.value);
@@ -71,7 +104,3 @@ export function controlStore(state = initialState, action: ControlAction): Contr
       return state;
   }
 }
-
-const statusHandler = (state: ControlState, key: string, value: any): void => {
-  console.log(state.audio);
-};

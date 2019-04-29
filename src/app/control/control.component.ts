@@ -26,6 +26,7 @@ import { ControlState } from '../../store/reducers/control.reducer';
     ])
   ]
 })
+
 export class ControlComponent implements OnInit {
   @ViewChild('audioElement') private audioElement: ElementRef;
   @ViewChild('progressBarElement') private progressBarElement: ElementRef;
@@ -50,6 +51,7 @@ export class ControlComponent implements OnInit {
     this.controlStore$.subscribe(data => {
       this.currentLineWidth = (data.currentTime / data.durationTime) * this.barWidth;
       this.data = data;
+      console.log(data, '-------------data');
     })
   }
 
@@ -60,6 +62,8 @@ export class ControlComponent implements OnInit {
     // 加载完成
     audio.addEventListener('canplay', () => {
       console.log('可以播放');
+      // 检测到可以播放就直接开始播放
+      this.data.audio.play();
     }, false);
     // 是否在播放，开始定时器
     audio.addEventListener('play', () => {

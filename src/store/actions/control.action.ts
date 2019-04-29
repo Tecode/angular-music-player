@@ -5,7 +5,10 @@ export enum ControlActionTypes {
   ToggleStatus = '[ Control ] ToggleStatus',
   PlayOrder = '[ Control ] PlayOrder',
   RestControlData = '[ Control ] RestControlData',
-  ChangeValue = '[ Control ] ChangeValue'
+  ChangeValue = '[ Control ] ChangeValue',
+  LoadSongUrl = '[ Control ] LoadSongUrl',
+  LoadSongUrlSuccess = '[ Control ] LoadSongUrlSuccess',
+  ControlError = '[ Control ] ControlError',
 }
 
 // 上一曲下一曲
@@ -37,4 +40,21 @@ export class ChangeControlValue implements Action {
   constructor(public payload: { key: string; value: any }) { }
 }
 
+// 获取音乐播放地址
+export class LoadSongUrl implements Action {
+  readonly type = ControlActionTypes.LoadSongUrl;
+  constructor(public id: number) { }
+}
 
+// 获取音乐播放地址成功
+export class LoadSongUrlSuccess implements Action {
+  readonly type = ControlActionTypes.LoadSongUrlSuccess;
+  constructor(public payload: { key: string; value: any }) { }
+}
+
+// 获取出错
+
+export class ControlError implements Action {
+  readonly type = ControlActionTypes.ControlError;
+  constructor(public payload: { key: string; value: any }) { }
+}

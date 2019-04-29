@@ -9,9 +9,10 @@ import {
 } from '@angular/animations';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
-import { LoadSongListData } from '../../../store';
+import { LoadSongListData, ChangeControlValue, LoadSongUrl } from '../../../store';
 import { HotState, SongListDetail } from '../../../store/reducers/hot.reducer';
 import { Position } from '../../common/scroll/scroll.component';
+import { controlStore, ControlState } from '../../../store/reducers/control.reducer';
 
 
 @Component({
@@ -53,9 +54,10 @@ export class SongListDetailComponent implements OnInit {
   private scrollTop: number = 260;
   private coverImageHeight: number;
 
+  // 构造方法时注入了HotState,ControlState,我们现在可以在store里调用两个action
   constructor(
     public router: Router,
-    private store: Store<{ hotStore: HotState }>,
+    private store: Store<{ hotStore: HotState, controlStore: ControlState }>,
     private activeRouter: ActivatedRoute,
     private renderer: Renderer2
   ) {
@@ -63,6 +65,7 @@ export class SongListDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    // 获取路由上的id,然后发送请求
     const songId: number = Number(this.activeRouter.snapshot.paramMap.get('id'));
     this.store.dispatch(new LoadSongListData(songId));
     this.detailStore$.subscribe(data => {
@@ -89,7 +92,7 @@ export class SongListDetailComponent implements OnInit {
     }
   }
 
-  public handlerScroll(position: Position) {
+  public handlerScroll(position: Position): void {
     // 当触发滚动时      
     let minScrollY = -this.coverImageHeight + SongListDetailComponent.fixedHeight;
     let moveY = Math.max(minScrollY, position.y);
@@ -130,5 +133,22 @@ export class SongListDetailComponent implements OnInit {
       this.renderer.setStyle(this.playButtonEl.nativeElement, 'display', 'block');
     }
     this.renderer.setStyle(this.coverImage.nativeElement, 'z-index', zIndex);
+  }
+
+  // 播放歌曲
+  public handlerPlay(data: any): void {
+    const { listData } = this.songDetailList;
+    const currentId: number = data ? data.currentId : listData[0].id;
+    // 点击的全部播放从第一首开始播放
+    this.store.dispatch(new ChangeControlValue({ key: 'current', value: data ? data.current : 0 }));
+    this.store.dispatch(new ChangeControlValue({ key: 'currentId', value: currentId }));
+    // 播放列表
+    this.store.dispatch(new ChangeControlValue({ key: 'playList', value: this.songDetailList.listData }));
+    // mini播放器
+    this.store.dispatch(new ChangeControlValue({ key: 'miniPlayer', value: true }));
+    // 播放器
+    this.store.dispatch(new ChangeControlValue({ key: 'player', value: true }));
+    // 获取歌曲详情
+    this.store.dispatch(new LoadSongUrl(currentId));
   }
 }
