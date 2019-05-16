@@ -136,7 +136,7 @@ export class SongListDetailComponent implements OnInit {
   }
 
   // 播放歌曲
-  public handlerPlay(data: any): void {
+  public handlerPlay(data?: any): void {
     const { listData } = this.songDetailList;
     const currentId: number = data ? data.currentId : listData[0].id;
     // 点击的全部播放从第一首开始播放
